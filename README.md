@@ -12,6 +12,8 @@ cd api-c
 git submodule update --init --recursive
 ```
 
+Make sure `protoc` and `proto-gen-c` are on the path.
+
 Build with CMake. For instance, on a Unix-like OS, run:
 
 ```
