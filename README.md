@@ -4,6 +4,9 @@ This is the C client for the Nano Node API. The message format is protobuffer v3
 
 ## Building
 
+[![Build status](https://ci.appveyor.com/api/projects/status/miyhcdcdm5wxpm8j?svg=true)](https://ci.appveyor.com/project/cryptocode/api-c)
+
+
 Clone the repository and update submodules.
 
 ```

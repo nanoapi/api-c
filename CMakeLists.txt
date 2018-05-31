@@ -23,7 +23,7 @@ find_package(Boost CONFIG REQUIRED regex system filesystem)
 hunter_add_package(protobuf)
 find_package(protobuf CONFIG REQUIRED)
 hunter_add_package(protobuf-c)
-find_package(protobuf-c REQUIRED)
+find_package(protobuf-c CONFIG REQUIRED)
 
 # Client library, build both static and dynamic libs
 set (NANO_API_SRC

@@ -4,9 +4,9 @@ branches:
   - master
 clone_folder: c:\projects\cmake-init
 image:
-- Visual Studio 2013
 - Visual Studio 2015
 - Visual Studio 2017
+- Ubuntu
 configuration:
 - Release
 - Debug
@@ -18,6 +18,8 @@ environment:
   # - arch: #does not work, Release|x64 not a valid target
 matrix:
   fast_finish: true
+install:
+- git submodule update --init --recursive
 
 # skip unsupported combinations
 init:
