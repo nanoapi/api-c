@@ -14,14 +14,28 @@ if (UNIX AND NOT APPLE)
     set(CMAKE_CXX_FLAGS "-fPIC" CACHE STRING "CMAKE_CXX_FLAGS")
 endif ()
 
+if (WIN32)
+    set(CompilerFlags
+    CMAKE_CXX_FLAGS
+    CMAKE_CXX_FLAGS_DEBUG
+    CMAKE_CXX_FLAGS_RELEASE
+    CMAKE_C_FLAGS
+    CMAKE_C_FLAGS_DEBUG
+    CMAKE_C_FLAGS_RELEASE
+    )
+    foreach(CompilerFlag ${CompilerFlags})
+        string(REPLACE "/MD" "/MT" ${CompilerFlag} "${${CompilerFlag}}")
+    endforeach()
+endif ()
+
 # Get Boost
 hunter_add_package(Boost COMPONENTS regex system filesystem)
 find_package(Boost CONFIG REQUIRED regex system filesystem)
 
 # Get profobuf
 # NOTE: On some systems, you may need to change "Protobuf" to "protobuf"
-hunter_add_package(protobuf)
-find_package(protobuf CONFIG REQUIRED)
+hunter_add_package(Protobuf)
+find_package(Protobuf CONFIG REQUIRED)
 hunter_add_package(protobuf-c)
 find_package(protobuf-c CONFIG REQUIRED)
 
