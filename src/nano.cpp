@@ -1,5 +1,6 @@
-#include "core.pb-c.h"
-#include "nano.h"
+//#include "core.pb-c.h"
+// #include "nano.h"
+#include "nano.hpp"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -11,9 +12,10 @@
 #include <boost/endian/conversion.hpp>
 
 using boost::asio::ip::tcp;
-using boost::asio::local::stream_protocol;
-
-static int CLIENT_VERSION = 1;
+#if defined(BOOST_ASIO_HAS_LOCAL_SOCKETS)
+    using boost::asio::local::stream_protocol;
+#endif
+static int NANO_API_PROTOCOL_VERSION = 1;
 
 enum class session_type {tcp, domain, shared};
 
@@ -75,6 +77,7 @@ struct nano_session_tcp : public nano_session
     tcp::socket socket;
 };
 
+#if defined(BOOST_ASIO_HAS_LOCAL_SOCKETS)
 struct nano_session_domain : public nano_session
 {
     nano_session_domain () : socket (io_context)
@@ -121,22 +124,31 @@ struct nano_session_domain : public nano_session
     boost::asio::io_context io_context;
     stream_protocol::socket socket;
 };
+#else
+    struct nano_session_domain : public nano_session 
+    {
+    };
+#endif
 
 struct nano_session_sharedmem
 {};
 
-static struct nano_session_tcp* nano_connect_tcp (std::string host, std::string port)
+static struct nano_session* nano_connect_tcp (std::string host, std::string port)
 {
     nano_session_tcp* session = new nano_session_tcp();
     session->connect(host, port);
     return session;
 }
 
-static struct nano_session_domain* nano_connect_domain (std::string path)
+static struct nano_session* nano_connect_domain (std::string path)
 {
+#if defined(BOOST_ASIO_HAS_LOCAL_SOCKETS)  
     nano_session_domain* session = new nano_session_domain();
     session->connect(path);
     return session;
+#else
+    return nullptr;
+#endif
 }
 
 struct nano_session* nano_connect (const char* connection)
@@ -154,13 +166,13 @@ struct nano_session* nano_connect (const char* connection)
             boost::split(parts, url, boost::is_any_of(":"));
             if (parts.size() == 2)
             {
-                session = static_cast<nano_session*> (nano_connect_tcp (parts[0], parts[1]));
+                session = nano_connect_tcp (parts[0], parts[1]);
             }            
         }
         else if (boost::starts_with(connection, "local://"))
         {
             std::string path = conn.substr(8, std::string::npos);
-            session = static_cast<nano_session*> (nano_connect_domain (path));
+            session = nano_connect_domain (path);
         }
         else
         {
@@ -228,4 +240,29 @@ int nano_query (struct nano_session* session, QueryType type, void* query, size_
         result_code = 1;
     }
     return result_code;
+}
+
+nano::api::nano_session::nano_session(std::string connection)
+{
+    this->session = nano_connect (connection.c_str());
+}
+nano::api::nano_session::~nano_session()
+{
+    if (this->session)
+    {
+        nano_disconnect (static_cast<::nano_session*>(this->session));
+    }
+}
+
+int nano::api::nano_session::query (nano::api::QueryType type, std::string query, std::string & response)
+{
+    void* buf;
+    size_t buf_size;
+    int res = nano_query (static_cast<::nano_session*>(this->session), (::QueryType)type, (void*)query.data(), query.size(), &buf, &buf_size);
+    if (!res)
+    {
+        response = std::string (static_cast<char*>(buf), buf_size);
+    }
+
+    return res;
 }

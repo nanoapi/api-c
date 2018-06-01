@@ -1,0 +1,15 @@
+language: cpp
+
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+      sudo: required
+    - os: osx
+
+compiler:
+  - clang
+script:
+  - cmake -H. -Bbuild
+  - cd build
+  - make

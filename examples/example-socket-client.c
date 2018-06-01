@@ -7,6 +7,10 @@ int main(int argc, char** argv)
 {
     const char* connection = argc > 1 ? argv[1] : "local:///tmp/nano";
     struct nano_session* session = nano_connect (connection);
+    if (!session)
+    {
+        printf("Could not connect. Make sure the server is running and that the transport is supported\n");
+    }
 
     // Pending query
     QueryAccountPending pending;
@@ -48,6 +52,7 @@ int main(int argc, char** argv)
         }
 
         res_account_pending__free_unpacked (pending_result, NULL);
+        free (result);
     }
 
     // Clean up
