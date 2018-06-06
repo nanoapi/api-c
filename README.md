@@ -1,6 +1,8 @@
 # About
 
-This is the C and C++ client for the Nano Node API. The message format is protobuffer v3 and the client supports domain socket and TCP transports. Additional transports, such as shared memory, may be added in the future.
+This is the C and C++ client for the Nano Node API. The message format is Proto Buffer v3 and the client supports domain socket and TCP transports. Additional transports, such as shared memory, may be added in the future.
+
+For more information about the API, please see https://nanoapi.github.io/
 
 ## Building
 
@@ -14,12 +16,12 @@ cd api-c
 git submodule update --init --recursive
 ```
 
-The project is built with CMake. Dependencies such as Boost and Protobuf are automatically downloaded and built using the Hunter package manager.
+The project is built with CMake. Boost and Protobuf are automatically downloaded and built using the Hunter package manager, while protobuf-c is automatically built using CMake (which was pulled in using the command above)
 
-### Linux 
+### Linux
 
 ```
-cmake -H. -Bbuild -DHUNTER_STATUS_DEBUG=ON -Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_c_BUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Debug
+cmake -H. -Bbuild -DHUNTER_STATUS_DEBUG=ON -Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_c_BUILD_TESTS=OFF  -DCMAKE_BUILD_TYPE=Debug
 cd build && make
 ```
 
@@ -40,17 +42,14 @@ Use the "Developer Command Prompt for VS 2017"
 cmake -G "Visual Studio 15 2017 Win64" -DHUNTER_STATUS_DEBUG=ON -Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_c_BUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Debug
 ```
 
-## Updating generated Protobuffer files
+### Updating generated Protobuffer files
 
-Make sure `protoc` and `proto-gen-c` are on the path.
+If the `nanoapi/protobuf` repository is updated, new Protobuf files needs to be generated.
 
-When the protobuffer definition has changed, perform the following steps to fetch the latest version and generate C and header files:
+Make sure `protobuf` and `protobuf-c` are installed.
+
+When the protobuffer definition has changed, perform the following step to fetch the latest version and generate C and C++ files:
 
 ```
-cd protobuf
-git checkout master
-git pull
-cd ..
-./protobuf-c.sh
-./protobuf-cpp.sh
+scripts/protobuf-generate.sh
 ```
