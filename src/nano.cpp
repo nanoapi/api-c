@@ -1,5 +1,3 @@
-//#include "core.pb-c.h"
-// #include "nano.h"
 #include "nano.hpp"
 #include <iostream>
 #include <string>

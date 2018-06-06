@@ -44,6 +44,8 @@ set (NANO_API_SRC
     src/core.pb.cc
     src/nano.cpp)
 
+include_directories(include)
+
 # The protobuf-c cmake project doesn't work on all platforms,
 # so we build it directly from the submodule.
 set (PROTOBUF_C_SRC
