@@ -143,12 +143,13 @@ enum Result {
   OK = 0,
   GENERIC_ERROR = 1,
   INVALID_INPUT = 2,
+  IO_ERROR = 3,
   Result_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   Result_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool Result_IsValid(int value);
 const Result Result_MIN = OK;
-const Result Result_MAX = INVALID_INPUT;
+const Result Result_MAX = IO_ERROR;
 const int Result_ARRAYSIZE = Result_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* Result_descriptor();
@@ -370,6 +371,12 @@ class response : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::nano::api::QueryType type() const;
   void set_type(::nano::api::QueryType value);
 
+  // sint32 error_code = 4;
+  void clear_error_code();
+  static const int kErrorCodeFieldNumber = 4;
+  ::google::protobuf::int32 error_code() const;
+  void set_error_code(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:nano.api.response)
  private:
 
@@ -377,6 +384,7 @@ class response : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::google::protobuf::internal::ArenaStringPtr error_;
   int result_;
   int type_;
+  ::google::protobuf::int32 error_code_;
   mutable int _cached_size_;
   friend struct ::protobuf_core_2eproto::TableStruct;
   friend void ::protobuf_core_2eproto::InitDefaultsresponseImpl();
@@ -1423,6 +1431,20 @@ inline void response::set_allocated_error(::std::string* error) {
   }
   error_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), error);
   // @@protoc_insertion_point(field_set_allocated:nano.api.response.error)
+}
+
+// sint32 error_code = 4;
+inline void response::clear_error_code() {
+  error_code_ = 0;
+}
+inline ::google::protobuf::int32 response::error_code() const {
+  // @@protoc_insertion_point(field_get:nano.api.response.error_code)
+  return error_code_;
+}
+inline void response::set_error_code(::google::protobuf::int32 value) {
+  
+  error_code_ = value;
+  // @@protoc_insertion_point(field_set:nano.api.response.error_code)
 }
 
 // -------------------------------------------------------------------

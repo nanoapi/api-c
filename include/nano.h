@@ -36,6 +36,22 @@ int nano_query(struct nano_session* session, QueryType type, void* query, size_t
 
 #define nano_optional_string Google__Protobuf__StringValue
 #define nano_optional_string_init google__protobuf__string_value__init
+#define nano_optional_double Google__Protobuf__DoubleValue;
+#define nano_optional_double_init google__protobuf__double_value_init;
+#define nano_optional_float Google__Protobuf__FloatValue;
+#define nano_optional_float_init google__protobuf__float_value_init;
+#define nano_optional_int64 Google__Protobuf__Int64Value;
+#define nano_optional_int64_init google__protobuf__int64_value_init;
+#define nano_optional_uint64 Google__Protobuf__UInt64Value;
+#define nano_optional_uint64_init google__protobuf__uint64_value_init;
+#define nano_optional_int32 Google__Protobuf__Int32Value;
+#define nano_optional_int32_init google__protobuf__int32_value_init;
+#define nano_optional_uint32 Google__Protobuf__UInt32Value;
+#define nano_optional_uint32_init google__protobuf__uint32_value_init;
+#define nano_optional_bool Google__Protobuf__BoolValue;
+#define nano_optional_bool_init google__protobuf__bool_value_init;
+#define nano_optional_bytes Google__Protobuf__BytesValue;
+#define nano_optional_bytes_init google__protobuf__bytes_value_init;
 
 #if __cplusplus
 } // extern "C"

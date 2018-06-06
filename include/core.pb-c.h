@@ -42,7 +42,8 @@ typedef enum _QueryType {
 typedef enum _Result {
   RESULT__OK = 0,
   RESULT__GENERIC_ERROR = 1,
-  RESULT__INVALID_INPUT = 2
+  RESULT__INVALID_INPUT = 2,
+  RESULT__IO_ERROR = 3
     PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(RESULT)
 } Result;
 
@@ -88,10 +89,16 @@ struct  _Response
    ** Error message. Only set if result is not Result::OK 
    */
   char *error;
+  /*
+   **
+   * Context dependent error code. For instance, if IO_ERROR occurs, the error_code
+   * may contain a more specific, system depended error code.
+   */
+  int32_t error_code;
 };
 #define RESPONSE__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&response__descriptor) \
-    , RESULT__OK, QUERY_TYPE__UNKOWN, (char *)protobuf_c_empty_string }
+    , RESULT__OK, QUERY_TYPE__UNKOWN, (char *)protobuf_c_empty_string, 0 }
 
 
 /*

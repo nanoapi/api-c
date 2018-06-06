@@ -221,6 +221,8 @@ int nano_query (struct nano_session* session, QueryType type, void* query, size_
         free(buf);
         if (response_header->result != RESULT__OK || response_header->type != type)
         {
+            // TODO: must communicate error string, error_code, etc
+            // set last_error(_string) in session? it's per-thread
             result_code = 1;
         }
         else

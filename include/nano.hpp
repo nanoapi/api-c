@@ -10,9 +10,26 @@ namespace api {
 class nano_session
 {
 public:
+    /**
+     * Construct a session using the supplied connection string
+     * @param connection A 'tcp://' or 'local://' connection string
+     */
     nano_session(std::string connection);
+
+    /**
+     * Closes the connection
+     */
     ~nano_session();
+
+    /** Returns true if connected to the node */
     inline bool is_connected () { return session != nullptr; }
+
+    /** 
+     * Query the node
+     * @param type Query type
+     * @param query_a Query message
+     * @param response_a Response output message
+     */
     template <typename QUERY_TYPE, typename RESPONSE_TYPE>
     int query (nano::api::QueryType type, QUERY_TYPE query_a, RESPONSE_TYPE & response_a)
     {
@@ -29,6 +46,12 @@ public:
         return res;
     }
 
+    /** 
+     * Query the node using raw buffers
+     * @param type Query type
+     * @param query_a Query buffer
+     * @param response_a Response output buffer
+     */
     int query (nano::api::QueryType type, std::string query, std::string & response);
 
 private:

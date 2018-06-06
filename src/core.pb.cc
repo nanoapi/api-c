@@ -305,6 +305,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::response, result_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::response, type_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::response, error_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::response, error_code_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::query_client_connect, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -366,14 +367,14 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::nano::api::query)},
   { 6, -1, sizeof(::nano::api::response)},
-  { 14, -1, sizeof(::nano::api::query_client_connect)},
-  { 22, -1, sizeof(::nano::api::res_client_connect)},
-  { 30, -1, sizeof(::nano::api::query_ping)},
-  { 36, -1, sizeof(::nano::api::res_ping)},
-  { 42, -1, sizeof(::nano::api::query_account_pending)},
-  { 50, -1, sizeof(::nano::api::res_account_pending)},
-  { 56, -1, sizeof(::nano::api::account_pending)},
-  { 63, -1, sizeof(::nano::api::account_pending_block_info)},
+  { 15, -1, sizeof(::nano::api::query_client_connect)},
+  { 23, -1, sizeof(::nano::api::res_client_connect)},
+  { 31, -1, sizeof(::nano::api::query_ping)},
+  { 37, -1, sizeof(::nano::api::res_ping)},
+  { 43, -1, sizeof(::nano::api::query_account_pending)},
+  { 51, -1, sizeof(::nano::api::res_account_pending)},
+  { 57, -1, sizeof(::nano::api::account_pending)},
+  { 64, -1, sizeof(::nano::api::account_pending_block_info)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -413,32 +414,32 @@ void AddDescriptorsImpl() {
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\ncore.proto\022\010nano.api\032\036google/protobuf/"
       "wrappers.proto\"*\n\005query\022!\n\004type\030\001 \001(\0162\023."
-      "nano.api.QueryType\"^\n\010response\022 \n\006result"
+      "nano.api.QueryType\"r\n\010response\022 \n\006result"
       "\030\001 \001(\0162\020.nano.api.Result\022!\n\004type\030\002 \001(\0162\023"
-      ".nano.api.QueryType\022\r\n\005error\030\003 \001(\t\"S\n\024qu"
-      "ery_client_connect\022\023\n\013api_version\030\001 \001(\r\022"
-      "\025\n\rapi_client_id\030\002 \001(\t\022\017\n\007api_key\030\003 \001(\t\""
-      "a\n\022res_client_connect\022\023\n\013api_version\030\001 \001"
-      "(\r\022\032\n\022node_version_major\030\002 \001(\r\022\032\n\022node_v"
-      "ersion_patch\030\003 \001(\r\"\030\n\nquery_ping\022\n\n\002id\030\001"
-      " \001(\r\"\026\n\010res_ping\022\n\n\002id\030\001 \001(\r\"i\n\025query_ac"
-      "count_pending\022\020\n\010accounts\030\001 \003(\t\022\r\n\005count"
-      "\030\002 \001(\004\022/\n\tthreshold\030\003 \001(\0132\034.google.proto"
-      "buf.StringValue\"A\n\023res_account_pending\022*"
-      "\n\007pending\030\001 \003(\0132\031.nano.api.account_pendi"
-      "ng\"\\\n\017account_pending\022\017\n\007account\030\001 \001(\t\0228"
-      "\n\nblock_info\030\002 \003(\0132$.nano.api.account_pe"
-      "nding_block_info\"J\n\032account_pending_bloc"
-      "k_info\022\014\n\004hash\030\001 \001(\t\022\016\n\006amount\030\002 \001(\t\022\016\n\006"
-      "source\030\003 \001(\t*{\n\tQueryType\022\n\n\006UNKOWN\020\000\022\025\n"
-      "\021REGISTER_CALLBACK\020\001\022\010\n\004PING\020\002\022\023\n\017ACCOUN"
-      "T_BALANCE\020\003\022\027\n\023ACCOUNT_BLOCK_COUNT\020\004\022\023\n\017"
-      "ACCOUNT_PENDING\020\005*6\n\006Result\022\006\n\002OK\020\000\022\021\n\rG"
-      "ENERIC_ERROR\020\001\022\021\n\rINVALID_INPUT\020\002b\006proto"
-      "3"
+      ".nano.api.QueryType\022\r\n\005error\030\003 \001(\t\022\022\n\ner"
+      "ror_code\030\004 \001(\021\"S\n\024query_client_connect\022\023"
+      "\n\013api_version\030\001 \001(\r\022\025\n\rapi_client_id\030\002 \001"
+      "(\t\022\017\n\007api_key\030\003 \001(\t\"a\n\022res_client_connec"
+      "t\022\023\n\013api_version\030\001 \001(\r\022\032\n\022node_version_m"
+      "ajor\030\002 \001(\r\022\032\n\022node_version_patch\030\003 \001(\r\"\030"
+      "\n\nquery_ping\022\n\n\002id\030\001 \001(\r\"\026\n\010res_ping\022\n\n\002"
+      "id\030\001 \001(\r\"i\n\025query_account_pending\022\020\n\010acc"
+      "ounts\030\001 \003(\t\022\r\n\005count\030\002 \001(\004\022/\n\tthreshold\030"
+      "\003 \001(\0132\034.google.protobuf.StringValue\"A\n\023r"
+      "es_account_pending\022*\n\007pending\030\001 \003(\0132\031.na"
+      "no.api.account_pending\"\\\n\017account_pendin"
+      "g\022\017\n\007account\030\001 \001(\t\0228\n\nblock_info\030\002 \003(\0132$"
+      ".nano.api.account_pending_block_info\"J\n\032"
+      "account_pending_block_info\022\014\n\004hash\030\001 \001(\t"
+      "\022\016\n\006amount\030\002 \001(\t\022\016\n\006source\030\003 \001(\t*{\n\tQuer"
+      "yType\022\n\n\006UNKOWN\020\000\022\025\n\021REGISTER_CALLBACK\020\001"
+      "\022\010\n\004PING\020\002\022\023\n\017ACCOUNT_BALANCE\020\003\022\027\n\023ACCOU"
+      "NT_BLOCK_COUNT\020\004\022\023\n\017ACCOUNT_PENDING\020\005*D\n"
+      "\006Result\022\006\n\002OK\020\000\022\021\n\rGENERIC_ERROR\020\001\022\021\n\rIN"
+      "VALID_INPUT\020\002\022\014\n\010IO_ERROR\020\003b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 961);
+      descriptor, 995);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "core.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fwrappers_2eproto::AddDescriptors();
@@ -484,6 +485,7 @@ bool Result_IsValid(int value) {
     case 0:
     case 1:
     case 2:
+    case 3:
       return true;
     default:
       return false;
@@ -739,6 +741,7 @@ void response::InitAsDefaultInstance() {
 const int response::kResultFieldNumber;
 const int response::kTypeFieldNumber;
 const int response::kErrorFieldNumber;
+const int response::kErrorCodeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 response::response()
@@ -759,16 +762,16 @@ response::response(const response& from)
     error_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.error_);
   }
   ::memcpy(&result_, &from.result_,
-    static_cast<size_t>(reinterpret_cast<char*>(&type_) -
-    reinterpret_cast<char*>(&result_)) + sizeof(type_));
+    static_cast<size_t>(reinterpret_cast<char*>(&error_code_) -
+    reinterpret_cast<char*>(&result_)) + sizeof(error_code_));
   // @@protoc_insertion_point(copy_constructor:nano.api.response)
 }
 
 void response::SharedCtor() {
   error_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&result_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&type_) -
-      reinterpret_cast<char*>(&result_)) + sizeof(type_));
+      reinterpret_cast<char*>(&error_code_) -
+      reinterpret_cast<char*>(&result_)) + sizeof(error_code_));
   _cached_size_ = 0;
 }
 
@@ -812,8 +815,8 @@ void response::Clear() {
 
   error_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&result_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&type_) -
-      reinterpret_cast<char*>(&result_)) + sizeof(type_));
+      reinterpret_cast<char*>(&error_code_) -
+      reinterpret_cast<char*>(&result_)) + sizeof(error_code_));
   _internal_metadata_.Clear();
 }
 
@@ -873,6 +876,20 @@ bool response::MergePartialFromCodedStream(
         break;
       }
 
+      // sint32 error_code = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_SINT32>(
+                 input, &error_code_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -921,6 +938,11 @@ void response::SerializeWithCachedSizes(
       3, this->error(), output);
   }
 
+  // sint32 error_code = 4;
+  if (this->error_code() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteSInt32(4, this->error_code(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -958,6 +980,11 @@ void response::SerializeWithCachedSizes(
         3, this->error(), target);
   }
 
+  // sint32 error_code = 4;
+  if (this->error_code() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteSInt32ToArray(4, this->error_code(), target);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -992,6 +1019,13 @@ size_t response::ByteSizeLong() const {
   if (this->type() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
+  }
+
+  // sint32 error_code = 4;
+  if (this->error_code() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::SInt32Size(
+        this->error_code());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1033,6 +1067,9 @@ void response::MergeFrom(const response& from) {
   if (from.type() != 0) {
     set_type(from.type());
   }
+  if (from.error_code() != 0) {
+    set_error_code(from.error_code());
+  }
 }
 
 void response::CopyFrom(const ::google::protobuf::Message& from) {
@@ -1062,6 +1099,7 @@ void response::InternalSwap(response* other) {
   error_.Swap(&other->error_);
   swap(result_, other->result_);
   swap(type_, other->type_);
+  swap(error_code_, other->error_code_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

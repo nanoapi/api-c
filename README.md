@@ -4,7 +4,7 @@ This is the C and C++ client for the Nano Node API. The message format is protob
 
 ## Building
 
-[![Build status](https://ci.appveyor.com/api/projects/status/miyhcdcdm5wxpm8j?svg=true)](https://ci.appveyor.com/project/cryptocode/api-c)
+[![Build status](https://ci.appveyor.com/api/projects/status/miyhcdcdm5wxpm8j?svg=true)](https://ci.appveyor.com/project/cryptocode/api-c) [![Build Status](https://travis-ci.org/nanoapi/api-c.svg?branch=master)](https://travis-ci.org/nanoapi/api-c)
 
 Clone the repository and update submodules.
 

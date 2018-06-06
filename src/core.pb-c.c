@@ -495,7 +495,7 @@ const ProtobufCMessageDescriptor query__descriptor =
   (ProtobufCMessageInit) query__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor response__field_descriptors[3] =
+static const ProtobufCFieldDescriptor response__field_descriptors[4] =
 {
   {
     "result",
@@ -533,16 +533,29 @@ static const ProtobufCFieldDescriptor response__field_descriptors[3] =
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "error_code",
+    4,
+    PROTOBUF_C_LABEL_NONE,
+    PROTOBUF_C_TYPE_SINT32,
+    0,   /* quantifier_offset */
+    offsetof(Response, error_code),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned response__field_indices_by_name[] = {
   2,   /* field[2] = error */
+  3,   /* field[3] = error_code */
   0,   /* field[0] = result */
   1,   /* field[1] = type */
 };
 static const ProtobufCIntRange response__number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 3 }
+  { 0, 4 }
 };
 const ProtobufCMessageDescriptor response__descriptor =
 {
@@ -552,7 +565,7 @@ const ProtobufCMessageDescriptor response__descriptor =
   "Response",
   "",
   sizeof(Response),
-  3,
+  4,
   response__field_descriptors,
   response__field_indices_by_name,
   1,  response__number_ranges,
@@ -1016,19 +1029,21 @@ const ProtobufCEnumDescriptor query_type__descriptor =
   query_type__value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };
-static const ProtobufCEnumValue result__enum_values_by_number[3] =
+static const ProtobufCEnumValue result__enum_values_by_number[4] =
 {
   { "OK", "RESULT__OK", 0 },
   { "GENERIC_ERROR", "RESULT__GENERIC_ERROR", 1 },
   { "INVALID_INPUT", "RESULT__INVALID_INPUT", 2 },
+  { "IO_ERROR", "RESULT__IO_ERROR", 3 },
 };
 static const ProtobufCIntRange result__value_ranges[] = {
-{0, 0},{0, 3}
+{0, 0},{0, 4}
 };
-static const ProtobufCEnumValueIndex result__enum_values_by_name[3] =
+static const ProtobufCEnumValueIndex result__enum_values_by_name[4] =
 {
   { "GENERIC_ERROR", 1 },
   { "INVALID_INPUT", 2 },
+  { "IO_ERROR", 3 },
   { "OK", 0 },
 };
 const ProtobufCEnumDescriptor result__descriptor =
@@ -1038,9 +1053,9 @@ const ProtobufCEnumDescriptor result__descriptor =
   "Result",
   "Result",
   "",
-  3,
+  4,
   result__enum_values_by_number,
-  3,
+  4,
   result__enum_values_by_name,
   1,
   result__value_ranges,

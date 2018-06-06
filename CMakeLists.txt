@@ -20,14 +20,6 @@ if (UNIX AND NOT APPLE)
         FILEPATH
         "Default toolchain"
     )
-#elseif(WIN32)
-#    set(
-#        CMAKE_TOOLCHAIN_FILE
-#        "${CMAKE_CURRENT_LIST_DIR}/toolchain-msvc.cmake"
-#        CACHE
-#        FILEPATH
-#        "Default toolchain"
-#    )
 endif ()
 
 # Get Boost
@@ -38,16 +30,6 @@ find_package(Boost CONFIG REQUIRED regex system filesystem)
 # NOTE: On some systems, you may need to change "Protobuf" to "protobuf"
 hunter_add_package(Protobuf)
 find_package(Protobuf CONFIG REQUIRED)
-#hunter_add_package(protobuf-c)
-#find_package(protobuf-c CONFIG REQUIRED)
-
-#set (protobuf_BUILD_TESTS OFF)
-#add_subdirectory("fork-protobuf/cmake") # EXCLUDE_FROM_ALL)
-#set (PROTOBUF_LIBRARY "libprotobuf")
-
-#message(STATUS "Modules CMake : ${CMAKE_MODULE_PATH}")
-#add_subdirectory("fork-protobuf-c/build-cmake") # EXCLUDE_FROM_ALL)
-#set (PROTOBUF_C_LIBRARY "protobuf-c")
 
 # Client library, build both static and dynamic libs
 set (NANO_API_SRC
@@ -62,17 +44,17 @@ set (NANO_API_SRC
     src/core.pb.cc
     src/nano.cpp)
 
+# The protobuf-c cmake project doesn't work on all platforms,
+# so we build it directly from the submodule.
 set (PROTOBUF_C_SRC
     fork-protobuf-c/protobuf-c/protobuf-c.h
     fork-protobuf-c/protobuf-c/protobuf-c.c)
 
-# TODO: separate libs for C and C++?
 add_library(nanoclient SHARED ${NANO_API_SRC} ${PROTOBUF_C_SRC})
 add_library(nanoclient_static STATIC ${NANO_API_SRC} ${PROTOBUF_C_SRC})
 
-#set_property(TARGET nanoclient PROPERTY POSITION_INDEPENDENT_CODE ON)
-target_link_libraries(nanoclient Boost::system  protobuf::libprotobuf)# protobuf::libprotobuf protobuf-c::protobuf-c)
-target_link_libraries(nanoclient_static Boost::system protobuf::libprotobuf)# protobuf::libprotobuf protobuf-c::protobuf-c)
+target_link_libraries(nanoclient Boost::system  protobuf::libprotobuf)
+target_link_libraries(nanoclient_static Boost::system protobuf::libprotobuf)
 
 target_include_directories(nanoclient PUBLIC src)
 target_include_directories(nanoclient PUBLIC include)
