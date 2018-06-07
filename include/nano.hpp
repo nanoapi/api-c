@@ -2,6 +2,7 @@
 
 #include "core.pb.h"
 #include "nano.h"
+#include <algorithm>
 
 namespace nano {
 namespace api {
@@ -24,6 +25,29 @@ public:
     /** Returns true if connected to the node */
     inline bool is_connected () { return session != nullptr; }
 
+    /**
+     * Query the node. The query type is derived from the query message.
+     * @param query_a Query message
+     * @param response_a Response output message
+     * @returns 0 on success. Otherwise, call last_error(_string) for more information.
+     */
+    template <typename QUERY_TYPE, typename RESPONSE_TYPE>
+    int query (QUERY_TYPE const & query_a, RESPONSE_TYPE & response_a)
+    {
+        int res = 0;
+        assert (query_a.descriptor() && query_a.descriptor()->name().size() > 6);
+        auto query_name_enum = query_a.descriptor()->name();
+        query_name_enum = query_name_enum.substr(6, std::string::npos);
+        std::transform(query_name_enum.begin(), query_name_enum.end(),query_name_enum.begin(), ::toupper);
+
+        nano::api::QueryType qt;
+        if (nano::api::QueryType_Parse(query_name_enum, &qt))
+        {
+            res = query(qt, query_a, response_a);
+        }
+        return res;
+    }
+
     /** 
      * Query the node
      * @param type Query type
@@ -32,7 +56,7 @@ public:
      * @returns 0 on success. Otherwise, call last_error(_string) for more information.
      */
     template <typename QUERY_TYPE, typename RESPONSE_TYPE>
-    int query (nano::api::QueryType type, QUERY_TYPE query_a, RESPONSE_TYPE & response_a)
+    int query (nano::api::QueryType type, QUERY_TYPE const & query_a, RESPONSE_TYPE & response_a)
     {
         std::string msg = query_a.SerializeAsString ();
         std::string result;

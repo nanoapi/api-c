@@ -15,7 +15,7 @@ int main(int argc, char** argv)
         query.add_accounts ("xrb_3dcfozsmekr1tr9skf1oa5wbgmxt81qepfdnt7zicq5x3hk65fg4fqj58mbr");
 
         nano::api::res_account_pending pending;
-        if (!session.query(nano::api::QueryType::ACCOUNT_PENDING, query, pending))
+        if (!session.query(query, pending))
         {
             std::cout << "First account in reply: " << pending.pending (0).account () << std::endl;
         }
