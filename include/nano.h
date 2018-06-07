@@ -45,13 +45,16 @@ int nano_last_error (struct nano_session* session);
  * Returns the string representation of the last error, or an empty string if there is no string mapping available or
  * there is no current error state.
  * 
+ * The returned string is invalidated by any other call to the nano api, except nano_last_error. Make a copy of the
+ * string if needed.
+ * 
  * The error state is reset by this call.
- * @return The error string. Do NOT deallocate this, memory for error strings are released on process exit.
+ * @return The error string. Do not deallocate this, memory for error strings are managed by the API.
  */
 const char* nano_last_error_string (struct nano_session* session);
 
 /**
- * Clears the error state.
+ * Clears the error state by setting the error code to zero and the error string to an empty string.
  */
 void nano_last_error_clear (struct nano_session* session);
 

@@ -21,7 +21,7 @@ enum class session_type {tcp, domain, shared};
 
 struct nano_session
 {
-    enum session_type type;
+    session_type type;
     virtual ~nano_session() = default;
     virtual int write (void* buffer, size_t len) { return 1; }
     virtual int read (void* buffer, size_t len) { return 1; }
@@ -189,18 +189,21 @@ struct nano_session* nano_connect (const char* connection)
 
 int nano_last_error (struct nano_session* session)
 {
+    std::lock_guard<std::mutex> lock(session->session_mutex);
     int err = session->last_error;
     return err;
 }
 
 const char* nano_last_error_string (struct nano_session* session)
 {
+    std::lock_guard<std::mutex> lock(session->session_mutex);
     std::string err = session->last_error_string;
     return err.c_str();
 }
 
 void nano_last_error_clear (struct nano_session* session)
 {
+    std::lock_guard<std::mutex> lock(session->session_mutex);
     session->last_error_string = "";
     session->last_error = 0;
 }
@@ -208,6 +211,7 @@ void nano_last_error_clear (struct nano_session* session)
 int nano_disconnect (struct nano_session* session)
 {
     nano_last_error_clear (session);
+    std::lock_guard<std::mutex> lock(session->session_mutex);
     delete session;
     return 0;
 }
@@ -215,6 +219,7 @@ int nano_disconnect (struct nano_session* session)
 int nano_query (struct nano_session* session, QueryType type, void* query, size_t query_size, void** response, size_t* response_size)
 {
     nano_last_error_clear (session);
+    std::lock_guard<std::mutex> lock(session->session_mutex);
     int result_code = 0;
     Query query_header;
     query__init (&query_header);
