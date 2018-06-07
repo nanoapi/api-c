@@ -2,12 +2,14 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <mutex>
 #include <boost/array.hpp>
 #include <boost/asio.hpp>
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/algorithm/string.hpp>
 #include <boost/lexical_cast.hpp>
 #include <boost/endian/conversion.hpp>
+#include <google/protobuf/util/json_util.h>
 
 using boost::asio::ip::tcp;
 #if defined(BOOST_ASIO_HAS_LOCAL_SOCKETS)
@@ -19,10 +21,14 @@ enum class session_type {tcp, domain, shared};
 
 struct nano_session
 {
-    session_type type; 
+    enum session_type type;
     virtual ~nano_session() = default;
     virtual int write (void* buffer, size_t len) { return 1; }
     virtual int read (void* buffer, size_t len) { return 1; }
+    
+    int last_error = 0;
+    std::string last_error_string {""};
+    std::mutex session_mutex;
 };
 
 struct nano_session_tcp : public nano_session
@@ -181,14 +187,34 @@ struct nano_session* nano_connect (const char* connection)
     return session;
 }
 
+int nano_last_error (struct nano_session* session)
+{
+    int err = session->last_error;
+    return err;
+}
+
+const char* nano_last_error_string (struct nano_session* session)
+{
+    std::string err = session->last_error_string;
+    return err.c_str();
+}
+
+void nano_last_error_clear (struct nano_session* session)
+{
+    session->last_error_string = "";
+    session->last_error = 0;
+}
+
 int nano_disconnect (struct nano_session* session)
 {
+    nano_last_error_clear (session);
     delete session;
     return 0;
 }
 
 int nano_query (struct nano_session* session, QueryType type, void* query, size_t query_size, void** response, size_t* response_size)
 {
+    nano_last_error_clear (session);
     int result_code = 0;
     Query query_header;
     query__init (&query_header);
@@ -220,7 +246,13 @@ int nano_query (struct nano_session* session, QueryType type, void* query, size_
         if (response_header->result != RESULT__OK || response_header->type != type)
         {
             // TODO: must communicate error string, error_code, etc
-            // set last_error(_string) in session? it's per-thread
+            // set last_error(_string) in session? session must be sync'ed across threads anyway
+            if (response_header->error)
+            {
+                session->last_error_string = std::string(response_header->error);
+            }
+            session->last_error = response_header->error_code;
+
             result_code = 1;
         }
         else
@@ -265,4 +297,32 @@ int nano::api::nano_session::query (nano::api::QueryType type, std::string query
     }
 
     return res;
+}
+
+int nano::api::nano_session::to_json (google::protobuf::Message & message, std::string & json_output)
+{
+    auto result = google::protobuf::util::MessageToJsonString(message, &json_output);
+    return result.ok();
+}
+
+int nano::api::nano_session::from_json (google::protobuf::Message & message, std::string json_input)
+{
+    google::protobuf::util::JsonParseOptions parse_options;
+    auto result = google::protobuf::util::JsonStringToMessage(json_input, &message, parse_options);
+    return result.ok();
+}
+
+int nano::api::nano_session::last_error ()
+{
+    return static_cast<::nano_session*>(this->session)->last_error;
+}
+
+std::string nano::api::nano_session::last_error_string ()
+{
+    return static_cast<::nano_session*>(this->session)->last_error_string;
+}
+
+void nano::api::nano_session::last_error_clear ()
+{
+    nano_last_error_clear (static_cast<::nano_session*>(this->session));
 }

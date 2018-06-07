@@ -19,6 +19,13 @@ int main(int argc, char** argv)
         {
             std::cout << "First account in reply: " << pending.pending (0).account () << std::endl;
         }
+
+        std::string json_out;
+        session.to_json(pending, json_out);
+        std::cout << "JSON:\n" << json_out << std::endl; 
+        nano::api::res_account_pending pending_parsed;  
+        session.from_json(pending_parsed, json_out);    
+        std::cout << "First account in parsed json: " << pending_parsed.pending (0).account () << std::endl;
     }
     else
     {

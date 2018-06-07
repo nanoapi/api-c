@@ -64,9 +64,9 @@ target_include_directories(nanoclient_static PUBLIC src)
 target_include_directories(nanoclient_static PUBLIC include)
 
 # Build C example
-add_executable(example-socket-client examples/example-socket-client.c)
-target_link_libraries(example-socket-client PUBLIC nanoclient_static Boost::regex Boost::system Boost::filesystem)
+add_executable(example-client examples/example-client.c)
+target_link_libraries(example-client PUBLIC nanoclient_static Boost::regex Boost::system Boost::filesystem)
 
 # Build C++ example
-add_executable(example-socket-client-cpp examples/example-socket-client.cpp)
-target_link_libraries(example-socket-client-cpp PUBLIC nanoclient_static Boost::regex Boost::system Boost::filesystem)
+add_executable(example-client-cpp examples/example-client.cpp)
+target_link_libraries(example-client-cpp PUBLIC nanoclient_static Boost::regex Boost::system Boost::filesystem)

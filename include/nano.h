@@ -13,14 +13,14 @@ struct nano_session;
 /**
  * Connect to the node over the give transport address
  * @param connection Connection string starting with local://, tcp:// or mem://
- * @returns Opaque session, or NULL if an error occurs.
+ * @returns Opaque session, or NULL if an error occurs. If NULL, use nano_last_error(_string) to obtain the error.
  */
 struct nano_session* nano_connect (const char* connection);
 
 /**
  * Disconnect from the node
  * @param session Session previously retrived from nano_connect()
- * @returns 0 on success
+ * @returns 0 on success. If non-zero, use nano_last_error(_string) to obtain the error.
  */
 int nano_disconnect (struct nano_session* session);
 
@@ -30,9 +30,30 @@ int nano_disconnect (struct nano_session* session);
  * @param query_size Query buffer size in bytes.
  * @param response Pointer to response buffer. This must be freed by the caller after unpacking with protobuf.
  * @param response_size Size of the response buffer in bytes. 
- * @returns 0 on success, otherwise an error code according to the Result enum in the protobuffer specification
+ * @returns 0 on success. If non-zero, use nano_last_error(_string) to obtain the error.
  */
 int nano_query(struct nano_session* session, QueryType type, void* query, size_t query_size, void** response, size_t* response_size);
+
+/**
+ * Returns the last error.
+ * 
+ * The error state is reset by this call.
+ */
+int nano_last_error (struct nano_session* session);
+
+/**
+ * Returns the string representation of the last error, or an empty string if there is no string mapping available or
+ * there is no current error state.
+ * 
+ * The error state is reset by this call.
+ * @return The error string. Do NOT deallocate this, memory for error strings are released on process exit.
+ */
+const char* nano_last_error_string (struct nano_session* session);
+
+/**
+ * Clears the error state.
+ */
+void nano_last_error_clear (struct nano_session* session);
 
 #define nano_optional_string Google__Protobuf__StringValue
 #define nano_optional_string_init google__protobuf__string_value__init

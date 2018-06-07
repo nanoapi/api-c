@@ -42,6 +42,10 @@ Use the "Developer Command Prompt for VS 2017"
 cmake -G "Visual Studio 15 2017 Win64" -DHUNTER_STATUS_DEBUG=ON -Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_c_BUILD_TESTS=OFF -DCMAKE_BUILD_TYPE=Debug
 ```
 
+### Release builds
+
+Replace `-DCMAKE_BUILD_TYPE=Debug` with `-DCMAKE_BUILD_TYPE=Release` and rebuild the project.
+
 ### Updating generated Protobuffer files
 
 If the `nanoapi/protobuf` repository is updated, new Protobuf files needs to be generated.
