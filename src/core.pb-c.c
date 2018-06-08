@@ -776,7 +776,7 @@ const ProtobufCMessageDescriptor res_ping__descriptor =
   (ProtobufCMessageInit) res_ping__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor query_account_pending__field_descriptors[3] =
+static const ProtobufCFieldDescriptor query_account_pending__field_descriptors[4] =
 {
   {
     "accounts",
@@ -803,8 +803,20 @@ static const ProtobufCFieldDescriptor query_account_pending__field_descriptors[3
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "threshold",
+    "source",
     3,
+    PROTOBUF_C_LABEL_NONE,
+    PROTOBUF_C_TYPE_BOOL,
+    0,   /* quantifier_offset */
+    offsetof(QueryAccountPending, source),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "threshold",
+    4,
     PROTOBUF_C_LABEL_NONE,
     PROTOBUF_C_TYPE_MESSAGE,
     0,   /* quantifier_offset */
@@ -818,12 +830,13 @@ static const ProtobufCFieldDescriptor query_account_pending__field_descriptors[3
 static const unsigned query_account_pending__field_indices_by_name[] = {
   0,   /* field[0] = accounts */
   1,   /* field[1] = count */
-  2,   /* field[2] = threshold */
+  2,   /* field[2] = source */
+  3,   /* field[3] = threshold */
 };
 static const ProtobufCIntRange query_account_pending__number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 3 }
+  { 0, 4 }
 };
 const ProtobufCMessageDescriptor query_account_pending__descriptor =
 {
@@ -833,7 +846,7 @@ const ProtobufCMessageDescriptor query_account_pending__descriptor =
   "QueryAccountPending",
   "",
   sizeof(QueryAccountPending),
-  3,
+  4,
   query_account_pending__field_descriptors,
   query_account_pending__field_indices_by_name,
   1,  query_account_pending__number_ranges,

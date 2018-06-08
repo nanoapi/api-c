@@ -250,8 +250,6 @@ int nano_query (struct nano_session* session, QueryType type, void* query, size_
         free(buf);
         if (response_header->result != RESULT__OK || response_header->type != type)
         {
-            // TODO: must communicate error string, error_code, etc
-            // set last_error(_string) in session? session must be sync'ed across threads anyway
             if (response_header->error)
             {
                 session->last_error_string = std::string(response_header->error);
@@ -273,7 +271,8 @@ int nano_query (struct nano_session* session, QueryType type, void* query, size_
     }
     else
     {
-        std::cerr << "Could not read" << std::endl;
+        session->last_error_string = "Could not read from node";
+        session->last_error = 1;
         result_code = 1;
     }
     return result_code;
@@ -330,4 +329,11 @@ std::string nano::api::nano_session::last_error_string ()
 void nano::api::nano_session::last_error_clear ()
 {
     nano_last_error_clear (static_cast<::nano_session*>(this->session));
+}
+
+void nano::api::nano_session::last_error_set (int error_code, std::string description)
+{
+    auto session = static_cast<::nano_session*>(this->session);
+    session->last_error = error_code;
+    session->last_error_string = description;
 }

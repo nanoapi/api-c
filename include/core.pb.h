@@ -935,10 +935,10 @@ class query_account_pending : public ::google::protobuf::Message /* @@protoc_ins
   const ::google::protobuf::RepeatedPtrField< ::std::string>& accounts() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_accounts();
 
-  // .google.protobuf.StringValue threshold = 3;
+  // .google.protobuf.StringValue threshold = 4;
   bool has_threshold() const;
   void clear_threshold();
-  static const int kThresholdFieldNumber = 3;
+  static const int kThresholdFieldNumber = 4;
   const ::google::protobuf::StringValue& threshold() const;
   ::google::protobuf::StringValue* release_threshold();
   ::google::protobuf::StringValue* mutable_threshold();
@@ -950,6 +950,12 @@ class query_account_pending : public ::google::protobuf::Message /* @@protoc_ins
   ::google::protobuf::uint64 count() const;
   void set_count(::google::protobuf::uint64 value);
 
+  // bool source = 3;
+  void clear_source();
+  static const int kSourceFieldNumber = 3;
+  bool source() const;
+  void set_source(bool value);
+
   // @@protoc_insertion_point(class_scope:nano.api.query_account_pending)
  private:
 
@@ -957,6 +963,7 @@ class query_account_pending : public ::google::protobuf::Message /* @@protoc_ins
   ::google::protobuf::RepeatedPtrField< ::std::string> accounts_;
   ::google::protobuf::StringValue* threshold_;
   ::google::protobuf::uint64 count_;
+  bool source_;
   mutable int _cached_size_;
   friend struct ::protobuf_core_2eproto::TableStruct;
   friend void ::protobuf_core_2eproto::InitDefaultsquery_account_pendingImpl();
@@ -1740,7 +1747,21 @@ inline void query_account_pending::set_count(::google::protobuf::uint64 value) {
   // @@protoc_insertion_point(field_set:nano.api.query_account_pending.count)
 }
 
-// .google.protobuf.StringValue threshold = 3;
+// bool source = 3;
+inline void query_account_pending::clear_source() {
+  source_ = false;
+}
+inline bool query_account_pending::source() const {
+  // @@protoc_insertion_point(field_get:nano.api.query_account_pending.source)
+  return source_;
+}
+inline void query_account_pending::set_source(bool value) {
+  
+  source_ = value;
+  // @@protoc_insertion_point(field_set:nano.api.query_account_pending.source)
+}
+
+// .google.protobuf.StringValue threshold = 4;
 inline bool query_account_pending::has_threshold() const {
   return this != internal_default_instance() && threshold_ != NULL;
 }

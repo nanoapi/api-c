@@ -191,13 +191,17 @@ struct  _QueryAccountPending
    */
   uint64_t count;
   /*
+   ** If true, include source account 
+   */
+  protobuf_c_boolean source;
+  /*
    ** Optional threshold. Returns a list of pending block hashes with amount more or equal to the threshold. 
    */
   Google__Protobuf__StringValue *threshold;
 };
 #define QUERY_ACCOUNT_PENDING__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&query_account_pending__descriptor) \
-    , 0,NULL, 0, NULL }
+    , 0,NULL, 0, 0, NULL }
 
 
 /*

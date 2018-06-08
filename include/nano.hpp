@@ -45,6 +45,10 @@ public:
         {
             res = query(qt, query_a, response_a);
         }
+        else
+        {
+            last_error_set (1, std::string("No matching query type found: ") + query_name_enum);
+        }
         return res;
     }
 
@@ -102,6 +106,9 @@ public:
     void last_error_clear ();
 
 private:
+    /** Update current error state */
+    void last_error_set (int error_code, std::string description);
+
     /** Session state */
     void* session = nullptr;
 };

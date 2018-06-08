@@ -341,6 +341,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::query_account_pending, accounts_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::query_account_pending, count_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::query_account_pending, source_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::query_account_pending, threshold_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::res_account_pending, _internal_metadata_),
@@ -372,9 +373,9 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 31, -1, sizeof(::nano::api::query_ping)},
   { 37, -1, sizeof(::nano::api::res_ping)},
   { 43, -1, sizeof(::nano::api::query_account_pending)},
-  { 51, -1, sizeof(::nano::api::res_account_pending)},
-  { 57, -1, sizeof(::nano::api::account_pending)},
-  { 64, -1, sizeof(::nano::api::account_pending_block_info)},
+  { 52, -1, sizeof(::nano::api::res_account_pending)},
+  { 58, -1, sizeof(::nano::api::account_pending)},
+  { 65, -1, sizeof(::nano::api::account_pending_block_info)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -423,23 +424,24 @@ void AddDescriptorsImpl() {
       "t\022\023\n\013api_version\030\001 \001(\r\022\032\n\022node_version_m"
       "ajor\030\002 \001(\r\022\032\n\022node_version_patch\030\003 \001(\r\"\030"
       "\n\nquery_ping\022\n\n\002id\030\001 \001(\r\"\026\n\010res_ping\022\n\n\002"
-      "id\030\001 \001(\r\"i\n\025query_account_pending\022\020\n\010acc"
-      "ounts\030\001 \003(\t\022\r\n\005count\030\002 \001(\004\022/\n\tthreshold\030"
-      "\003 \001(\0132\034.google.protobuf.StringValue\"A\n\023r"
-      "es_account_pending\022*\n\007pending\030\001 \003(\0132\031.na"
-      "no.api.account_pending\"\\\n\017account_pendin"
-      "g\022\017\n\007account\030\001 \001(\t\0228\n\nblock_info\030\002 \003(\0132$"
-      ".nano.api.account_pending_block_info\"J\n\032"
-      "account_pending_block_info\022\014\n\004hash\030\001 \001(\t"
-      "\022\016\n\006amount\030\002 \001(\t\022\016\n\006source\030\003 \001(\t*{\n\tQuer"
-      "yType\022\n\n\006UNKOWN\020\000\022\025\n\021REGISTER_CALLBACK\020\001"
-      "\022\010\n\004PING\020\002\022\023\n\017ACCOUNT_BALANCE\020\003\022\027\n\023ACCOU"
-      "NT_BLOCK_COUNT\020\004\022\023\n\017ACCOUNT_PENDING\020\005*D\n"
-      "\006Result\022\006\n\002OK\020\000\022\021\n\rGENERIC_ERROR\020\001\022\021\n\rIN"
-      "VALID_INPUT\020\002\022\014\n\010IO_ERROR\020\003b\006proto3"
+      "id\030\001 \001(\r\"y\n\025query_account_pending\022\020\n\010acc"
+      "ounts\030\001 \003(\t\022\r\n\005count\030\002 \001(\004\022\016\n\006source\030\003 \001"
+      "(\010\022/\n\tthreshold\030\004 \001(\0132\034.google.protobuf."
+      "StringValue\"A\n\023res_account_pending\022*\n\007pe"
+      "nding\030\001 \003(\0132\031.nano.api.account_pending\"\\"
+      "\n\017account_pending\022\017\n\007account\030\001 \001(\t\0228\n\nbl"
+      "ock_info\030\002 \003(\0132$.nano.api.account_pendin"
+      "g_block_info\"J\n\032account_pending_block_in"
+      "fo\022\014\n\004hash\030\001 \001(\t\022\016\n\006amount\030\002 \001(\t\022\016\n\006sour"
+      "ce\030\003 \001(\t*{\n\tQueryType\022\n\n\006UNKOWN\020\000\022\025\n\021REG"
+      "ISTER_CALLBACK\020\001\022\010\n\004PING\020\002\022\023\n\017ACCOUNT_BA"
+      "LANCE\020\003\022\027\n\023ACCOUNT_BLOCK_COUNT\020\004\022\023\n\017ACCO"
+      "UNT_PENDING\020\005*D\n\006Result\022\006\n\002OK\020\000\022\021\n\rGENER"
+      "IC_ERROR\020\001\022\021\n\rINVALID_INPUT\020\002\022\014\n\010IO_ERRO"
+      "R\020\003b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 995);
+      descriptor, 1011);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "core.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fwrappers_2eproto::AddDescriptors();
@@ -2269,6 +2271,7 @@ void query_account_pending::clear_threshold() {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int query_account_pending::kAccountsFieldNumber;
 const int query_account_pending::kCountFieldNumber;
+const int query_account_pending::kSourceFieldNumber;
 const int query_account_pending::kThresholdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -2291,14 +2294,16 @@ query_account_pending::query_account_pending(const query_account_pending& from)
   } else {
     threshold_ = NULL;
   }
-  count_ = from.count_;
+  ::memcpy(&count_, &from.count_,
+    static_cast<size_t>(reinterpret_cast<char*>(&source_) -
+    reinterpret_cast<char*>(&count_)) + sizeof(source_));
   // @@protoc_insertion_point(copy_constructor:nano.api.query_account_pending)
 }
 
 void query_account_pending::SharedCtor() {
   ::memset(&threshold_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&count_) -
-      reinterpret_cast<char*>(&threshold_)) + sizeof(count_));
+      reinterpret_cast<char*>(&source_) -
+      reinterpret_cast<char*>(&threshold_)) + sizeof(source_));
   _cached_size_ = 0;
 }
 
@@ -2345,7 +2350,9 @@ void query_account_pending::Clear() {
     delete threshold_;
   }
   threshold_ = NULL;
-  count_ = GOOGLE_ULONGLONG(0);
+  ::memset(&count_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&source_) -
+      reinterpret_cast<char*>(&count_)) + sizeof(source_));
   _internal_metadata_.Clear();
 }
 
@@ -2390,10 +2397,24 @@ bool query_account_pending::MergePartialFromCodedStream(
         break;
       }
 
-      // .google.protobuf.StringValue threshold = 3;
+      // bool source = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &source_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .google.protobuf.StringValue threshold = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_threshold()));
         } else {
@@ -2443,10 +2464,15 @@ void query_account_pending::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->count(), output);
   }
 
-  // .google.protobuf.StringValue threshold = 3;
+  // bool source = 3;
+  if (this->source() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->source(), output);
+  }
+
+  // .google.protobuf.StringValue threshold = 4;
   if (this->has_threshold()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, *this->threshold_, output);
+      4, *this->threshold_, output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -2478,11 +2504,16 @@ void query_account_pending::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->count(), target);
   }
 
-  // .google.protobuf.StringValue threshold = 3;
+  // bool source = 3;
+  if (this->source() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->source(), target);
+  }
+
+  // .google.protobuf.StringValue threshold = 4;
   if (this->has_threshold()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        3, *this->threshold_, deterministic, target);
+        4, *this->threshold_, deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -2510,7 +2541,7 @@ size_t query_account_pending::ByteSizeLong() const {
       this->accounts(i));
   }
 
-  // .google.protobuf.StringValue threshold = 3;
+  // .google.protobuf.StringValue threshold = 4;
   if (this->has_threshold()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
@@ -2522,6 +2553,11 @@ size_t query_account_pending::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt64Size(
         this->count());
+  }
+
+  // bool source = 3;
+  if (this->source() != 0) {
+    total_size += 1 + 1;
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -2560,6 +2596,9 @@ void query_account_pending::MergeFrom(const query_account_pending& from) {
   if (from.count() != 0) {
     set_count(from.count());
   }
+  if (from.source() != 0) {
+    set_source(from.source());
+  }
 }
 
 void query_account_pending::CopyFrom(const ::google::protobuf::Message& from) {
@@ -2589,6 +2628,7 @@ void query_account_pending::InternalSwap(query_account_pending* other) {
   accounts_.InternalSwap(&other->accounts_);
   swap(threshold_, other->threshold_);
   swap(count_, other->count_);
+  swap(source_, other->source_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
