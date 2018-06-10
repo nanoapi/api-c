@@ -28,6 +28,7 @@ struct nano_session
     
     int last_error = 0;
     std::string last_error_string {""};
+    std::string last_error_category {""};
     std::mutex session_mutex;
 };
 
@@ -201,10 +202,18 @@ const char* nano_last_error_string (struct nano_session* session)
     return err.c_str();
 }
 
+const char* nano_last_error_category (struct nano_session* session)
+{
+    std::lock_guard<std::mutex> lock(session->session_mutex);
+    std::string err = session->last_error_category;
+    return err.c_str();
+}
+
 void nano_last_error_clear (struct nano_session* session)
 {
     std::lock_guard<std::mutex> lock(session->session_mutex);
     session->last_error_string = "";
+    session->last_error_category = "";
     session->last_error = 0;
 }
 
@@ -248,14 +257,20 @@ int nano_query (struct nano_session* session, QueryType type, void* query, size_
     {
         Response* response_header = response__unpack (NULL, len, (const uint8_t*)buf);
         free(buf);
-        if (response_header->result != RESULT__OK || response_header->type != type)
+        if (response_header == nullptr)
         {
-            if (response_header->error)
+            session->last_error = 1;
+            session->last_error_string = "Could not parse response";
+            result_code = 1;
+        }
+        else if (response_header->error_code != 0 || response_header->type != type)
+        {
+            if (response_header->error_message)
             {
-                session->last_error_string = std::string(response_header->error);
+                session->last_error_string = std::string(response_header->error_message);
             }
             session->last_error = response_header->error_code;
-
+            session->last_error_category = response_header->error_category;
             result_code = 1;
         }
         else
@@ -267,7 +282,11 @@ int nano_query (struct nano_session* session, QueryType type, void* query, size_
             session->read(*response, len);
             *response_size = len;
         }
-        response__free_unpacked(response_header, NULL);
+
+        if (response_header)
+        {
+            response__free_unpacked(response_header, NULL);
+        }
     }
     else
     {
@@ -324,6 +343,11 @@ int nano::api::nano_session::last_error ()
 std::string nano::api::nano_session::last_error_string ()
 {
     return static_cast<::nano_session*>(this->session)->last_error_string;
+}
+
+std::string nano::api::nano_session::last_error_category ()
+{
+    return static_cast<::nano_session*>(this->session)->last_error_category;
 }
 
 void nano::api::nano_session::last_error_clear ()

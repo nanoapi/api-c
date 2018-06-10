@@ -101,6 +101,13 @@ public:
     std::string last_error_string ();
 
     /**
+     * Returns the category of the last error, or an empty string if there is no category mapping available or
+     * there is no current error state.
+     * @returns The error category or an empty string.
+     */
+    std::string last_error_category ();
+
+    /**
      * Clears the error state. 
      */
     void last_error_clear ();

@@ -39,13 +39,6 @@ typedef enum _QueryType {
   QUERY_TYPE__ACCOUNT_PENDING = 5
     PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(QUERY_TYPE)
 } QueryType;
-typedef enum _Result {
-  RESULT__OK = 0,
-  RESULT__GENERIC_ERROR = 1,
-  RESULT__INVALID_INPUT = 2,
-  RESULT__IO_ERROR = 3
-    PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(RESULT)
-} Result;
 
 /* --- messages --- */
 
@@ -76,29 +69,30 @@ struct  _Response
 {
   ProtobufCMessage base;
   /*
-   ** Result#OK on success 
-   */
-  Result result;
-  /*
    ** 
-   * For which query is this a response? This flag allows future support for clients 
-   * issuing multiple concurrent queries, as well as push callbacks.
+   * For which query type is this a response? This flag allows future support for clients 
+   * issuing multiple concurrent queries, as well as callback messages.
+   * This may not be set if error_code is non-zero.
    */
   QueryType type;
-  /*
-   ** Error message. Only set if result is not Result::OK 
-   */
-  char *error;
   /*
    **
    * Context dependent error code. For instance, if IO_ERROR occurs, the error_code
    * may contain a more specific, system depended error code.
    */
   int32_t error_code;
+  /*
+   ** Error message. Only set if error_code is non-zero. 
+   */
+  char *error_message;
+  /*
+   ** Error category name. Only set if error_code is non-zero. 
+   */
+  char *error_category;
 };
 #define RESPONSE__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&response__descriptor) \
-    , RESULT__OK, QUERY_TYPE__UNKOWN, (char *)protobuf_c_empty_string, 0 }
+    , QUERY_TYPE__UNKOWN, 0, (char *)protobuf_c_empty_string, (char *)protobuf_c_empty_string }
 
 
 /*
@@ -486,7 +480,6 @@ typedef void (*AccountPendingBlockInfo_Closure)
 /* --- descriptors --- */
 
 extern const ProtobufCEnumDescriptor    query_type__descriptor;
-extern const ProtobufCEnumDescriptor    result__descriptor;
 extern const ProtobufCMessageDescriptor query__descriptor;
 extern const ProtobufCMessageDescriptor response__descriptor;
 extern const ProtobufCMessageDescriptor query_client_connect__descriptor;

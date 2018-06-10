@@ -35,9 +35,7 @@ int nano_disconnect (struct nano_session* session);
 int nano_query(struct nano_session* session, QueryType type, void* query, size_t query_size, void** response, size_t* response_size);
 
 /**
- * Returns the last error.
- * 
- * The error state is reset by this call.
+ * @returns The last error, or zero if there is no error.
  */
 int nano_last_error (struct nano_session* session);
 
@@ -49,9 +47,16 @@ int nano_last_error (struct nano_session* session);
  * string if needed.
  * 
  * The error state is reset by this call.
- * @return The error string. Do not deallocate this, memory for error strings are managed by the API.
+ * @returns The error string. Do not deallocate this, memory for error strings are managed by the API.
  */
 const char* nano_last_error_string (struct nano_session* session);
+
+/**
+ * Returns the category of the last error, or an empty string if there is no category mapping available or
+ * there is no current error state.
+ * @returns The error category. Do not deallocate this, memory for error string are managed by the API. 
+ */
+const char* nano_last_error_category (struct nano_session* session);
 
 /**
  * Clears the error state by setting the error code to zero and the error string to an empty string.

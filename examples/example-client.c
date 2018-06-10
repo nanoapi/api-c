@@ -24,8 +24,8 @@ int main(int argc, char** argv)
     pending.threshold = &threshold;
 
     const char* accounts [] = {
-        "xrb_26u1uufyoig8777y6r8iqjtrw8sg8maqrm36zzcm95jmbd9i9aj5i8abr8u5", 
-        "xrb_3dcfozsmekr1tr9skf1oa5wbgmxt81qepfdnt7zicq5x3hk65fg4fqj58mbr"};
+        "xrb_1111111111111111111111111111111111111111111111111111hifc8npp", 
+        "xrb_3t6k35gi95xu6tergt6p69ck76ogmitsa8mnijtpxm9fkcm736xtoncuohr3"};
 
     pending.n_accounts = 2;
     pending.accounts = (char**) malloc(sizeof(char*) * pending.n_accounts);

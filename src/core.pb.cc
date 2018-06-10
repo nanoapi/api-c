@@ -288,7 +288,7 @@ void InitDefaultsaccount_pending_block_info() {
 }
 
 ::google::protobuf::Metadata file_level_metadata[10];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -302,10 +302,10 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::response, result_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::response, type_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::response, error_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::response, error_code_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::response, error_message_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::response, error_category_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::query_client_connect, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -415,33 +415,31 @@ void AddDescriptorsImpl() {
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\ncore.proto\022\010nano.api\032\036google/protobuf/"
       "wrappers.proto\"*\n\005query\022!\n\004type\030\001 \001(\0162\023."
-      "nano.api.QueryType\"r\n\010response\022 \n\006result"
-      "\030\001 \001(\0162\020.nano.api.Result\022!\n\004type\030\002 \001(\0162\023"
-      ".nano.api.QueryType\022\r\n\005error\030\003 \001(\t\022\022\n\ner"
-      "ror_code\030\004 \001(\021\"S\n\024query_client_connect\022\023"
-      "\n\013api_version\030\001 \001(\r\022\025\n\rapi_client_id\030\002 \001"
-      "(\t\022\017\n\007api_key\030\003 \001(\t\"a\n\022res_client_connec"
-      "t\022\023\n\013api_version\030\001 \001(\r\022\032\n\022node_version_m"
-      "ajor\030\002 \001(\r\022\032\n\022node_version_patch\030\003 \001(\r\"\030"
-      "\n\nquery_ping\022\n\n\002id\030\001 \001(\r\"\026\n\010res_ping\022\n\n\002"
-      "id\030\001 \001(\r\"y\n\025query_account_pending\022\020\n\010acc"
-      "ounts\030\001 \003(\t\022\r\n\005count\030\002 \001(\004\022\016\n\006source\030\003 \001"
-      "(\010\022/\n\tthreshold\030\004 \001(\0132\034.google.protobuf."
-      "StringValue\"A\n\023res_account_pending\022*\n\007pe"
-      "nding\030\001 \003(\0132\031.nano.api.account_pending\"\\"
-      "\n\017account_pending\022\017\n\007account\030\001 \001(\t\0228\n\nbl"
-      "ock_info\030\002 \003(\0132$.nano.api.account_pendin"
-      "g_block_info\"J\n\032account_pending_block_in"
-      "fo\022\014\n\004hash\030\001 \001(\t\022\016\n\006amount\030\002 \001(\t\022\016\n\006sour"
-      "ce\030\003 \001(\t*{\n\tQueryType\022\n\n\006UNKOWN\020\000\022\025\n\021REG"
-      "ISTER_CALLBACK\020\001\022\010\n\004PING\020\002\022\023\n\017ACCOUNT_BA"
-      "LANCE\020\003\022\027\n\023ACCOUNT_BLOCK_COUNT\020\004\022\023\n\017ACCO"
-      "UNT_PENDING\020\005*D\n\006Result\022\006\n\002OK\020\000\022\021\n\rGENER"
-      "IC_ERROR\020\001\022\021\n\rINVALID_INPUT\020\002\022\014\n\010IO_ERRO"
-      "R\020\003b\006proto3"
+      "nano.api.QueryType\"p\n\010response\022!\n\004type\030\001"
+      " \001(\0162\023.nano.api.QueryType\022\022\n\nerror_code\030"
+      "\002 \001(\021\022\025\n\rerror_message\030\003 \001(\t\022\026\n\016error_ca"
+      "tegory\030\004 \001(\t\"S\n\024query_client_connect\022\023\n\013"
+      "api_version\030\001 \001(\r\022\025\n\rapi_client_id\030\002 \001(\t"
+      "\022\017\n\007api_key\030\003 \001(\t\"a\n\022res_client_connect\022"
+      "\023\n\013api_version\030\001 \001(\r\022\032\n\022node_version_maj"
+      "or\030\002 \001(\r\022\032\n\022node_version_patch\030\003 \001(\r\"\030\n\n"
+      "query_ping\022\n\n\002id\030\001 \001(\r\"\026\n\010res_ping\022\n\n\002id"
+      "\030\001 \001(\r\"y\n\025query_account_pending\022\020\n\010accou"
+      "nts\030\001 \003(\t\022\r\n\005count\030\002 \001(\004\022\016\n\006source\030\003 \001(\010"
+      "\022/\n\tthreshold\030\004 \001(\0132\034.google.protobuf.St"
+      "ringValue\"A\n\023res_account_pending\022*\n\007pend"
+      "ing\030\001 \003(\0132\031.nano.api.account_pending\"\\\n\017"
+      "account_pending\022\017\n\007account\030\001 \001(\t\0228\n\nbloc"
+      "k_info\030\002 \003(\0132$.nano.api.account_pending_"
+      "block_info\"J\n\032account_pending_block_info"
+      "\022\014\n\004hash\030\001 \001(\t\022\016\n\006amount\030\002 \001(\t\022\016\n\006source"
+      "\030\003 \001(\t*{\n\tQueryType\022\n\n\006UNKOWN\020\000\022\025\n\021REGIS"
+      "TER_CALLBACK\020\001\022\010\n\004PING\020\002\022\023\n\017ACCOUNT_BALA"
+      "NCE\020\003\022\027\n\023ACCOUNT_BLOCK_COUNT\020\004\022\023\n\017ACCOUN"
+      "T_PENDING\020\005b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1011);
+      descriptor, 939);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "core.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fwrappers_2eproto::AddDescriptors();
@@ -472,22 +470,6 @@ bool QueryType_IsValid(int value) {
     case 3:
     case 4:
     case 5:
-      return true;
-    default:
-      return false;
-  }
-}
-
-const ::google::protobuf::EnumDescriptor* Result_descriptor() {
-  protobuf_core_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_core_2eproto::file_level_enum_descriptors[1];
-}
-bool Result_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
       return true;
     default:
       return false;
@@ -740,10 +722,10 @@ void query::InternalSwap(query* other) {
 void response::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int response::kResultFieldNumber;
 const int response::kTypeFieldNumber;
-const int response::kErrorFieldNumber;
 const int response::kErrorCodeFieldNumber;
+const int response::kErrorMessageFieldNumber;
+const int response::kErrorCategoryFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 response::response()
@@ -759,21 +741,26 @@ response::response(const response& from)
       _internal_metadata_(NULL),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  error_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.error().size() > 0) {
-    error_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.error_);
+  error_message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.error_message().size() > 0) {
+    error_message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.error_message_);
   }
-  ::memcpy(&result_, &from.result_,
+  error_category_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.error_category().size() > 0) {
+    error_category_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.error_category_);
+  }
+  ::memcpy(&type_, &from.type_,
     static_cast<size_t>(reinterpret_cast<char*>(&error_code_) -
-    reinterpret_cast<char*>(&result_)) + sizeof(error_code_));
+    reinterpret_cast<char*>(&type_)) + sizeof(error_code_));
   // @@protoc_insertion_point(copy_constructor:nano.api.response)
 }
 
 void response::SharedCtor() {
-  error_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&result_, 0, static_cast<size_t>(
+  error_message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  error_category_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&type_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&error_code_) -
-      reinterpret_cast<char*>(&result_)) + sizeof(error_code_));
+      reinterpret_cast<char*>(&type_)) + sizeof(error_code_));
   _cached_size_ = 0;
 }
 
@@ -783,7 +770,8 @@ response::~response() {
 }
 
 void response::SharedDtor() {
-  error_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  error_message_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  error_category_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void response::SetCachedSize(int size) const {
@@ -815,10 +803,11 @@ void response::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  error_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&result_, 0, static_cast<size_t>(
+  error_message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  error_category_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&type_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&error_code_) -
-      reinterpret_cast<char*>(&result_)) + sizeof(error_code_));
+      reinterpret_cast<char*>(&type_)) + sizeof(error_code_));
   _internal_metadata_.Clear();
 }
 
@@ -832,25 +821,10 @@ bool response::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .nano.api.Result result = 1;
+      // .nano.api.QueryType type = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          set_result(static_cast< ::nano::api::Result >(value));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // .nano.api.QueryType type = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -862,30 +836,46 @@ bool response::MergePartialFromCodedStream(
         break;
       }
 
-      // string error = 3;
-      case 3: {
+      // sint32 error_code = 2;
+      case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_error()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->error().data(), static_cast<int>(this->error().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "nano.api.response.error"));
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_SINT32>(
+                 input, &error_code_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // sint32 error_code = 4;
+      // string error_message = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_error_message()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->error_message().data(), static_cast<int>(this->error_message().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "nano.api.response.error_message"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string error_category = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_SINT32>(
-                 input, &error_code_)));
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_error_category()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->error_category().data(), static_cast<int>(this->error_category().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "nano.api.response.error_category"));
         } else {
           goto handle_unusual;
         }
@@ -918,31 +908,35 @@ void response::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .nano.api.Result result = 1;
-  if (this->result() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->result(), output);
-  }
-
-  // .nano.api.QueryType type = 2;
+  // .nano.api.QueryType type = 1;
   if (this->type() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      2, this->type(), output);
+      1, this->type(), output);
   }
 
-  // string error = 3;
-  if (this->error().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->error().data(), static_cast<int>(this->error().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "nano.api.response.error");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->error(), output);
-  }
-
-  // sint32 error_code = 4;
+  // sint32 error_code = 2;
   if (this->error_code() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteSInt32(4, this->error_code(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteSInt32(2, this->error_code(), output);
+  }
+
+  // string error_message = 3;
+  if (this->error_message().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->error_message().data(), static_cast<int>(this->error_message().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "nano.api.response.error_message");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->error_message(), output);
+  }
+
+  // string error_category = 4;
+  if (this->error_category().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->error_category().data(), static_cast<int>(this->error_category().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "nano.api.response.error_category");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->error_category(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -959,32 +953,37 @@ void response::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .nano.api.Result result = 1;
-  if (this->result() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->result(), target);
-  }
-
-  // .nano.api.QueryType type = 2;
+  // .nano.api.QueryType type = 1;
   if (this->type() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      2, this->type(), target);
+      1, this->type(), target);
   }
 
-  // string error = 3;
-  if (this->error().size() > 0) {
+  // sint32 error_code = 2;
+  if (this->error_code() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteSInt32ToArray(2, this->error_code(), target);
+  }
+
+  // string error_message = 3;
+  if (this->error_message().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->error().data(), static_cast<int>(this->error().length()),
+      this->error_message().data(), static_cast<int>(this->error_message().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "nano.api.response.error");
+      "nano.api.response.error_message");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->error(), target);
+        3, this->error_message(), target);
   }
 
-  // sint32 error_code = 4;
-  if (this->error_code() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteSInt32ToArray(4, this->error_code(), target);
+  // string error_category = 4;
+  if (this->error_category().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->error_category().data(), static_cast<int>(this->error_category().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "nano.api.response.error_category");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->error_category(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1004,26 +1003,27 @@ size_t response::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // string error = 3;
-  if (this->error().size() > 0) {
+  // string error_message = 3;
+  if (this->error_message().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->error());
+        this->error_message());
   }
 
-  // .nano.api.Result result = 1;
-  if (this->result() != 0) {
+  // string error_category = 4;
+  if (this->error_category().size() > 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->result());
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->error_category());
   }
 
-  // .nano.api.QueryType type = 2;
+  // .nano.api.QueryType type = 1;
   if (this->type() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
   }
 
-  // sint32 error_code = 4;
+  // sint32 error_code = 2;
   if (this->error_code() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::SInt32Size(
@@ -1059,12 +1059,13 @@ void response::MergeFrom(const response& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.error().size() > 0) {
+  if (from.error_message().size() > 0) {
 
-    error_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.error_);
+    error_message_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.error_message_);
   }
-  if (from.result() != 0) {
-    set_result(from.result());
+  if (from.error_category().size() > 0) {
+
+    error_category_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.error_category_);
   }
   if (from.type() != 0) {
     set_type(from.type());
@@ -1098,8 +1099,8 @@ void response::Swap(response* other) {
 }
 void response::InternalSwap(response* other) {
   using std::swap;
-  error_.Swap(&other->error_);
-  swap(result_, other->result_);
+  error_message_.Swap(&other->error_message_);
+  error_category_.Swap(&other->error_category_);
   swap(type_, other->type_);
   swap(error_code_, other->error_code_);
   _internal_metadata_.Swap(&other->_internal_metadata_);

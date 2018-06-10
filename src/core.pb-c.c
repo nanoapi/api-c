@@ -498,20 +498,8 @@ const ProtobufCMessageDescriptor query__descriptor =
 static const ProtobufCFieldDescriptor response__field_descriptors[4] =
 {
   {
-    "result",
-    1,
-    PROTOBUF_C_LABEL_NONE,
-    PROTOBUF_C_TYPE_ENUM,
-    0,   /* quantifier_offset */
-    offsetof(Response, result),
-    &result__descriptor,
-    NULL,
-    0,             /* flags */
-    0,NULL,NULL    /* reserved1,reserved2, etc */
-  },
-  {
     "type",
-    2,
+    1,
     PROTOBUF_C_LABEL_NONE,
     PROTOBUF_C_TYPE_ENUM,
     0,   /* quantifier_offset */
@@ -522,20 +510,8 @@ static const ProtobufCFieldDescriptor response__field_descriptors[4] =
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "error",
-    3,
-    PROTOBUF_C_LABEL_NONE,
-    PROTOBUF_C_TYPE_STRING,
-    0,   /* quantifier_offset */
-    offsetof(Response, error),
-    NULL,
-    &protobuf_c_empty_string,
-    0,             /* flags */
-    0,NULL,NULL    /* reserved1,reserved2, etc */
-  },
-  {
     "error_code",
-    4,
+    2,
     PROTOBUF_C_LABEL_NONE,
     PROTOBUF_C_TYPE_SINT32,
     0,   /* quantifier_offset */
@@ -545,12 +521,36 @@ static const ProtobufCFieldDescriptor response__field_descriptors[4] =
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "error_message",
+    3,
+    PROTOBUF_C_LABEL_NONE,
+    PROTOBUF_C_TYPE_STRING,
+    0,   /* quantifier_offset */
+    offsetof(Response, error_message),
+    NULL,
+    &protobuf_c_empty_string,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "error_category",
+    4,
+    PROTOBUF_C_LABEL_NONE,
+    PROTOBUF_C_TYPE_STRING,
+    0,   /* quantifier_offset */
+    offsetof(Response, error_category),
+    NULL,
+    &protobuf_c_empty_string,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned response__field_indices_by_name[] = {
-  2,   /* field[2] = error */
-  3,   /* field[3] = error_code */
-  0,   /* field[0] = result */
-  1,   /* field[1] = type */
+  3,   /* field[3] = error_category */
+  1,   /* field[1] = error_code */
+  2,   /* field[2] = error_message */
+  0,   /* field[0] = type */
 };
 static const ProtobufCIntRange response__number_ranges[1 + 1] =
 {
@@ -1040,37 +1040,5 @@ const ProtobufCEnumDescriptor query_type__descriptor =
   query_type__enum_values_by_name,
   1,
   query_type__value_ranges,
-  NULL,NULL,NULL,NULL   /* reserved[1234] */
-};
-static const ProtobufCEnumValue result__enum_values_by_number[4] =
-{
-  { "OK", "RESULT__OK", 0 },
-  { "GENERIC_ERROR", "RESULT__GENERIC_ERROR", 1 },
-  { "INVALID_INPUT", "RESULT__INVALID_INPUT", 2 },
-  { "IO_ERROR", "RESULT__IO_ERROR", 3 },
-};
-static const ProtobufCIntRange result__value_ranges[] = {
-{0, 0},{0, 4}
-};
-static const ProtobufCEnumValueIndex result__enum_values_by_name[4] =
-{
-  { "GENERIC_ERROR", 1 },
-  { "INVALID_INPUT", 2 },
-  { "IO_ERROR", 3 },
-  { "OK", 0 },
-};
-const ProtobufCEnumDescriptor result__descriptor =
-{
-  PROTOBUF_C__ENUM_DESCRIPTOR_MAGIC,
-  "Result",
-  "Result",
-  "Result",
-  "",
-  4,
-  result__enum_values_by_number,
-  4,
-  result__enum_values_by_name,
-  1,
-  result__value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };

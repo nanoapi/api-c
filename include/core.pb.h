@@ -139,29 +139,6 @@ inline bool QueryType_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<QueryType>(
     QueryType_descriptor(), name, value);
 }
-enum Result {
-  OK = 0,
-  GENERIC_ERROR = 1,
-  INVALID_INPUT = 2,
-  IO_ERROR = 3,
-  Result_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
-  Result_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
-};
-bool Result_IsValid(int value);
-const Result Result_MIN = OK;
-const Result Result_MAX = IO_ERROR;
-const int Result_ARRAYSIZE = Result_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* Result_descriptor();
-inline const ::std::string& Result_Name(Result value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    Result_descriptor(), value);
-}
-inline bool Result_Parse(
-    const ::std::string& name, Result* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<Result>(
-    Result_descriptor(), name, value);
-}
 // ===================================================================
 
 class query : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:nano.api.query) */ {
@@ -345,35 +322,43 @@ class response : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // accessors -------------------------------------------------------
 
-  // string error = 3;
-  void clear_error();
-  static const int kErrorFieldNumber = 3;
-  const ::std::string& error() const;
-  void set_error(const ::std::string& value);
+  // string error_message = 3;
+  void clear_error_message();
+  static const int kErrorMessageFieldNumber = 3;
+  const ::std::string& error_message() const;
+  void set_error_message(const ::std::string& value);
   #if LANG_CXX11
-  void set_error(::std::string&& value);
+  void set_error_message(::std::string&& value);
   #endif
-  void set_error(const char* value);
-  void set_error(const char* value, size_t size);
-  ::std::string* mutable_error();
-  ::std::string* release_error();
-  void set_allocated_error(::std::string* error);
+  void set_error_message(const char* value);
+  void set_error_message(const char* value, size_t size);
+  ::std::string* mutable_error_message();
+  ::std::string* release_error_message();
+  void set_allocated_error_message(::std::string* error_message);
 
-  // .nano.api.Result result = 1;
-  void clear_result();
-  static const int kResultFieldNumber = 1;
-  ::nano::api::Result result() const;
-  void set_result(::nano::api::Result value);
+  // string error_category = 4;
+  void clear_error_category();
+  static const int kErrorCategoryFieldNumber = 4;
+  const ::std::string& error_category() const;
+  void set_error_category(const ::std::string& value);
+  #if LANG_CXX11
+  void set_error_category(::std::string&& value);
+  #endif
+  void set_error_category(const char* value);
+  void set_error_category(const char* value, size_t size);
+  ::std::string* mutable_error_category();
+  ::std::string* release_error_category();
+  void set_allocated_error_category(::std::string* error_category);
 
-  // .nano.api.QueryType type = 2;
+  // .nano.api.QueryType type = 1;
   void clear_type();
-  static const int kTypeFieldNumber = 2;
+  static const int kTypeFieldNumber = 1;
   ::nano::api::QueryType type() const;
   void set_type(::nano::api::QueryType value);
 
-  // sint32 error_code = 4;
+  // sint32 error_code = 2;
   void clear_error_code();
-  static const int kErrorCodeFieldNumber = 4;
+  static const int kErrorCodeFieldNumber = 2;
   ::google::protobuf::int32 error_code() const;
   void set_error_code(::google::protobuf::int32 value);
 
@@ -381,8 +366,8 @@ class response : public ::google::protobuf::Message /* @@protoc_insertion_point(
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr error_;
-  int result_;
+  ::google::protobuf::internal::ArenaStringPtr error_message_;
+  ::google::protobuf::internal::ArenaStringPtr error_category_;
   int type_;
   ::google::protobuf::int32 error_code_;
   mutable int _cached_size_;
@@ -1359,21 +1344,7 @@ inline void query::set_type(::nano::api::QueryType value) {
 
 // response
 
-// .nano.api.Result result = 1;
-inline void response::clear_result() {
-  result_ = 0;
-}
-inline ::nano::api::Result response::result() const {
-  // @@protoc_insertion_point(field_get:nano.api.response.result)
-  return static_cast< ::nano::api::Result >(result_);
-}
-inline void response::set_result(::nano::api::Result value) {
-  
-  result_ = value;
-  // @@protoc_insertion_point(field_set:nano.api.response.result)
-}
-
-// .nano.api.QueryType type = 2;
+// .nano.api.QueryType type = 1;
 inline void response::clear_type() {
   type_ = 0;
 }
@@ -1387,60 +1358,7 @@ inline void response::set_type(::nano::api::QueryType value) {
   // @@protoc_insertion_point(field_set:nano.api.response.type)
 }
 
-// string error = 3;
-inline void response::clear_error() {
-  error_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& response::error() const {
-  // @@protoc_insertion_point(field_get:nano.api.response.error)
-  return error_.GetNoArena();
-}
-inline void response::set_error(const ::std::string& value) {
-  
-  error_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:nano.api.response.error)
-}
-#if LANG_CXX11
-inline void response::set_error(::std::string&& value) {
-  
-  error_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:nano.api.response.error)
-}
-#endif
-inline void response::set_error(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  
-  error_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:nano.api.response.error)
-}
-inline void response::set_error(const char* value, size_t size) {
-  
-  error_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:nano.api.response.error)
-}
-inline ::std::string* response::mutable_error() {
-  
-  // @@protoc_insertion_point(field_mutable:nano.api.response.error)
-  return error_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* response::release_error() {
-  // @@protoc_insertion_point(field_release:nano.api.response.error)
-  
-  return error_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void response::set_allocated_error(::std::string* error) {
-  if (error != NULL) {
-    
-  } else {
-    
-  }
-  error_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), error);
-  // @@protoc_insertion_point(field_set_allocated:nano.api.response.error)
-}
-
-// sint32 error_code = 4;
+// sint32 error_code = 2;
 inline void response::clear_error_code() {
   error_code_ = 0;
 }
@@ -1452,6 +1370,112 @@ inline void response::set_error_code(::google::protobuf::int32 value) {
   
   error_code_ = value;
   // @@protoc_insertion_point(field_set:nano.api.response.error_code)
+}
+
+// string error_message = 3;
+inline void response::clear_error_message() {
+  error_message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& response::error_message() const {
+  // @@protoc_insertion_point(field_get:nano.api.response.error_message)
+  return error_message_.GetNoArena();
+}
+inline void response::set_error_message(const ::std::string& value) {
+  
+  error_message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:nano.api.response.error_message)
+}
+#if LANG_CXX11
+inline void response::set_error_message(::std::string&& value) {
+  
+  error_message_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:nano.api.response.error_message)
+}
+#endif
+inline void response::set_error_message(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  error_message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:nano.api.response.error_message)
+}
+inline void response::set_error_message(const char* value, size_t size) {
+  
+  error_message_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:nano.api.response.error_message)
+}
+inline ::std::string* response::mutable_error_message() {
+  
+  // @@protoc_insertion_point(field_mutable:nano.api.response.error_message)
+  return error_message_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* response::release_error_message() {
+  // @@protoc_insertion_point(field_release:nano.api.response.error_message)
+  
+  return error_message_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void response::set_allocated_error_message(::std::string* error_message) {
+  if (error_message != NULL) {
+    
+  } else {
+    
+  }
+  error_message_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), error_message);
+  // @@protoc_insertion_point(field_set_allocated:nano.api.response.error_message)
+}
+
+// string error_category = 4;
+inline void response::clear_error_category() {
+  error_category_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& response::error_category() const {
+  // @@protoc_insertion_point(field_get:nano.api.response.error_category)
+  return error_category_.GetNoArena();
+}
+inline void response::set_error_category(const ::std::string& value) {
+  
+  error_category_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:nano.api.response.error_category)
+}
+#if LANG_CXX11
+inline void response::set_error_category(::std::string&& value) {
+  
+  error_category_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:nano.api.response.error_category)
+}
+#endif
+inline void response::set_error_category(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  error_category_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:nano.api.response.error_category)
+}
+inline void response::set_error_category(const char* value, size_t size) {
+  
+  error_category_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:nano.api.response.error_category)
+}
+inline ::std::string* response::mutable_error_category() {
+  
+  // @@protoc_insertion_point(field_mutable:nano.api.response.error_category)
+  return error_category_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* response::release_error_category() {
+  // @@protoc_insertion_point(field_release:nano.api.response.error_category)
+  
+  return error_category_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void response::set_allocated_error_category(::std::string* error_category) {
+  if (error_category != NULL) {
+    
+  } else {
+    
+  }
+  error_category_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), error_category);
+  // @@protoc_insertion_point(field_set_allocated:nano.api.response.error_category)
 }
 
 // -------------------------------------------------------------------
@@ -2124,11 +2148,6 @@ template <> struct is_proto_enum< ::nano::api::QueryType> : ::google::protobuf::
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::nano::api::QueryType>() {
   return ::nano::api::QueryType_descriptor();
-}
-template <> struct is_proto_enum< ::nano::api::Result> : ::google::protobuf::internal::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::nano::api::Result>() {
-  return ::nano::api::Result_descriptor();
 }
 
 }  // namespace protobuf
