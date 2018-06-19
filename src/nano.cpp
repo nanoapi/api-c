@@ -229,6 +229,11 @@ int nano_request (struct nano_session* session, RequestType type, void* request,
 {
     nano_last_error_clear (session);
     std::lock_guard<std::mutex> lock(session->session_mutex);
+
+    // Write preamble
+    uint8_t preamble[4] { PREAMBLE_1, PREAMBLE_2, PREAMBLE_VERSION_MAJOR, PREAMBLE_VERSION_MINOR };
+    session->write(preamble, 4);
+
     int result_code = 0;
     Request request_header;
     request__init (&request_header);

@@ -3,6 +3,11 @@
 
 #include "core.pb-c.h"
 
+#define PREAMBLE_1 'N'
+#define PREAMBLE_2 0x0
+#define PREAMBLE_VERSION_MAJOR 1
+#define PREAMBLE_VERSION_MINOR 0
+
 #if __cplusplus
 extern "C" {
 #endif
