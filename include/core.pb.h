@@ -44,20 +44,20 @@ struct TableStruct {
   static const ::google::protobuf::uint32 offsets[];
 };
 void AddDescriptors();
-void InitDefaultsqueryImpl();
-void InitDefaultsquery();
+void InitDefaultsrequestImpl();
+void InitDefaultsrequest();
 void InitDefaultsresponseImpl();
 void InitDefaultsresponse();
-void InitDefaultsquery_client_connectImpl();
-void InitDefaultsquery_client_connect();
+void InitDefaultsreq_client_connectImpl();
+void InitDefaultsreq_client_connect();
 void InitDefaultsres_client_connectImpl();
 void InitDefaultsres_client_connect();
-void InitDefaultsquery_pingImpl();
-void InitDefaultsquery_ping();
+void InitDefaultsreq_pingImpl();
+void InitDefaultsreq_ping();
 void InitDefaultsres_pingImpl();
 void InitDefaultsres_ping();
-void InitDefaultsquery_account_pendingImpl();
-void InitDefaultsquery_account_pending();
+void InitDefaultsreq_account_pendingImpl();
+void InitDefaultsreq_account_pending();
 void InitDefaultsres_account_pendingImpl();
 void InitDefaultsres_account_pending();
 void InitDefaultsaccount_pendingImpl();
@@ -65,13 +65,13 @@ void InitDefaultsaccount_pending();
 void InitDefaultsaccount_pending_block_infoImpl();
 void InitDefaultsaccount_pending_block_info();
 inline void InitDefaults() {
-  InitDefaultsquery();
+  InitDefaultsrequest();
   InitDefaultsresponse();
-  InitDefaultsquery_client_connect();
+  InitDefaultsreq_client_connect();
   InitDefaultsres_client_connect();
-  InitDefaultsquery_ping();
+  InitDefaultsreq_ping();
   InitDefaultsres_ping();
-  InitDefaultsquery_account_pending();
+  InitDefaultsreq_account_pending();
   InitDefaultsres_account_pending();
   InitDefaultsaccount_pending();
   InitDefaultsaccount_pending_block_info();
@@ -85,18 +85,18 @@ extern account_pendingDefaultTypeInternal _account_pending_default_instance_;
 class account_pending_block_info;
 class account_pending_block_infoDefaultTypeInternal;
 extern account_pending_block_infoDefaultTypeInternal _account_pending_block_info_default_instance_;
-class query;
-class queryDefaultTypeInternal;
-extern queryDefaultTypeInternal _query_default_instance_;
-class query_account_pending;
-class query_account_pendingDefaultTypeInternal;
-extern query_account_pendingDefaultTypeInternal _query_account_pending_default_instance_;
-class query_client_connect;
-class query_client_connectDefaultTypeInternal;
-extern query_client_connectDefaultTypeInternal _query_client_connect_default_instance_;
-class query_ping;
-class query_pingDefaultTypeInternal;
-extern query_pingDefaultTypeInternal _query_ping_default_instance_;
+class req_account_pending;
+class req_account_pendingDefaultTypeInternal;
+extern req_account_pendingDefaultTypeInternal _req_account_pending_default_instance_;
+class req_client_connect;
+class req_client_connectDefaultTypeInternal;
+extern req_client_connectDefaultTypeInternal _req_client_connect_default_instance_;
+class req_ping;
+class req_pingDefaultTypeInternal;
+extern req_pingDefaultTypeInternal _req_ping_default_instance_;
+class request;
+class requestDefaultTypeInternal;
+extern requestDefaultTypeInternal _request_default_instance_;
 class res_account_pending;
 class res_account_pendingDefaultTypeInternal;
 extern res_account_pendingDefaultTypeInternal _res_account_pending_default_instance_;
@@ -114,51 +114,51 @@ extern responseDefaultTypeInternal _response_default_instance_;
 namespace nano {
 namespace api {
 
-enum QueryType {
+enum RequestType {
   UNKOWN = 0,
   REGISTER_CALLBACK = 1,
   PING = 2,
   ACCOUNT_BALANCE = 3,
   ACCOUNT_BLOCK_COUNT = 4,
   ACCOUNT_PENDING = 5,
-  QueryType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
-  QueryType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+  RequestType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  RequestType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
-bool QueryType_IsValid(int value);
-const QueryType QueryType_MIN = UNKOWN;
-const QueryType QueryType_MAX = ACCOUNT_PENDING;
-const int QueryType_ARRAYSIZE = QueryType_MAX + 1;
+bool RequestType_IsValid(int value);
+const RequestType RequestType_MIN = UNKOWN;
+const RequestType RequestType_MAX = ACCOUNT_PENDING;
+const int RequestType_ARRAYSIZE = RequestType_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* QueryType_descriptor();
-inline const ::std::string& QueryType_Name(QueryType value) {
+const ::google::protobuf::EnumDescriptor* RequestType_descriptor();
+inline const ::std::string& RequestType_Name(RequestType value) {
   return ::google::protobuf::internal::NameOfEnum(
-    QueryType_descriptor(), value);
+    RequestType_descriptor(), value);
 }
-inline bool QueryType_Parse(
-    const ::std::string& name, QueryType* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<QueryType>(
-    QueryType_descriptor(), name, value);
+inline bool RequestType_Parse(
+    const ::std::string& name, RequestType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<RequestType>(
+    RequestType_descriptor(), name, value);
 }
 // ===================================================================
 
-class query : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:nano.api.query) */ {
+class request : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:nano.api.request) */ {
  public:
-  query();
-  virtual ~query();
+  request();
+  virtual ~request();
 
-  query(const query& from);
+  request(const request& from);
 
-  inline query& operator=(const query& from) {
+  inline request& operator=(const request& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  query(query&& from) noexcept
-    : query() {
+  request(request&& from) noexcept
+    : request() {
     *this = ::std::move(from);
   }
 
-  inline query& operator=(query&& from) noexcept {
+  inline request& operator=(request&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -168,30 +168,30 @@ class query : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
   }
   #endif
   static const ::google::protobuf::Descriptor* descriptor();
-  static const query& default_instance();
+  static const request& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const query* internal_default_instance() {
-    return reinterpret_cast<const query*>(
-               &_query_default_instance_);
+  static inline const request* internal_default_instance() {
+    return reinterpret_cast<const request*>(
+               &_request_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
     0;
 
-  void Swap(query* other);
-  friend void swap(query& a, query& b) {
+  void Swap(request* other);
+  friend void swap(request& a, request& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline query* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline request* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  query* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  request* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
   void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const query& from);
-  void MergeFrom(const query& from);
+  void CopyFrom(const request& from);
+  void MergeFrom(const request& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -207,7 +207,7 @@ class query : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(query* other);
+  void InternalSwap(request* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -223,20 +223,20 @@ class query : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
 
   // accessors -------------------------------------------------------
 
-  // .nano.api.QueryType type = 1;
+  // .nano.api.RequestType type = 1;
   void clear_type();
   static const int kTypeFieldNumber = 1;
-  ::nano::api::QueryType type() const;
-  void set_type(::nano::api::QueryType value);
+  ::nano::api::RequestType type() const;
+  void set_type(::nano::api::RequestType value);
 
-  // @@protoc_insertion_point(class_scope:nano.api.query)
+  // @@protoc_insertion_point(class_scope:nano.api.request)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   int type_;
   mutable int _cached_size_;
   friend struct ::protobuf_core_2eproto::TableStruct;
-  friend void ::protobuf_core_2eproto::InitDefaultsqueryImpl();
+  friend void ::protobuf_core_2eproto::InitDefaultsrequestImpl();
 };
 // -------------------------------------------------------------------
 
@@ -350,11 +350,11 @@ class response : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::std::string* release_error_category();
   void set_allocated_error_category(::std::string* error_category);
 
-  // .nano.api.QueryType type = 1;
+  // .nano.api.RequestType type = 1;
   void clear_type();
   static const int kTypeFieldNumber = 1;
-  ::nano::api::QueryType type() const;
-  void set_type(::nano::api::QueryType value);
+  ::nano::api::RequestType type() const;
+  void set_type(::nano::api::RequestType value);
 
   // sint32 error_code = 2;
   void clear_error_code();
@@ -376,24 +376,24 @@ class response : public ::google::protobuf::Message /* @@protoc_insertion_point(
 };
 // -------------------------------------------------------------------
 
-class query_client_connect : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:nano.api.query_client_connect) */ {
+class req_client_connect : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:nano.api.req_client_connect) */ {
  public:
-  query_client_connect();
-  virtual ~query_client_connect();
+  req_client_connect();
+  virtual ~req_client_connect();
 
-  query_client_connect(const query_client_connect& from);
+  req_client_connect(const req_client_connect& from);
 
-  inline query_client_connect& operator=(const query_client_connect& from) {
+  inline req_client_connect& operator=(const req_client_connect& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  query_client_connect(query_client_connect&& from) noexcept
-    : query_client_connect() {
+  req_client_connect(req_client_connect&& from) noexcept
+    : req_client_connect() {
     *this = ::std::move(from);
   }
 
-  inline query_client_connect& operator=(query_client_connect&& from) noexcept {
+  inline req_client_connect& operator=(req_client_connect&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -403,30 +403,30 @@ class query_client_connect : public ::google::protobuf::Message /* @@protoc_inse
   }
   #endif
   static const ::google::protobuf::Descriptor* descriptor();
-  static const query_client_connect& default_instance();
+  static const req_client_connect& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const query_client_connect* internal_default_instance() {
-    return reinterpret_cast<const query_client_connect*>(
-               &_query_client_connect_default_instance_);
+  static inline const req_client_connect* internal_default_instance() {
+    return reinterpret_cast<const req_client_connect*>(
+               &_req_client_connect_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
     2;
 
-  void Swap(query_client_connect* other);
-  friend void swap(query_client_connect& a, query_client_connect& b) {
+  void Swap(req_client_connect* other);
+  friend void swap(req_client_connect& a, req_client_connect& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline query_client_connect* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline req_client_connect* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  query_client_connect* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  req_client_connect* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
   void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const query_client_connect& from);
-  void MergeFrom(const query_client_connect& from);
+  void CopyFrom(const req_client_connect& from);
+  void MergeFrom(const req_client_connect& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -442,7 +442,7 @@ class query_client_connect : public ::google::protobuf::Message /* @@protoc_inse
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(query_client_connect* other);
+  void InternalSwap(req_client_connect* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -458,23 +458,9 @@ class query_client_connect : public ::google::protobuf::Message /* @@protoc_inse
 
   // accessors -------------------------------------------------------
 
-  // string api_client_id = 2;
-  void clear_api_client_id();
-  static const int kApiClientIdFieldNumber = 2;
-  const ::std::string& api_client_id() const;
-  void set_api_client_id(const ::std::string& value);
-  #if LANG_CXX11
-  void set_api_client_id(::std::string&& value);
-  #endif
-  void set_api_client_id(const char* value);
-  void set_api_client_id(const char* value, size_t size);
-  ::std::string* mutable_api_client_id();
-  ::std::string* release_api_client_id();
-  void set_allocated_api_client_id(::std::string* api_client_id);
-
-  // string api_key = 3;
+  // string api_key = 1;
   void clear_api_key();
-  static const int kApiKeyFieldNumber = 3;
+  static const int kApiKeyFieldNumber = 1;
   const ::std::string& api_key() const;
   void set_api_key(const ::std::string& value);
   #if LANG_CXX11
@@ -486,22 +472,14 @@ class query_client_connect : public ::google::protobuf::Message /* @@protoc_inse
   ::std::string* release_api_key();
   void set_allocated_api_key(::std::string* api_key);
 
-  // uint32 api_version = 1;
-  void clear_api_version();
-  static const int kApiVersionFieldNumber = 1;
-  ::google::protobuf::uint32 api_version() const;
-  void set_api_version(::google::protobuf::uint32 value);
-
-  // @@protoc_insertion_point(class_scope:nano.api.query_client_connect)
+  // @@protoc_insertion_point(class_scope:nano.api.req_client_connect)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr api_client_id_;
   ::google::protobuf::internal::ArenaStringPtr api_key_;
-  ::google::protobuf::uint32 api_version_;
   mutable int _cached_size_;
   friend struct ::protobuf_core_2eproto::TableStruct;
-  friend void ::protobuf_core_2eproto::InitDefaultsquery_client_connectImpl();
+  friend void ::protobuf_core_2eproto::InitDefaultsreq_client_connectImpl();
 };
 // -------------------------------------------------------------------
 
@@ -587,55 +565,41 @@ class res_client_connect : public ::google::protobuf::Message /* @@protoc_insert
 
   // accessors -------------------------------------------------------
 
-  // uint32 api_version = 1;
-  void clear_api_version();
-  static const int kApiVersionFieldNumber = 1;
-  ::google::protobuf::uint32 api_version() const;
-  void set_api_version(::google::protobuf::uint32 value);
-
-  // uint32 node_version_major = 2;
-  void clear_node_version_major();
-  static const int kNodeVersionMajorFieldNumber = 2;
-  ::google::protobuf::uint32 node_version_major() const;
-  void set_node_version_major(::google::protobuf::uint32 value);
-
-  // uint32 node_version_patch = 3;
-  void clear_node_version_patch();
-  static const int kNodeVersionPatchFieldNumber = 3;
-  ::google::protobuf::uint32 node_version_patch() const;
-  void set_node_version_patch(::google::protobuf::uint32 value);
+  // bool api_key_accepted = 1;
+  void clear_api_key_accepted();
+  static const int kApiKeyAcceptedFieldNumber = 1;
+  bool api_key_accepted() const;
+  void set_api_key_accepted(bool value);
 
   // @@protoc_insertion_point(class_scope:nano.api.res_client_connect)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::uint32 api_version_;
-  ::google::protobuf::uint32 node_version_major_;
-  ::google::protobuf::uint32 node_version_patch_;
+  bool api_key_accepted_;
   mutable int _cached_size_;
   friend struct ::protobuf_core_2eproto::TableStruct;
   friend void ::protobuf_core_2eproto::InitDefaultsres_client_connectImpl();
 };
 // -------------------------------------------------------------------
 
-class query_ping : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:nano.api.query_ping) */ {
+class req_ping : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:nano.api.req_ping) */ {
  public:
-  query_ping();
-  virtual ~query_ping();
+  req_ping();
+  virtual ~req_ping();
 
-  query_ping(const query_ping& from);
+  req_ping(const req_ping& from);
 
-  inline query_ping& operator=(const query_ping& from) {
+  inline req_ping& operator=(const req_ping& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  query_ping(query_ping&& from) noexcept
-    : query_ping() {
+  req_ping(req_ping&& from) noexcept
+    : req_ping() {
     *this = ::std::move(from);
   }
 
-  inline query_ping& operator=(query_ping&& from) noexcept {
+  inline req_ping& operator=(req_ping&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -645,30 +609,30 @@ class query_ping : public ::google::protobuf::Message /* @@protoc_insertion_poin
   }
   #endif
   static const ::google::protobuf::Descriptor* descriptor();
-  static const query_ping& default_instance();
+  static const req_ping& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const query_ping* internal_default_instance() {
-    return reinterpret_cast<const query_ping*>(
-               &_query_ping_default_instance_);
+  static inline const req_ping* internal_default_instance() {
+    return reinterpret_cast<const req_ping*>(
+               &_req_ping_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
     4;
 
-  void Swap(query_ping* other);
-  friend void swap(query_ping& a, query_ping& b) {
+  void Swap(req_ping* other);
+  friend void swap(req_ping& a, req_ping& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline query_ping* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline req_ping* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  query_ping* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  req_ping* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
   void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const query_ping& from);
-  void MergeFrom(const query_ping& from);
+  void CopyFrom(const req_ping& from);
+  void MergeFrom(const req_ping& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -684,7 +648,7 @@ class query_ping : public ::google::protobuf::Message /* @@protoc_insertion_poin
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(query_ping* other);
+  void InternalSwap(req_ping* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -706,14 +670,14 @@ class query_ping : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::uint32 id() const;
   void set_id(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:nano.api.query_ping)
+  // @@protoc_insertion_point(class_scope:nano.api.req_ping)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::uint32 id_;
   mutable int _cached_size_;
   friend struct ::protobuf_core_2eproto::TableStruct;
-  friend void ::protobuf_core_2eproto::InitDefaultsquery_pingImpl();
+  friend void ::protobuf_core_2eproto::InitDefaultsreq_pingImpl();
 };
 // -------------------------------------------------------------------
 
@@ -816,24 +780,24 @@ class res_ping : public ::google::protobuf::Message /* @@protoc_insertion_point(
 };
 // -------------------------------------------------------------------
 
-class query_account_pending : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:nano.api.query_account_pending) */ {
+class req_account_pending : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:nano.api.req_account_pending) */ {
  public:
-  query_account_pending();
-  virtual ~query_account_pending();
+  req_account_pending();
+  virtual ~req_account_pending();
 
-  query_account_pending(const query_account_pending& from);
+  req_account_pending(const req_account_pending& from);
 
-  inline query_account_pending& operator=(const query_account_pending& from) {
+  inline req_account_pending& operator=(const req_account_pending& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  query_account_pending(query_account_pending&& from) noexcept
-    : query_account_pending() {
+  req_account_pending(req_account_pending&& from) noexcept
+    : req_account_pending() {
     *this = ::std::move(from);
   }
 
-  inline query_account_pending& operator=(query_account_pending&& from) noexcept {
+  inline req_account_pending& operator=(req_account_pending&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -843,30 +807,30 @@ class query_account_pending : public ::google::protobuf::Message /* @@protoc_ins
   }
   #endif
   static const ::google::protobuf::Descriptor* descriptor();
-  static const query_account_pending& default_instance();
+  static const req_account_pending& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const query_account_pending* internal_default_instance() {
-    return reinterpret_cast<const query_account_pending*>(
-               &_query_account_pending_default_instance_);
+  static inline const req_account_pending* internal_default_instance() {
+    return reinterpret_cast<const req_account_pending*>(
+               &_req_account_pending_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
     6;
 
-  void Swap(query_account_pending* other);
-  friend void swap(query_account_pending& a, query_account_pending& b) {
+  void Swap(req_account_pending* other);
+  friend void swap(req_account_pending& a, req_account_pending& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline query_account_pending* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline req_account_pending* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  query_account_pending* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  req_account_pending* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
   void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const query_account_pending& from);
-  void MergeFrom(const query_account_pending& from);
+  void CopyFrom(const req_account_pending& from);
+  void MergeFrom(const req_account_pending& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -882,7 +846,7 @@ class query_account_pending : public ::google::protobuf::Message /* @@protoc_ins
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(query_account_pending* other);
+  void InternalSwap(req_account_pending* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -941,7 +905,7 @@ class query_account_pending : public ::google::protobuf::Message /* @@protoc_ins
   bool source() const;
   void set_source(bool value);
 
-  // @@protoc_insertion_point(class_scope:nano.api.query_account_pending)
+  // @@protoc_insertion_point(class_scope:nano.api.req_account_pending)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -951,7 +915,7 @@ class query_account_pending : public ::google::protobuf::Message /* @@protoc_ins
   bool source_;
   mutable int _cached_size_;
   friend struct ::protobuf_core_2eproto::TableStruct;
-  friend void ::protobuf_core_2eproto::InitDefaultsquery_account_pendingImpl();
+  friend void ::protobuf_core_2eproto::InitDefaultsreq_account_pendingImpl();
 };
 // -------------------------------------------------------------------
 
@@ -1324,35 +1288,35 @@ class account_pending_block_info : public ::google::protobuf::Message /* @@proto
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// query
+// request
 
-// .nano.api.QueryType type = 1;
-inline void query::clear_type() {
+// .nano.api.RequestType type = 1;
+inline void request::clear_type() {
   type_ = 0;
 }
-inline ::nano::api::QueryType query::type() const {
-  // @@protoc_insertion_point(field_get:nano.api.query.type)
-  return static_cast< ::nano::api::QueryType >(type_);
+inline ::nano::api::RequestType request::type() const {
+  // @@protoc_insertion_point(field_get:nano.api.request.type)
+  return static_cast< ::nano::api::RequestType >(type_);
 }
-inline void query::set_type(::nano::api::QueryType value) {
+inline void request::set_type(::nano::api::RequestType value) {
   
   type_ = value;
-  // @@protoc_insertion_point(field_set:nano.api.query.type)
+  // @@protoc_insertion_point(field_set:nano.api.request.type)
 }
 
 // -------------------------------------------------------------------
 
 // response
 
-// .nano.api.QueryType type = 1;
+// .nano.api.RequestType type = 1;
 inline void response::clear_type() {
   type_ = 0;
 }
-inline ::nano::api::QueryType response::type() const {
+inline ::nano::api::RequestType response::type() const {
   // @@protoc_insertion_point(field_get:nano.api.response.type)
-  return static_cast< ::nano::api::QueryType >(type_);
+  return static_cast< ::nano::api::RequestType >(type_);
 }
-inline void response::set_type(::nano::api::QueryType value) {
+inline void response::set_type(::nano::api::RequestType value) {
   
   type_ = value;
   // @@protoc_insertion_point(field_set:nano.api.response.type)
@@ -1480,190 +1444,95 @@ inline void response::set_allocated_error_category(::std::string* error_category
 
 // -------------------------------------------------------------------
 
-// query_client_connect
+// req_client_connect
 
-// uint32 api_version = 1;
-inline void query_client_connect::clear_api_version() {
-  api_version_ = 0u;
-}
-inline ::google::protobuf::uint32 query_client_connect::api_version() const {
-  // @@protoc_insertion_point(field_get:nano.api.query_client_connect.api_version)
-  return api_version_;
-}
-inline void query_client_connect::set_api_version(::google::protobuf::uint32 value) {
-  
-  api_version_ = value;
-  // @@protoc_insertion_point(field_set:nano.api.query_client_connect.api_version)
-}
-
-// string api_client_id = 2;
-inline void query_client_connect::clear_api_client_id() {
-  api_client_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& query_client_connect::api_client_id() const {
-  // @@protoc_insertion_point(field_get:nano.api.query_client_connect.api_client_id)
-  return api_client_id_.GetNoArena();
-}
-inline void query_client_connect::set_api_client_id(const ::std::string& value) {
-  
-  api_client_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:nano.api.query_client_connect.api_client_id)
-}
-#if LANG_CXX11
-inline void query_client_connect::set_api_client_id(::std::string&& value) {
-  
-  api_client_id_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:nano.api.query_client_connect.api_client_id)
-}
-#endif
-inline void query_client_connect::set_api_client_id(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  
-  api_client_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:nano.api.query_client_connect.api_client_id)
-}
-inline void query_client_connect::set_api_client_id(const char* value, size_t size) {
-  
-  api_client_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:nano.api.query_client_connect.api_client_id)
-}
-inline ::std::string* query_client_connect::mutable_api_client_id() {
-  
-  // @@protoc_insertion_point(field_mutable:nano.api.query_client_connect.api_client_id)
-  return api_client_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* query_client_connect::release_api_client_id() {
-  // @@protoc_insertion_point(field_release:nano.api.query_client_connect.api_client_id)
-  
-  return api_client_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void query_client_connect::set_allocated_api_client_id(::std::string* api_client_id) {
-  if (api_client_id != NULL) {
-    
-  } else {
-    
-  }
-  api_client_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), api_client_id);
-  // @@protoc_insertion_point(field_set_allocated:nano.api.query_client_connect.api_client_id)
-}
-
-// string api_key = 3;
-inline void query_client_connect::clear_api_key() {
+// string api_key = 1;
+inline void req_client_connect::clear_api_key() {
   api_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& query_client_connect::api_key() const {
-  // @@protoc_insertion_point(field_get:nano.api.query_client_connect.api_key)
+inline const ::std::string& req_client_connect::api_key() const {
+  // @@protoc_insertion_point(field_get:nano.api.req_client_connect.api_key)
   return api_key_.GetNoArena();
 }
-inline void query_client_connect::set_api_key(const ::std::string& value) {
+inline void req_client_connect::set_api_key(const ::std::string& value) {
   
   api_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:nano.api.query_client_connect.api_key)
+  // @@protoc_insertion_point(field_set:nano.api.req_client_connect.api_key)
 }
 #if LANG_CXX11
-inline void query_client_connect::set_api_key(::std::string&& value) {
+inline void req_client_connect::set_api_key(::std::string&& value) {
   
   api_key_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:nano.api.query_client_connect.api_key)
+  // @@protoc_insertion_point(field_set_rvalue:nano.api.req_client_connect.api_key)
 }
 #endif
-inline void query_client_connect::set_api_key(const char* value) {
+inline void req_client_connect::set_api_key(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
   api_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:nano.api.query_client_connect.api_key)
+  // @@protoc_insertion_point(field_set_char:nano.api.req_client_connect.api_key)
 }
-inline void query_client_connect::set_api_key(const char* value, size_t size) {
+inline void req_client_connect::set_api_key(const char* value, size_t size) {
   
   api_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:nano.api.query_client_connect.api_key)
+  // @@protoc_insertion_point(field_set_pointer:nano.api.req_client_connect.api_key)
 }
-inline ::std::string* query_client_connect::mutable_api_key() {
+inline ::std::string* req_client_connect::mutable_api_key() {
   
-  // @@protoc_insertion_point(field_mutable:nano.api.query_client_connect.api_key)
+  // @@protoc_insertion_point(field_mutable:nano.api.req_client_connect.api_key)
   return api_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* query_client_connect::release_api_key() {
-  // @@protoc_insertion_point(field_release:nano.api.query_client_connect.api_key)
+inline ::std::string* req_client_connect::release_api_key() {
+  // @@protoc_insertion_point(field_release:nano.api.req_client_connect.api_key)
   
   return api_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void query_client_connect::set_allocated_api_key(::std::string* api_key) {
+inline void req_client_connect::set_allocated_api_key(::std::string* api_key) {
   if (api_key != NULL) {
     
   } else {
     
   }
   api_key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), api_key);
-  // @@protoc_insertion_point(field_set_allocated:nano.api.query_client_connect.api_key)
+  // @@protoc_insertion_point(field_set_allocated:nano.api.req_client_connect.api_key)
 }
 
 // -------------------------------------------------------------------
 
 // res_client_connect
 
-// uint32 api_version = 1;
-inline void res_client_connect::clear_api_version() {
-  api_version_ = 0u;
+// bool api_key_accepted = 1;
+inline void res_client_connect::clear_api_key_accepted() {
+  api_key_accepted_ = false;
 }
-inline ::google::protobuf::uint32 res_client_connect::api_version() const {
-  // @@protoc_insertion_point(field_get:nano.api.res_client_connect.api_version)
-  return api_version_;
+inline bool res_client_connect::api_key_accepted() const {
+  // @@protoc_insertion_point(field_get:nano.api.res_client_connect.api_key_accepted)
+  return api_key_accepted_;
 }
-inline void res_client_connect::set_api_version(::google::protobuf::uint32 value) {
+inline void res_client_connect::set_api_key_accepted(bool value) {
   
-  api_version_ = value;
-  // @@protoc_insertion_point(field_set:nano.api.res_client_connect.api_version)
-}
-
-// uint32 node_version_major = 2;
-inline void res_client_connect::clear_node_version_major() {
-  node_version_major_ = 0u;
-}
-inline ::google::protobuf::uint32 res_client_connect::node_version_major() const {
-  // @@protoc_insertion_point(field_get:nano.api.res_client_connect.node_version_major)
-  return node_version_major_;
-}
-inline void res_client_connect::set_node_version_major(::google::protobuf::uint32 value) {
-  
-  node_version_major_ = value;
-  // @@protoc_insertion_point(field_set:nano.api.res_client_connect.node_version_major)
-}
-
-// uint32 node_version_patch = 3;
-inline void res_client_connect::clear_node_version_patch() {
-  node_version_patch_ = 0u;
-}
-inline ::google::protobuf::uint32 res_client_connect::node_version_patch() const {
-  // @@protoc_insertion_point(field_get:nano.api.res_client_connect.node_version_patch)
-  return node_version_patch_;
-}
-inline void res_client_connect::set_node_version_patch(::google::protobuf::uint32 value) {
-  
-  node_version_patch_ = value;
-  // @@protoc_insertion_point(field_set:nano.api.res_client_connect.node_version_patch)
+  api_key_accepted_ = value;
+  // @@protoc_insertion_point(field_set:nano.api.res_client_connect.api_key_accepted)
 }
 
 // -------------------------------------------------------------------
 
-// query_ping
+// req_ping
 
 // uint32 id = 1;
-inline void query_ping::clear_id() {
+inline void req_ping::clear_id() {
   id_ = 0u;
 }
-inline ::google::protobuf::uint32 query_ping::id() const {
-  // @@protoc_insertion_point(field_get:nano.api.query_ping.id)
+inline ::google::protobuf::uint32 req_ping::id() const {
+  // @@protoc_insertion_point(field_get:nano.api.req_ping.id)
   return id_;
 }
-inline void query_ping::set_id(::google::protobuf::uint32 value) {
+inline void req_ping::set_id(::google::protobuf::uint32 value) {
   
   id_ = value;
-  // @@protoc_insertion_point(field_set:nano.api.query_ping.id)
+  // @@protoc_insertion_point(field_set:nano.api.req_ping.id)
 }
 
 // -------------------------------------------------------------------
@@ -1686,131 +1555,131 @@ inline void res_ping::set_id(::google::protobuf::uint32 value) {
 
 // -------------------------------------------------------------------
 
-// query_account_pending
+// req_account_pending
 
 // repeated string accounts = 1;
-inline int query_account_pending::accounts_size() const {
+inline int req_account_pending::accounts_size() const {
   return accounts_.size();
 }
-inline void query_account_pending::clear_accounts() {
+inline void req_account_pending::clear_accounts() {
   accounts_.Clear();
 }
-inline const ::std::string& query_account_pending::accounts(int index) const {
-  // @@protoc_insertion_point(field_get:nano.api.query_account_pending.accounts)
+inline const ::std::string& req_account_pending::accounts(int index) const {
+  // @@protoc_insertion_point(field_get:nano.api.req_account_pending.accounts)
   return accounts_.Get(index);
 }
-inline ::std::string* query_account_pending::mutable_accounts(int index) {
-  // @@protoc_insertion_point(field_mutable:nano.api.query_account_pending.accounts)
+inline ::std::string* req_account_pending::mutable_accounts(int index) {
+  // @@protoc_insertion_point(field_mutable:nano.api.req_account_pending.accounts)
   return accounts_.Mutable(index);
 }
-inline void query_account_pending::set_accounts(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:nano.api.query_account_pending.accounts)
+inline void req_account_pending::set_accounts(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:nano.api.req_account_pending.accounts)
   accounts_.Mutable(index)->assign(value);
 }
 #if LANG_CXX11
-inline void query_account_pending::set_accounts(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:nano.api.query_account_pending.accounts)
+inline void req_account_pending::set_accounts(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:nano.api.req_account_pending.accounts)
   accounts_.Mutable(index)->assign(std::move(value));
 }
 #endif
-inline void query_account_pending::set_accounts(int index, const char* value) {
+inline void req_account_pending::set_accounts(int index, const char* value) {
   GOOGLE_DCHECK(value != NULL);
   accounts_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:nano.api.query_account_pending.accounts)
+  // @@protoc_insertion_point(field_set_char:nano.api.req_account_pending.accounts)
 }
-inline void query_account_pending::set_accounts(int index, const char* value, size_t size) {
+inline void req_account_pending::set_accounts(int index, const char* value, size_t size) {
   accounts_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:nano.api.query_account_pending.accounts)
+  // @@protoc_insertion_point(field_set_pointer:nano.api.req_account_pending.accounts)
 }
-inline ::std::string* query_account_pending::add_accounts() {
-  // @@protoc_insertion_point(field_add_mutable:nano.api.query_account_pending.accounts)
+inline ::std::string* req_account_pending::add_accounts() {
+  // @@protoc_insertion_point(field_add_mutable:nano.api.req_account_pending.accounts)
   return accounts_.Add();
 }
-inline void query_account_pending::add_accounts(const ::std::string& value) {
+inline void req_account_pending::add_accounts(const ::std::string& value) {
   accounts_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:nano.api.query_account_pending.accounts)
+  // @@protoc_insertion_point(field_add:nano.api.req_account_pending.accounts)
 }
 #if LANG_CXX11
-inline void query_account_pending::add_accounts(::std::string&& value) {
+inline void req_account_pending::add_accounts(::std::string&& value) {
   accounts_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:nano.api.query_account_pending.accounts)
+  // @@protoc_insertion_point(field_add:nano.api.req_account_pending.accounts)
 }
 #endif
-inline void query_account_pending::add_accounts(const char* value) {
+inline void req_account_pending::add_accounts(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   accounts_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:nano.api.query_account_pending.accounts)
+  // @@protoc_insertion_point(field_add_char:nano.api.req_account_pending.accounts)
 }
-inline void query_account_pending::add_accounts(const char* value, size_t size) {
+inline void req_account_pending::add_accounts(const char* value, size_t size) {
   accounts_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:nano.api.query_account_pending.accounts)
+  // @@protoc_insertion_point(field_add_pointer:nano.api.req_account_pending.accounts)
 }
 inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-query_account_pending::accounts() const {
-  // @@protoc_insertion_point(field_list:nano.api.query_account_pending.accounts)
+req_account_pending::accounts() const {
+  // @@protoc_insertion_point(field_list:nano.api.req_account_pending.accounts)
   return accounts_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-query_account_pending::mutable_accounts() {
-  // @@protoc_insertion_point(field_mutable_list:nano.api.query_account_pending.accounts)
+req_account_pending::mutable_accounts() {
+  // @@protoc_insertion_point(field_mutable_list:nano.api.req_account_pending.accounts)
   return &accounts_;
 }
 
 // uint64 count = 2;
-inline void query_account_pending::clear_count() {
+inline void req_account_pending::clear_count() {
   count_ = GOOGLE_ULONGLONG(0);
 }
-inline ::google::protobuf::uint64 query_account_pending::count() const {
-  // @@protoc_insertion_point(field_get:nano.api.query_account_pending.count)
+inline ::google::protobuf::uint64 req_account_pending::count() const {
+  // @@protoc_insertion_point(field_get:nano.api.req_account_pending.count)
   return count_;
 }
-inline void query_account_pending::set_count(::google::protobuf::uint64 value) {
+inline void req_account_pending::set_count(::google::protobuf::uint64 value) {
   
   count_ = value;
-  // @@protoc_insertion_point(field_set:nano.api.query_account_pending.count)
+  // @@protoc_insertion_point(field_set:nano.api.req_account_pending.count)
 }
 
 // bool source = 3;
-inline void query_account_pending::clear_source() {
+inline void req_account_pending::clear_source() {
   source_ = false;
 }
-inline bool query_account_pending::source() const {
-  // @@protoc_insertion_point(field_get:nano.api.query_account_pending.source)
+inline bool req_account_pending::source() const {
+  // @@protoc_insertion_point(field_get:nano.api.req_account_pending.source)
   return source_;
 }
-inline void query_account_pending::set_source(bool value) {
+inline void req_account_pending::set_source(bool value) {
   
   source_ = value;
-  // @@protoc_insertion_point(field_set:nano.api.query_account_pending.source)
+  // @@protoc_insertion_point(field_set:nano.api.req_account_pending.source)
 }
 
 // .google.protobuf.StringValue threshold = 4;
-inline bool query_account_pending::has_threshold() const {
+inline bool req_account_pending::has_threshold() const {
   return this != internal_default_instance() && threshold_ != NULL;
 }
-inline const ::google::protobuf::StringValue& query_account_pending::threshold() const {
+inline const ::google::protobuf::StringValue& req_account_pending::threshold() const {
   const ::google::protobuf::StringValue* p = threshold_;
-  // @@protoc_insertion_point(field_get:nano.api.query_account_pending.threshold)
+  // @@protoc_insertion_point(field_get:nano.api.req_account_pending.threshold)
   return p != NULL ? *p : *reinterpret_cast<const ::google::protobuf::StringValue*>(
       &::google::protobuf::_StringValue_default_instance_);
 }
-inline ::google::protobuf::StringValue* query_account_pending::release_threshold() {
-  // @@protoc_insertion_point(field_release:nano.api.query_account_pending.threshold)
+inline ::google::protobuf::StringValue* req_account_pending::release_threshold() {
+  // @@protoc_insertion_point(field_release:nano.api.req_account_pending.threshold)
   
   ::google::protobuf::StringValue* temp = threshold_;
   threshold_ = NULL;
   return temp;
 }
-inline ::google::protobuf::StringValue* query_account_pending::mutable_threshold() {
+inline ::google::protobuf::StringValue* req_account_pending::mutable_threshold() {
   
   if (threshold_ == NULL) {
     threshold_ = new ::google::protobuf::StringValue;
   }
-  // @@protoc_insertion_point(field_mutable:nano.api.query_account_pending.threshold)
+  // @@protoc_insertion_point(field_mutable:nano.api.req_account_pending.threshold)
   return threshold_;
 }
-inline void query_account_pending::set_allocated_threshold(::google::protobuf::StringValue* threshold) {
+inline void req_account_pending::set_allocated_threshold(::google::protobuf::StringValue* threshold) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
     delete reinterpret_cast< ::google::protobuf::MessageLite*>(threshold_);
@@ -1827,7 +1696,7 @@ inline void query_account_pending::set_allocated_threshold(::google::protobuf::S
     
   }
   threshold_ = threshold;
-  // @@protoc_insertion_point(field_set_allocated:nano.api.query_account_pending.threshold)
+  // @@protoc_insertion_point(field_set_allocated:nano.api.req_account_pending.threshold)
 }
 
 // -------------------------------------------------------------------
@@ -2144,10 +2013,10 @@ inline void account_pending_block_info::set_allocated_source(::std::string* sour
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::nano::api::QueryType> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::nano::api::RequestType> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::nano::api::QueryType>() {
-  return ::nano::api::QueryType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::nano::api::RequestType>() {
+  return ::nano::api::RequestType_descriptor();
 }
 
 }  // namespace protobuf

@@ -13,14 +13,14 @@ int main(int argc, char** argv)
     }
 
     // Pending query
-    QueryAccountPending pending;
-    query_account_pending__init (&pending);
+    ReqAccountPending pending;
+    req_account_pending__init (&pending);
     pending.count = 10;    
 
     // Optional threshold field
     nano_optional_string threshold;
     nano_optional_string_init (&threshold);
-    threshold.value = "20000000000000000000";
+    threshold.value = "200000000000000000000";
     pending.threshold = &threshold;
 
     const char* accounts [] = {
@@ -36,14 +36,14 @@ int main(int argc, char** argv)
     }
 
     // Pack query
-    size_t len = query_account_pending__get_packed_size (&pending);
+    size_t len = req_account_pending__get_packed_size (&pending);
     void* buf = (void*) malloc (len); 
-    query_account_pending__pack (&pending, (uint8_t*)buf);
+    req_account_pending__pack (&pending, (uint8_t*)buf);
 
     // Query and unpack result
     void* result = NULL;
     size_t result_size = 0;
-    if (!nano_query (session, QUERY_TYPE__ACCOUNT_PENDING, buf, len, &result, &result_size))
+    if (!nano_request (session, REQUEST_TYPE__ACCOUNT_PENDING, buf, len, &result, &result_size))
     {
         ResAccountPending * pending_result = res_account_pending__unpack (NULL, result_size, result);
         for (int i=0; i < pending_result->n_pending; i++)

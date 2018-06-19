@@ -25,14 +25,14 @@ struct nano_session* nano_connect (const char* connection);
 int nano_disconnect (struct nano_session* session);
 
 /**
- * Send query and await response 
- * @param query Query buffer
- * @param query_size Query buffer size in bytes.
+ * Send request and await response 
+ * @param request Request buffer
+ * @param request_size Request buffer size in bytes.
  * @param response Pointer to response buffer. This must be freed by the caller after unpacking with protobuf.
  * @param response_size Size of the response buffer in bytes. 
  * @returns 0 on success. If non-zero, use nano_last_error(_string) to obtain the error.
  */
-int nano_query(struct nano_session* session, QueryType type, void* query, size_t query_size, void** response, size_t* response_size);
+int nano_request(struct nano_session* session, RequestType type, void* request, size_t request_size, void** response, size_t* response_size);
 
 /**
  * @returns The last error, or zero if there is no error.

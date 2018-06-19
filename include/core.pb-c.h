@@ -16,13 +16,13 @@ PROTOBUF_C__BEGIN_DECLS
 
 #include "google/protobuf/wrappers.pb-c.h"
 
-typedef struct _Query Query;
+typedef struct _Request Request;
 typedef struct _Response Response;
-typedef struct _QueryClientConnect QueryClientConnect;
+typedef struct _ReqClientConnect ReqClientConnect;
 typedef struct _ResClientConnect ResClientConnect;
-typedef struct _QueryPing QueryPing;
+typedef struct _ReqPing ReqPing;
 typedef struct _ResPing ResPing;
-typedef struct _QueryAccountPending QueryAccountPending;
+typedef struct _ReqAccountPending ReqAccountPending;
 typedef struct _ResAccountPending ResAccountPending;
 typedef struct _AccountPending AccountPending;
 typedef struct _AccountPendingBlockInfo AccountPendingBlockInfo;
@@ -30,51 +30,58 @@ typedef struct _AccountPendingBlockInfo AccountPendingBlockInfo;
 
 /* --- enums --- */
 
-typedef enum _QueryType {
-  QUERY_TYPE__UNKOWN = 0,
-  QUERY_TYPE__REGISTER_CALLBACK = 1,
-  QUERY_TYPE__PING = 2,
-  QUERY_TYPE__ACCOUNT_BALANCE = 3,
-  QUERY_TYPE__ACCOUNT_BLOCK_COUNT = 4,
-  QUERY_TYPE__ACCOUNT_PENDING = 5
-    PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(QUERY_TYPE)
-} QueryType;
+/*
+ **
+ * The request type enum values must NOT change. The name of the enum must match
+ * the request message name, uppercased, and without the req_ prefix. This naming
+ * standard facilitates dynamic lookup and generic frameworks.
+ */
+typedef enum _RequestType {
+  REQUEST_TYPE__UNKOWN = 0,
+  REQUEST_TYPE__REGISTER_CALLBACK = 1,
+  REQUEST_TYPE__PING = 2,
+  REQUEST_TYPE__ACCOUNT_BALANCE = 3,
+  REQUEST_TYPE__ACCOUNT_BLOCK_COUNT = 4,
+  REQUEST_TYPE__ACCOUNT_PENDING = 5
+    PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(REQUEST_TYPE)
+} RequestType;
 
 /* --- messages --- */
 
 /*
  ** 
- * This is serialized before the actual query to tell the node what message to expect next.
- * Other query meta data may be added in the future.
+ * Request header.
+ * This is serialized before the actual request to tell the node what message to expect next.
+ * Other request meta data may be added in the future.
  */
-struct  _Query
+struct  _Request
 {
   ProtobufCMessage base;
   /*
-   ** Query type 
+   ** Request type 
    */
-  QueryType type;
+  RequestType type;
 };
-#define QUERY__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&query__descriptor) \
-    , QUERY_TYPE__UNKOWN }
+#define REQUEST__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&request__descriptor) \
+    , REQUEST_TYPE__UNKOWN }
 
 
 /*
  **
- * This is serialized before the actual response. 
- * In the future, this will also be sent on callback connections.
+ * Response header.
+ * This is serialized before the actual response.
  */
 struct  _Response
 {
   ProtobufCMessage base;
   /*
    ** 
-   * For which query type is this a response? This flag allows future support for clients 
-   * issuing multiple concurrent queries, as well as callback messages.
+   * For which request type is this a response? This flag allows future support for clients 
+   * issuing multiple concurrent requests, as well as callback messages.
    * This may not be set if error_code is non-zero.
    */
-  QueryType type;
+  RequestType type;
   /*
    **
    * Context dependent error code. For instance, if IO_ERROR occurs, the error_code
@@ -92,34 +99,24 @@ struct  _Response
 };
 #define RESPONSE__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&response__descriptor) \
-    , QUERY_TYPE__UNKOWN, 0, (char *)protobuf_c_empty_string, (char *)protobuf_c_empty_string }
+    , REQUEST_TYPE__UNKOWN, 0, (char *)protobuf_c_empty_string, (char *)protobuf_c_empty_string }
 
 
 /*
  ** 
  * Establish a session with the node. This is optional if the node doesn't check api keys.
- * A client will typically send this if it supports multiple node or api versions. 
- * The node may reject clients if the version is too old.
  */
-struct  _QueryClientConnect
+struct  _ReqClientConnect
 {
   ProtobufCMessage base;
-  /*
-   ** Client's API version 
-   */
-  uint32_t api_version;
-  /*
-   ** Printable name. This shows up in node logs. 
-   */
-  char *api_client_id;
   /*
    ** API key. The node may be configured to require this. 
    */
   char *api_key;
 };
-#define QUERY_CLIENT_CONNECT__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&query_client_connect__descriptor) \
-    , 0, (char *)protobuf_c_empty_string, (char *)protobuf_c_empty_string }
+#define REQ_CLIENT_CONNECT__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&req_client_connect__descriptor) \
+    , (char *)protobuf_c_empty_string }
 
 
 /*
@@ -128,19 +125,17 @@ struct  _QueryClientConnect
 struct  _ResClientConnect
 {
   ProtobufCMessage base;
-  uint32_t api_version;
-  uint32_t node_version_major;
-  uint32_t node_version_patch;
+  protobuf_c_boolean api_key_accepted;
 };
 #define RES_CLIENT_CONNECT__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&res_client_connect__descriptor) \
-    , 0, 0, 0 }
+    , 0 }
 
 
 /*
  ** Send ping to the node 
  */
-struct  _QueryPing
+struct  _ReqPing
 {
   ProtobufCMessage base;
   /*
@@ -148,8 +143,8 @@ struct  _QueryPing
    */
   uint32_t id;
 };
-#define QUERY_PING__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&query_ping__descriptor) \
+#define REQ_PING__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&req_ping__descriptor) \
     , 0 }
 
 
@@ -160,7 +155,7 @@ struct  _ResPing
 {
   ProtobufCMessage base;
   /*
-   ** The same ID as sent in the ping query 
+   ** The same ID as sent in the ping reqyest 
    */
   uint32_t id;
 };
@@ -172,7 +167,7 @@ struct  _ResPing
 /*
  ** Returns a list of block hashes which have not yet been received by these accounts 
  */
-struct  _QueryAccountPending
+struct  _ReqAccountPending
 {
   ProtobufCMessage base;
   /*
@@ -193,13 +188,13 @@ struct  _QueryAccountPending
    */
   Google__Protobuf__StringValue *threshold;
 };
-#define QUERY_ACCOUNT_PENDING__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&query_account_pending__descriptor) \
+#define REQ_ACCOUNT_PENDING__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&req_account_pending__descriptor) \
     , 0,NULL, 0, 0, NULL }
 
 
 /*
- ** query_account_pending result 
+ ** account_pending result 
  */
 struct  _ResAccountPending
 {
@@ -237,7 +232,7 @@ struct  _AccountPending
 
 
 /*
- ** Information supplied for each account in query_account_pending 
+ ** Information supplied for each account in req_account_pending 
  */
 struct  _AccountPendingBlockInfo
 {
@@ -251,24 +246,24 @@ struct  _AccountPendingBlockInfo
     , (char *)protobuf_c_empty_string, (char *)protobuf_c_empty_string, (char *)protobuf_c_empty_string }
 
 
-/* Query methods */
-void   query__init
-                     (Query         *message);
-size_t query__get_packed_size
-                     (const Query   *message);
-size_t query__pack
-                     (const Query   *message,
+/* Request methods */
+void   request__init
+                     (Request         *message);
+size_t request__get_packed_size
+                     (const Request   *message);
+size_t request__pack
+                     (const Request   *message,
                       uint8_t             *out);
-size_t query__pack_to_buffer
-                     (const Query   *message,
+size_t request__pack_to_buffer
+                     (const Request   *message,
                       ProtobufCBuffer     *buffer);
-Query *
-       query__unpack
+Request *
+       request__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data);
-void   query__free_unpacked
-                     (Query *message,
+void   request__free_unpacked
+                     (Request *message,
                       ProtobufCAllocator *allocator);
 /* Response methods */
 void   response__init
@@ -289,24 +284,24 @@ Response *
 void   response__free_unpacked
                      (Response *message,
                       ProtobufCAllocator *allocator);
-/* QueryClientConnect methods */
-void   query_client_connect__init
-                     (QueryClientConnect         *message);
-size_t query_client_connect__get_packed_size
-                     (const QueryClientConnect   *message);
-size_t query_client_connect__pack
-                     (const QueryClientConnect   *message,
+/* ReqClientConnect methods */
+void   req_client_connect__init
+                     (ReqClientConnect         *message);
+size_t req_client_connect__get_packed_size
+                     (const ReqClientConnect   *message);
+size_t req_client_connect__pack
+                     (const ReqClientConnect   *message,
                       uint8_t             *out);
-size_t query_client_connect__pack_to_buffer
-                     (const QueryClientConnect   *message,
+size_t req_client_connect__pack_to_buffer
+                     (const ReqClientConnect   *message,
                       ProtobufCBuffer     *buffer);
-QueryClientConnect *
-       query_client_connect__unpack
+ReqClientConnect *
+       req_client_connect__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data);
-void   query_client_connect__free_unpacked
-                     (QueryClientConnect *message,
+void   req_client_connect__free_unpacked
+                     (ReqClientConnect *message,
                       ProtobufCAllocator *allocator);
 /* ResClientConnect methods */
 void   res_client_connect__init
@@ -327,24 +322,24 @@ ResClientConnect *
 void   res_client_connect__free_unpacked
                      (ResClientConnect *message,
                       ProtobufCAllocator *allocator);
-/* QueryPing methods */
-void   query_ping__init
-                     (QueryPing         *message);
-size_t query_ping__get_packed_size
-                     (const QueryPing   *message);
-size_t query_ping__pack
-                     (const QueryPing   *message,
+/* ReqPing methods */
+void   req_ping__init
+                     (ReqPing         *message);
+size_t req_ping__get_packed_size
+                     (const ReqPing   *message);
+size_t req_ping__pack
+                     (const ReqPing   *message,
                       uint8_t             *out);
-size_t query_ping__pack_to_buffer
-                     (const QueryPing   *message,
+size_t req_ping__pack_to_buffer
+                     (const ReqPing   *message,
                       ProtobufCBuffer     *buffer);
-QueryPing *
-       query_ping__unpack
+ReqPing *
+       req_ping__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data);
-void   query_ping__free_unpacked
-                     (QueryPing *message,
+void   req_ping__free_unpacked
+                     (ReqPing *message,
                       ProtobufCAllocator *allocator);
 /* ResPing methods */
 void   res_ping__init
@@ -365,24 +360,24 @@ ResPing *
 void   res_ping__free_unpacked
                      (ResPing *message,
                       ProtobufCAllocator *allocator);
-/* QueryAccountPending methods */
-void   query_account_pending__init
-                     (QueryAccountPending         *message);
-size_t query_account_pending__get_packed_size
-                     (const QueryAccountPending   *message);
-size_t query_account_pending__pack
-                     (const QueryAccountPending   *message,
+/* ReqAccountPending methods */
+void   req_account_pending__init
+                     (ReqAccountPending         *message);
+size_t req_account_pending__get_packed_size
+                     (const ReqAccountPending   *message);
+size_t req_account_pending__pack
+                     (const ReqAccountPending   *message,
                       uint8_t             *out);
-size_t query_account_pending__pack_to_buffer
-                     (const QueryAccountPending   *message,
+size_t req_account_pending__pack_to_buffer
+                     (const ReqAccountPending   *message,
                       ProtobufCBuffer     *buffer);
-QueryAccountPending *
-       query_account_pending__unpack
+ReqAccountPending *
+       req_account_pending__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data);
-void   query_account_pending__free_unpacked
-                     (QueryAccountPending *message,
+void   req_account_pending__free_unpacked
+                     (ReqAccountPending *message,
                       ProtobufCAllocator *allocator);
 /* ResAccountPending methods */
 void   res_account_pending__init
@@ -443,26 +438,26 @@ void   account_pending_block_info__free_unpacked
                       ProtobufCAllocator *allocator);
 /* --- per-message closures --- */
 
-typedef void (*Query_Closure)
-                 (const Query *message,
+typedef void (*Request_Closure)
+                 (const Request *message,
                   void *closure_data);
 typedef void (*Response_Closure)
                  (const Response *message,
                   void *closure_data);
-typedef void (*QueryClientConnect_Closure)
-                 (const QueryClientConnect *message,
+typedef void (*ReqClientConnect_Closure)
+                 (const ReqClientConnect *message,
                   void *closure_data);
 typedef void (*ResClientConnect_Closure)
                  (const ResClientConnect *message,
                   void *closure_data);
-typedef void (*QueryPing_Closure)
-                 (const QueryPing *message,
+typedef void (*ReqPing_Closure)
+                 (const ReqPing *message,
                   void *closure_data);
 typedef void (*ResPing_Closure)
                  (const ResPing *message,
                   void *closure_data);
-typedef void (*QueryAccountPending_Closure)
-                 (const QueryAccountPending *message,
+typedef void (*ReqAccountPending_Closure)
+                 (const ReqAccountPending *message,
                   void *closure_data);
 typedef void (*ResAccountPending_Closure)
                  (const ResAccountPending *message,
@@ -479,14 +474,14 @@ typedef void (*AccountPendingBlockInfo_Closure)
 
 /* --- descriptors --- */
 
-extern const ProtobufCEnumDescriptor    query_type__descriptor;
-extern const ProtobufCMessageDescriptor query__descriptor;
+extern const ProtobufCEnumDescriptor    request_type__descriptor;
+extern const ProtobufCMessageDescriptor request__descriptor;
 extern const ProtobufCMessageDescriptor response__descriptor;
-extern const ProtobufCMessageDescriptor query_client_connect__descriptor;
+extern const ProtobufCMessageDescriptor req_client_connect__descriptor;
 extern const ProtobufCMessageDescriptor res_client_connect__descriptor;
-extern const ProtobufCMessageDescriptor query_ping__descriptor;
+extern const ProtobufCMessageDescriptor req_ping__descriptor;
 extern const ProtobufCMessageDescriptor res_ping__descriptor;
-extern const ProtobufCMessageDescriptor query_account_pending__descriptor;
+extern const ProtobufCMessageDescriptor req_account_pending__descriptor;
 extern const ProtobufCMessageDescriptor res_account_pending__descriptor;
 extern const ProtobufCMessageDescriptor account_pending__descriptor;
 extern const ProtobufCMessageDescriptor account_pending_block_info__descriptor;

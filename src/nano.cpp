@@ -225,29 +225,29 @@ int nano_disconnect (struct nano_session* session)
     return 0;
 }
 
-int nano_query (struct nano_session* session, QueryType type, void* query, size_t query_size, void** response, size_t* response_size)
+int nano_request (struct nano_session* session, RequestType type, void* request, size_t request_size, void** response, size_t* response_size)
 {
     nano_last_error_clear (session);
     std::lock_guard<std::mutex> lock(session->session_mutex);
     int result_code = 0;
-    Query query_header;
-    query__init (&query_header);
-    query_header.type = type;
+    Request request_header;
+    request__init (&request_header);
+    request_header.type = type;
 
     // Pack and write header
-    uint32_t len = (uint32_t)query__get_packed_size (&query_header);
+    uint32_t len = (uint32_t)request__get_packed_size (&request_header);
     void* buf = (void*) malloc (len); 
-    query__pack (&query_header, (uint8_t*)buf);
+    request__pack (&request_header, (uint8_t*)buf);
     
     uint32_t network_len = boost::endian::native_to_big ((uint32_t) len);
     session->write(&network_len,4);
     session->write(buf,len);
     free(buf);
 
-    // Write query
-    network_len = boost::endian::native_to_big ((uint32_t) query_size);
+    // Write request
+    network_len = boost::endian::native_to_big ((uint32_t) request_size);
     session->write(&network_len, 4);
-    session->write(query, query_size);
+    session->write(request, request_size);
 
     // Read response
     session->read(&len, 4);
@@ -309,14 +309,15 @@ nano::api::nano_session::~nano_session()
     }
 }
 
-int nano::api::nano_session::query (nano::api::QueryType type, std::string query, std::string & response)
+int nano::api::nano_session::request (nano::api::RequestType type, std::string request, std::string & response)
 {
     void* buf;
     size_t buf_size;
-    int res = nano_query (static_cast<::nano_session*>(this->session), (::QueryType)type, (void*)query.data(), query.size(), &buf, &buf_size);
+    int res = nano_request (static_cast<::nano_session*>(this->session), (::RequestType)type, (void*)request.data(), request.size(), &buf, &buf_size);
     if (!res)
     {
         response = std::string (static_cast<char*>(buf), buf_size);
+        free(buf);
     }
 
     return res;

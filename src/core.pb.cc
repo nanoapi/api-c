@@ -21,41 +21,41 @@
 // @@protoc_insertion_point(includes)
 namespace nano {
 namespace api {
-class queryDefaultTypeInternal {
+class requestDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<query>
+  ::google::protobuf::internal::ExplicitlyConstructed<request>
       _instance;
-} _query_default_instance_;
+} _request_default_instance_;
 class responseDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<response>
       _instance;
 } _response_default_instance_;
-class query_client_connectDefaultTypeInternal {
+class req_client_connectDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<query_client_connect>
+  ::google::protobuf::internal::ExplicitlyConstructed<req_client_connect>
       _instance;
-} _query_client_connect_default_instance_;
+} _req_client_connect_default_instance_;
 class res_client_connectDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<res_client_connect>
       _instance;
 } _res_client_connect_default_instance_;
-class query_pingDefaultTypeInternal {
+class req_pingDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<query_ping>
+  ::google::protobuf::internal::ExplicitlyConstructed<req_ping>
       _instance;
-} _query_ping_default_instance_;
+} _req_ping_default_instance_;
 class res_pingDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<res_ping>
       _instance;
 } _res_ping_default_instance_;
-class query_account_pendingDefaultTypeInternal {
+class req_account_pendingDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<query_account_pending>
+  ::google::protobuf::internal::ExplicitlyConstructed<req_account_pending>
       _instance;
-} _query_account_pending_default_instance_;
+} _req_account_pending_default_instance_;
 class res_account_pendingDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<res_account_pending>
@@ -74,7 +74,7 @@ class account_pending_block_infoDefaultTypeInternal {
 }  // namespace api
 }  // namespace nano
 namespace protobuf_core_2eproto {
-void InitDefaultsqueryImpl() {
+void InitDefaultsrequestImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
 #ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
@@ -83,16 +83,16 @@ void InitDefaultsqueryImpl() {
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   {
-    void* ptr = &::nano::api::_query_default_instance_;
-    new (ptr) ::nano::api::query();
+    void* ptr = &::nano::api::_request_default_instance_;
+    new (ptr) ::nano::api::request();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::nano::api::query::InitAsDefaultInstance();
+  ::nano::api::request::InitAsDefaultInstance();
 }
 
-void InitDefaultsquery() {
+void InitDefaultsrequest() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsqueryImpl);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsrequestImpl);
 }
 
 void InitDefaultsresponseImpl() {
@@ -116,7 +116,7 @@ void InitDefaultsresponse() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsresponseImpl);
 }
 
-void InitDefaultsquery_client_connectImpl() {
+void InitDefaultsreq_client_connectImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
 #ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
@@ -125,16 +125,16 @@ void InitDefaultsquery_client_connectImpl() {
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   {
-    void* ptr = &::nano::api::_query_client_connect_default_instance_;
-    new (ptr) ::nano::api::query_client_connect();
+    void* ptr = &::nano::api::_req_client_connect_default_instance_;
+    new (ptr) ::nano::api::req_client_connect();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::nano::api::query_client_connect::InitAsDefaultInstance();
+  ::nano::api::req_client_connect::InitAsDefaultInstance();
 }
 
-void InitDefaultsquery_client_connect() {
+void InitDefaultsreq_client_connect() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsquery_client_connectImpl);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsreq_client_connectImpl);
 }
 
 void InitDefaultsres_client_connectImpl() {
@@ -158,7 +158,7 @@ void InitDefaultsres_client_connect() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsres_client_connectImpl);
 }
 
-void InitDefaultsquery_pingImpl() {
+void InitDefaultsreq_pingImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
 #ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
@@ -167,16 +167,16 @@ void InitDefaultsquery_pingImpl() {
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   {
-    void* ptr = &::nano::api::_query_ping_default_instance_;
-    new (ptr) ::nano::api::query_ping();
+    void* ptr = &::nano::api::_req_ping_default_instance_;
+    new (ptr) ::nano::api::req_ping();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::nano::api::query_ping::InitAsDefaultInstance();
+  ::nano::api::req_ping::InitAsDefaultInstance();
 }
 
-void InitDefaultsquery_ping() {
+void InitDefaultsreq_ping() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsquery_pingImpl);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsreq_pingImpl);
 }
 
 void InitDefaultsres_pingImpl() {
@@ -200,7 +200,7 @@ void InitDefaultsres_ping() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsres_pingImpl);
 }
 
-void InitDefaultsquery_account_pendingImpl() {
+void InitDefaultsreq_account_pendingImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
 #ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
@@ -210,16 +210,16 @@ void InitDefaultsquery_account_pendingImpl() {
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
   protobuf_google_2fprotobuf_2fwrappers_2eproto::InitDefaultsStringValue();
   {
-    void* ptr = &::nano::api::_query_account_pending_default_instance_;
-    new (ptr) ::nano::api::query_account_pending();
+    void* ptr = &::nano::api::_req_account_pending_default_instance_;
+    new (ptr) ::nano::api::req_account_pending();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::nano::api::query_account_pending::InitAsDefaultInstance();
+  ::nano::api::req_account_pending::InitAsDefaultInstance();
 }
 
-void InitDefaultsquery_account_pending() {
+void InitDefaultsreq_account_pending() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsquery_account_pendingImpl);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsreq_account_pendingImpl);
 }
 
 void InitDefaultsres_account_pendingImpl() {
@@ -292,11 +292,11 @@ const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::query, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::request, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::query, type_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::request, type_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::response, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -307,27 +307,23 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::response, error_message_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::response, error_category_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::query_client_connect, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::req_client_connect, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::query_client_connect, api_version_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::query_client_connect, api_client_id_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::query_client_connect, api_key_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::req_client_connect, api_key_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::res_client_connect, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::res_client_connect, api_version_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::res_client_connect, node_version_major_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::res_client_connect, node_version_patch_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::res_client_connect, api_key_accepted_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::query_ping, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::req_ping, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::query_ping, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::req_ping, id_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::res_ping, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -335,14 +331,14 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::res_ping, id_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::query_account_pending, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::req_account_pending, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::query_account_pending, accounts_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::query_account_pending, count_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::query_account_pending, source_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::query_account_pending, threshold_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::req_account_pending, accounts_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::req_account_pending, count_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::req_account_pending, source_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::req_account_pending, threshold_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::res_account_pending, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -366,26 +362,26 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::account_pending_block_info, source_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::nano::api::query)},
+  { 0, -1, sizeof(::nano::api::request)},
   { 6, -1, sizeof(::nano::api::response)},
-  { 15, -1, sizeof(::nano::api::query_client_connect)},
-  { 23, -1, sizeof(::nano::api::res_client_connect)},
-  { 31, -1, sizeof(::nano::api::query_ping)},
-  { 37, -1, sizeof(::nano::api::res_ping)},
-  { 43, -1, sizeof(::nano::api::query_account_pending)},
-  { 52, -1, sizeof(::nano::api::res_account_pending)},
-  { 58, -1, sizeof(::nano::api::account_pending)},
-  { 65, -1, sizeof(::nano::api::account_pending_block_info)},
+  { 15, -1, sizeof(::nano::api::req_client_connect)},
+  { 21, -1, sizeof(::nano::api::res_client_connect)},
+  { 27, -1, sizeof(::nano::api::req_ping)},
+  { 33, -1, sizeof(::nano::api::res_ping)},
+  { 39, -1, sizeof(::nano::api::req_account_pending)},
+  { 48, -1, sizeof(::nano::api::res_account_pending)},
+  { 54, -1, sizeof(::nano::api::account_pending)},
+  { 61, -1, sizeof(::nano::api::account_pending_block_info)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_query_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_request_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_response_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_query_client_connect_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_req_client_connect_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_res_client_connect_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_query_ping_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_req_ping_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_res_ping_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_query_account_pending_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_req_account_pending_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_res_account_pending_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_account_pending_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_account_pending_block_info_default_instance_),
@@ -414,32 +410,30 @@ void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\ncore.proto\022\010nano.api\032\036google/protobuf/"
-      "wrappers.proto\"*\n\005query\022!\n\004type\030\001 \001(\0162\023."
-      "nano.api.QueryType\"p\n\010response\022!\n\004type\030\001"
-      " \001(\0162\023.nano.api.QueryType\022\022\n\nerror_code\030"
-      "\002 \001(\021\022\025\n\rerror_message\030\003 \001(\t\022\026\n\016error_ca"
-      "tegory\030\004 \001(\t\"S\n\024query_client_connect\022\023\n\013"
-      "api_version\030\001 \001(\r\022\025\n\rapi_client_id\030\002 \001(\t"
-      "\022\017\n\007api_key\030\003 \001(\t\"a\n\022res_client_connect\022"
-      "\023\n\013api_version\030\001 \001(\r\022\032\n\022node_version_maj"
-      "or\030\002 \001(\r\022\032\n\022node_version_patch\030\003 \001(\r\"\030\n\n"
-      "query_ping\022\n\n\002id\030\001 \001(\r\"\026\n\010res_ping\022\n\n\002id"
-      "\030\001 \001(\r\"y\n\025query_account_pending\022\020\n\010accou"
-      "nts\030\001 \003(\t\022\r\n\005count\030\002 \001(\004\022\016\n\006source\030\003 \001(\010"
-      "\022/\n\tthreshold\030\004 \001(\0132\034.google.protobuf.St"
-      "ringValue\"A\n\023res_account_pending\022*\n\007pend"
-      "ing\030\001 \003(\0132\031.nano.api.account_pending\"\\\n\017"
-      "account_pending\022\017\n\007account\030\001 \001(\t\0228\n\nbloc"
-      "k_info\030\002 \003(\0132$.nano.api.account_pending_"
-      "block_info\"J\n\032account_pending_block_info"
-      "\022\014\n\004hash\030\001 \001(\t\022\016\n\006amount\030\002 \001(\t\022\016\n\006source"
-      "\030\003 \001(\t*{\n\tQueryType\022\n\n\006UNKOWN\020\000\022\025\n\021REGIS"
-      "TER_CALLBACK\020\001\022\010\n\004PING\020\002\022\023\n\017ACCOUNT_BALA"
-      "NCE\020\003\022\027\n\023ACCOUNT_BLOCK_COUNT\020\004\022\023\n\017ACCOUN"
-      "T_PENDING\020\005b\006proto3"
+      "wrappers.proto\".\n\007request\022#\n\004type\030\001 \001(\0162"
+      "\025.nano.api.RequestType\"r\n\010response\022#\n\004ty"
+      "pe\030\001 \001(\0162\025.nano.api.RequestType\022\022\n\nerror"
+      "_code\030\002 \001(\021\022\025\n\rerror_message\030\003 \001(\t\022\026\n\016er"
+      "ror_category\030\004 \001(\t\"%\n\022req_client_connect"
+      "\022\017\n\007api_key\030\001 \001(\t\".\n\022res_client_connect\022"
+      "\030\n\020api_key_accepted\030\001 \001(\010\"\026\n\010req_ping\022\n\n"
+      "\002id\030\001 \001(\r\"\026\n\010res_ping\022\n\n\002id\030\001 \001(\r\"w\n\023req"
+      "_account_pending\022\020\n\010accounts\030\001 \003(\t\022\r\n\005co"
+      "unt\030\002 \001(\004\022\016\n\006source\030\003 \001(\010\022/\n\tthreshold\030\004"
+      " \001(\0132\034.google.protobuf.StringValue\"A\n\023re"
+      "s_account_pending\022*\n\007pending\030\001 \003(\0132\031.nan"
+      "o.api.account_pending\"\\\n\017account_pending"
+      "\022\017\n\007account\030\001 \001(\t\0228\n\nblock_info\030\002 \003(\0132$."
+      "nano.api.account_pending_block_info\"J\n\032a"
+      "ccount_pending_block_info\022\014\n\004hash\030\001 \001(\t\022"
+      "\016\n\006amount\030\002 \001(\t\022\016\n\006source\030\003 \001(\t*}\n\013Reque"
+      "stType\022\n\n\006UNKOWN\020\000\022\025\n\021REGISTER_CALLBACK\020"
+      "\001\022\010\n\004PING\020\002\022\023\n\017ACCOUNT_BALANCE\020\003\022\027\n\023ACCO"
+      "UNT_BLOCK_COUNT\020\004\022\023\n\017ACCOUNT_PENDING\020\005b\006"
+      "proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 939);
+      descriptor, 846);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "core.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fwrappers_2eproto::AddDescriptors();
@@ -458,11 +452,11 @@ struct StaticDescriptorInitializer {
 }  // namespace protobuf_core_2eproto
 namespace nano {
 namespace api {
-const ::google::protobuf::EnumDescriptor* QueryType_descriptor() {
+const ::google::protobuf::EnumDescriptor* RequestType_descriptor() {
   protobuf_core_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_core_2eproto::file_level_enum_descriptors[0];
 }
-bool QueryType_IsValid(int value) {
+bool RequestType_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -479,67 +473,67 @@ bool QueryType_IsValid(int value) {
 
 // ===================================================================
 
-void query::InitAsDefaultInstance() {
+void request::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int query::kTypeFieldNumber;
+const int request::kTypeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-query::query()
+request::request()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_core_2eproto::InitDefaultsquery();
+    ::protobuf_core_2eproto::InitDefaultsrequest();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:nano.api.query)
+  // @@protoc_insertion_point(constructor:nano.api.request)
 }
-query::query(const query& from)
+request::request(const request& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   type_ = from.type_;
-  // @@protoc_insertion_point(copy_constructor:nano.api.query)
+  // @@protoc_insertion_point(copy_constructor:nano.api.request)
 }
 
-void query::SharedCtor() {
+void request::SharedCtor() {
   type_ = 0;
   _cached_size_ = 0;
 }
 
-query::~query() {
-  // @@protoc_insertion_point(destructor:nano.api.query)
+request::~request() {
+  // @@protoc_insertion_point(destructor:nano.api.request)
   SharedDtor();
 }
 
-void query::SharedDtor() {
+void request::SharedDtor() {
 }
 
-void query::SetCachedSize(int size) const {
+void request::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* query::descriptor() {
+const ::google::protobuf::Descriptor* request::descriptor() {
   ::protobuf_core_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_core_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const query& query::default_instance() {
-  ::protobuf_core_2eproto::InitDefaultsquery();
+const request& request::default_instance() {
+  ::protobuf_core_2eproto::InitDefaultsrequest();
   return *internal_default_instance();
 }
 
-query* query::New(::google::protobuf::Arena* arena) const {
-  query* n = new query;
+request* request::New(::google::protobuf::Arena* arena) const {
+  request* n = new request;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void query::Clear() {
-// @@protoc_insertion_point(message_clear_start:nano.api.query)
+void request::Clear() {
+// @@protoc_insertion_point(message_clear_start:nano.api.request)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -548,17 +542,17 @@ void query::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool query::MergePartialFromCodedStream(
+bool request::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:nano.api.query)
+  // @@protoc_insertion_point(parse_start:nano.api.request)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .nano.api.QueryType type = 1;
+      // .nano.api.RequestType type = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
@@ -566,7 +560,7 @@ bool query::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_type(static_cast< ::nano::api::QueryType >(value));
+          set_type(static_cast< ::nano::api::RequestType >(value));
         } else {
           goto handle_unusual;
         }
@@ -585,21 +579,21 @@ bool query::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:nano.api.query)
+  // @@protoc_insertion_point(parse_success:nano.api.request)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:nano.api.query)
+  // @@protoc_insertion_point(parse_failure:nano.api.request)
   return false;
 #undef DO_
 }
 
-void query::SerializeWithCachedSizes(
+void request::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:nano.api.query)
+  // @@protoc_insertion_point(serialize_start:nano.api.request)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .nano.api.QueryType type = 1;
+  // .nano.api.RequestType type = 1;
   if (this->type() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->type(), output);
@@ -609,17 +603,17 @@ void query::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:nano.api.query)
+  // @@protoc_insertion_point(serialize_end:nano.api.request)
 }
 
-::google::protobuf::uint8* query::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* request::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:nano.api.query)
+  // @@protoc_insertion_point(serialize_to_array_start:nano.api.request)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .nano.api.QueryType type = 1;
+  // .nano.api.RequestType type = 1;
   if (this->type() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->type(), target);
@@ -629,12 +623,12 @@ void query::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:nano.api.query)
+  // @@protoc_insertion_point(serialize_to_array_end:nano.api.request)
   return target;
 }
 
-size_t query::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:nano.api.query)
+size_t request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:nano.api.request)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -642,7 +636,7 @@ size_t query::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // .nano.api.QueryType type = 1;
+  // .nano.api.RequestType type = 1;
   if (this->type() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
@@ -655,23 +649,23 @@ size_t query::ByteSizeLong() const {
   return total_size;
 }
 
-void query::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:nano.api.query)
+void request::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:nano.api.request)
   GOOGLE_DCHECK_NE(&from, this);
-  const query* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const query>(
+  const request* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const request>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:nano.api.query)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:nano.api.request)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:nano.api.query)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:nano.api.request)
     MergeFrom(*source);
   }
 }
 
-void query::MergeFrom(const query& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:nano.api.query)
+void request::MergeFrom(const request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:nano.api.request)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -682,36 +676,36 @@ void query::MergeFrom(const query& from) {
   }
 }
 
-void query::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:nano.api.query)
+void request::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:nano.api.request)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void query::CopyFrom(const query& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:nano.api.query)
+void request::CopyFrom(const request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:nano.api.request)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool query::IsInitialized() const {
+bool request::IsInitialized() const {
   return true;
 }
 
-void query::Swap(query* other) {
+void request::Swap(request* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void query::InternalSwap(query* other) {
+void request::InternalSwap(request* other) {
   using std::swap;
   swap(type_, other->type_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata query::GetMetadata() const {
+::google::protobuf::Metadata request::GetMetadata() const {
   protobuf_core_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_core_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -821,7 +815,7 @@ bool response::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .nano.api.QueryType type = 1;
+      // .nano.api.RequestType type = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
@@ -829,7 +823,7 @@ bool response::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_type(static_cast< ::nano::api::QueryType >(value));
+          set_type(static_cast< ::nano::api::RequestType >(value));
         } else {
           goto handle_unusual;
         }
@@ -908,7 +902,7 @@ void response::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .nano.api.QueryType type = 1;
+  // .nano.api.RequestType type = 1;
   if (this->type() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->type(), output);
@@ -953,7 +947,7 @@ void response::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .nano.api.QueryType type = 1;
+  // .nano.api.RequestType type = 1;
   if (this->type() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->type(), target);
@@ -1017,7 +1011,7 @@ size_t response::ByteSizeLong() const {
         this->error_category());
   }
 
-  // .nano.api.QueryType type = 1;
+  // .nano.api.RequestType type = 1;
   if (this->type() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
@@ -1115,141 +1109,99 @@ void response::InternalSwap(response* other) {
 
 // ===================================================================
 
-void query_client_connect::InitAsDefaultInstance() {
+void req_client_connect::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int query_client_connect::kApiVersionFieldNumber;
-const int query_client_connect::kApiClientIdFieldNumber;
-const int query_client_connect::kApiKeyFieldNumber;
+const int req_client_connect::kApiKeyFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-query_client_connect::query_client_connect()
+req_client_connect::req_client_connect()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_core_2eproto::InitDefaultsquery_client_connect();
+    ::protobuf_core_2eproto::InitDefaultsreq_client_connect();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:nano.api.query_client_connect)
+  // @@protoc_insertion_point(constructor:nano.api.req_client_connect)
 }
-query_client_connect::query_client_connect(const query_client_connect& from)
+req_client_connect::req_client_connect(const req_client_connect& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  api_client_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.api_client_id().size() > 0) {
-    api_client_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.api_client_id_);
-  }
   api_key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.api_key().size() > 0) {
     api_key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.api_key_);
   }
-  api_version_ = from.api_version_;
-  // @@protoc_insertion_point(copy_constructor:nano.api.query_client_connect)
+  // @@protoc_insertion_point(copy_constructor:nano.api.req_client_connect)
 }
 
-void query_client_connect::SharedCtor() {
-  api_client_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+void req_client_connect::SharedCtor() {
   api_key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  api_version_ = 0u;
   _cached_size_ = 0;
 }
 
-query_client_connect::~query_client_connect() {
-  // @@protoc_insertion_point(destructor:nano.api.query_client_connect)
+req_client_connect::~req_client_connect() {
+  // @@protoc_insertion_point(destructor:nano.api.req_client_connect)
   SharedDtor();
 }
 
-void query_client_connect::SharedDtor() {
-  api_client_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+void req_client_connect::SharedDtor() {
   api_key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-void query_client_connect::SetCachedSize(int size) const {
+void req_client_connect::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* query_client_connect::descriptor() {
+const ::google::protobuf::Descriptor* req_client_connect::descriptor() {
   ::protobuf_core_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_core_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const query_client_connect& query_client_connect::default_instance() {
-  ::protobuf_core_2eproto::InitDefaultsquery_client_connect();
+const req_client_connect& req_client_connect::default_instance() {
+  ::protobuf_core_2eproto::InitDefaultsreq_client_connect();
   return *internal_default_instance();
 }
 
-query_client_connect* query_client_connect::New(::google::protobuf::Arena* arena) const {
-  query_client_connect* n = new query_client_connect;
+req_client_connect* req_client_connect::New(::google::protobuf::Arena* arena) const {
+  req_client_connect* n = new req_client_connect;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void query_client_connect::Clear() {
-// @@protoc_insertion_point(message_clear_start:nano.api.query_client_connect)
+void req_client_connect::Clear() {
+// @@protoc_insertion_point(message_clear_start:nano.api.req_client_connect)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  api_client_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   api_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  api_version_ = 0u;
   _internal_metadata_.Clear();
 }
 
-bool query_client_connect::MergePartialFromCodedStream(
+bool req_client_connect::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:nano.api.query_client_connect)
+  // @@protoc_insertion_point(parse_start:nano.api.req_client_connect)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // uint32 api_version = 1;
+      // string api_key = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &api_version_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // string api_client_id = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_api_client_id()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->api_client_id().data(), static_cast<int>(this->api_client_id().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "nano.api.query_client_connect.api_client_id"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // string api_key = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_api_key()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->api_key().data(), static_cast<int>(this->api_key().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "nano.api.query_client_connect.api_key"));
+            "nano.api.req_client_connect.api_key"));
         } else {
           goto handle_unusual;
         }
@@ -1268,96 +1220,65 @@ bool query_client_connect::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:nano.api.query_client_connect)
+  // @@protoc_insertion_point(parse_success:nano.api.req_client_connect)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:nano.api.query_client_connect)
+  // @@protoc_insertion_point(parse_failure:nano.api.req_client_connect)
   return false;
 #undef DO_
 }
 
-void query_client_connect::SerializeWithCachedSizes(
+void req_client_connect::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:nano.api.query_client_connect)
+  // @@protoc_insertion_point(serialize_start:nano.api.req_client_connect)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 api_version = 1;
-  if (this->api_version() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->api_version(), output);
-  }
-
-  // string api_client_id = 2;
-  if (this->api_client_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->api_client_id().data(), static_cast<int>(this->api_client_id().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "nano.api.query_client_connect.api_client_id");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->api_client_id(), output);
-  }
-
-  // string api_key = 3;
+  // string api_key = 1;
   if (this->api_key().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->api_key().data(), static_cast<int>(this->api_key().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "nano.api.query_client_connect.api_key");
+      "nano.api.req_client_connect.api_key");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->api_key(), output);
+      1, this->api_key(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:nano.api.query_client_connect)
+  // @@protoc_insertion_point(serialize_end:nano.api.req_client_connect)
 }
 
-::google::protobuf::uint8* query_client_connect::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* req_client_connect::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:nano.api.query_client_connect)
+  // @@protoc_insertion_point(serialize_to_array_start:nano.api.req_client_connect)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 api_version = 1;
-  if (this->api_version() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->api_version(), target);
-  }
-
-  // string api_client_id = 2;
-  if (this->api_client_id().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->api_client_id().data(), static_cast<int>(this->api_client_id().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "nano.api.query_client_connect.api_client_id");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->api_client_id(), target);
-  }
-
-  // string api_key = 3;
+  // string api_key = 1;
   if (this->api_key().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->api_key().data(), static_cast<int>(this->api_key().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "nano.api.query_client_connect.api_key");
+      "nano.api.req_client_connect.api_key");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->api_key(), target);
+        1, this->api_key(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:nano.api.query_client_connect)
+  // @@protoc_insertion_point(serialize_to_array_end:nano.api.req_client_connect)
   return target;
 }
 
-size_t query_client_connect::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:nano.api.query_client_connect)
+size_t req_client_connect::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:nano.api.req_client_connect)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1365,25 +1286,11 @@ size_t query_client_connect::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // string api_client_id = 2;
-  if (this->api_client_id().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->api_client_id());
-  }
-
-  // string api_key = 3;
+  // string api_key = 1;
   if (this->api_key().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->api_key());
-  }
-
-  // uint32 api_version = 1;
-  if (this->api_version() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->api_version());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1393,73 +1300,64 @@ size_t query_client_connect::ByteSizeLong() const {
   return total_size;
 }
 
-void query_client_connect::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:nano.api.query_client_connect)
+void req_client_connect::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:nano.api.req_client_connect)
   GOOGLE_DCHECK_NE(&from, this);
-  const query_client_connect* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const query_client_connect>(
+  const req_client_connect* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const req_client_connect>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:nano.api.query_client_connect)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:nano.api.req_client_connect)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:nano.api.query_client_connect)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:nano.api.req_client_connect)
     MergeFrom(*source);
   }
 }
 
-void query_client_connect::MergeFrom(const query_client_connect& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:nano.api.query_client_connect)
+void req_client_connect::MergeFrom(const req_client_connect& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:nano.api.req_client_connect)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.api_client_id().size() > 0) {
-
-    api_client_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.api_client_id_);
-  }
   if (from.api_key().size() > 0) {
 
     api_key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.api_key_);
   }
-  if (from.api_version() != 0) {
-    set_api_version(from.api_version());
-  }
 }
 
-void query_client_connect::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:nano.api.query_client_connect)
+void req_client_connect::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:nano.api.req_client_connect)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void query_client_connect::CopyFrom(const query_client_connect& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:nano.api.query_client_connect)
+void req_client_connect::CopyFrom(const req_client_connect& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:nano.api.req_client_connect)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool query_client_connect::IsInitialized() const {
+bool req_client_connect::IsInitialized() const {
   return true;
 }
 
-void query_client_connect::Swap(query_client_connect* other) {
+void req_client_connect::Swap(req_client_connect* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void query_client_connect::InternalSwap(query_client_connect* other) {
+void req_client_connect::InternalSwap(req_client_connect* other) {
   using std::swap;
-  api_client_id_.Swap(&other->api_client_id_);
   api_key_.Swap(&other->api_key_);
-  swap(api_version_, other->api_version_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata query_client_connect::GetMetadata() const {
+::google::protobuf::Metadata req_client_connect::GetMetadata() const {
   protobuf_core_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_core_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -1470,9 +1368,7 @@ void query_client_connect::InternalSwap(query_client_connect* other) {
 void res_client_connect::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int res_client_connect::kApiVersionFieldNumber;
-const int res_client_connect::kNodeVersionMajorFieldNumber;
-const int res_client_connect::kNodeVersionPatchFieldNumber;
+const int res_client_connect::kApiKeyAcceptedFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 res_client_connect::res_client_connect()
@@ -1488,16 +1384,12 @@ res_client_connect::res_client_connect(const res_client_connect& from)
       _internal_metadata_(NULL),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&api_version_, &from.api_version_,
-    static_cast<size_t>(reinterpret_cast<char*>(&node_version_patch_) -
-    reinterpret_cast<char*>(&api_version_)) + sizeof(node_version_patch_));
+  api_key_accepted_ = from.api_key_accepted_;
   // @@protoc_insertion_point(copy_constructor:nano.api.res_client_connect)
 }
 
 void res_client_connect::SharedCtor() {
-  ::memset(&api_version_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&node_version_patch_) -
-      reinterpret_cast<char*>(&api_version_)) + sizeof(node_version_patch_));
+  api_key_accepted_ = false;
   _cached_size_ = 0;
 }
 
@@ -1538,9 +1430,7 @@ void res_client_connect::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&api_version_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&node_version_patch_) -
-      reinterpret_cast<char*>(&api_version_)) + sizeof(node_version_patch_));
+  api_key_accepted_ = false;
   _internal_metadata_.Clear();
 }
 
@@ -1554,42 +1444,14 @@ bool res_client_connect::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // uint32 api_version = 1;
+      // bool api_key_accepted = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &api_version_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // uint32 node_version_major = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &node_version_major_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // uint32 node_version_patch = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &node_version_patch_)));
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &api_key_accepted_)));
         } else {
           goto handle_unusual;
         }
@@ -1622,19 +1484,9 @@ void res_client_connect::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 api_version = 1;
-  if (this->api_version() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->api_version(), output);
-  }
-
-  // uint32 node_version_major = 2;
-  if (this->node_version_major() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->node_version_major(), output);
-  }
-
-  // uint32 node_version_patch = 3;
-  if (this->node_version_patch() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->node_version_patch(), output);
+  // bool api_key_accepted = 1;
+  if (this->api_key_accepted() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->api_key_accepted(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1651,19 +1503,9 @@ void res_client_connect::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 api_version = 1;
-  if (this->api_version() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->api_version(), target);
-  }
-
-  // uint32 node_version_major = 2;
-  if (this->node_version_major() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->node_version_major(), target);
-  }
-
-  // uint32 node_version_patch = 3;
-  if (this->node_version_patch() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->node_version_patch(), target);
+  // bool api_key_accepted = 1;
+  if (this->api_key_accepted() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->api_key_accepted(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1683,25 +1525,9 @@ size_t res_client_connect::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // uint32 api_version = 1;
-  if (this->api_version() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->api_version());
-  }
-
-  // uint32 node_version_major = 2;
-  if (this->node_version_major() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->node_version_major());
-  }
-
-  // uint32 node_version_patch = 3;
-  if (this->node_version_patch() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->node_version_patch());
+  // bool api_key_accepted = 1;
+  if (this->api_key_accepted() != 0) {
+    total_size += 1 + 1;
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1733,14 +1559,8 @@ void res_client_connect::MergeFrom(const res_client_connect& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.api_version() != 0) {
-    set_api_version(from.api_version());
-  }
-  if (from.node_version_major() != 0) {
-    set_node_version_major(from.node_version_major());
-  }
-  if (from.node_version_patch() != 0) {
-    set_node_version_patch(from.node_version_patch());
+  if (from.api_key_accepted() != 0) {
+    set_api_key_accepted(from.api_key_accepted());
   }
 }
 
@@ -1768,9 +1588,7 @@ void res_client_connect::Swap(res_client_connect* other) {
 }
 void res_client_connect::InternalSwap(res_client_connect* other) {
   using std::swap;
-  swap(api_version_, other->api_version_);
-  swap(node_version_major_, other->node_version_major_);
-  swap(node_version_patch_, other->node_version_patch_);
+  swap(api_key_accepted_, other->api_key_accepted_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -1783,67 +1601,67 @@ void res_client_connect::InternalSwap(res_client_connect* other) {
 
 // ===================================================================
 
-void query_ping::InitAsDefaultInstance() {
+void req_ping::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int query_ping::kIdFieldNumber;
+const int req_ping::kIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-query_ping::query_ping()
+req_ping::req_ping()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_core_2eproto::InitDefaultsquery_ping();
+    ::protobuf_core_2eproto::InitDefaultsreq_ping();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:nano.api.query_ping)
+  // @@protoc_insertion_point(constructor:nano.api.req_ping)
 }
-query_ping::query_ping(const query_ping& from)
+req_ping::req_ping(const req_ping& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   id_ = from.id_;
-  // @@protoc_insertion_point(copy_constructor:nano.api.query_ping)
+  // @@protoc_insertion_point(copy_constructor:nano.api.req_ping)
 }
 
-void query_ping::SharedCtor() {
+void req_ping::SharedCtor() {
   id_ = 0u;
   _cached_size_ = 0;
 }
 
-query_ping::~query_ping() {
-  // @@protoc_insertion_point(destructor:nano.api.query_ping)
+req_ping::~req_ping() {
+  // @@protoc_insertion_point(destructor:nano.api.req_ping)
   SharedDtor();
 }
 
-void query_ping::SharedDtor() {
+void req_ping::SharedDtor() {
 }
 
-void query_ping::SetCachedSize(int size) const {
+void req_ping::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* query_ping::descriptor() {
+const ::google::protobuf::Descriptor* req_ping::descriptor() {
   ::protobuf_core_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_core_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const query_ping& query_ping::default_instance() {
-  ::protobuf_core_2eproto::InitDefaultsquery_ping();
+const req_ping& req_ping::default_instance() {
+  ::protobuf_core_2eproto::InitDefaultsreq_ping();
   return *internal_default_instance();
 }
 
-query_ping* query_ping::New(::google::protobuf::Arena* arena) const {
-  query_ping* n = new query_ping;
+req_ping* req_ping::New(::google::protobuf::Arena* arena) const {
+  req_ping* n = new req_ping;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void query_ping::Clear() {
-// @@protoc_insertion_point(message_clear_start:nano.api.query_ping)
+void req_ping::Clear() {
+// @@protoc_insertion_point(message_clear_start:nano.api.req_ping)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -1852,11 +1670,11 @@ void query_ping::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool query_ping::MergePartialFromCodedStream(
+bool req_ping::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:nano.api.query_ping)
+  // @@protoc_insertion_point(parse_start:nano.api.req_ping)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -1888,17 +1706,17 @@ bool query_ping::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:nano.api.query_ping)
+  // @@protoc_insertion_point(parse_success:nano.api.req_ping)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:nano.api.query_ping)
+  // @@protoc_insertion_point(parse_failure:nano.api.req_ping)
   return false;
 #undef DO_
 }
 
-void query_ping::SerializeWithCachedSizes(
+void req_ping::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:nano.api.query_ping)
+  // @@protoc_insertion_point(serialize_start:nano.api.req_ping)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1911,13 +1729,13 @@ void query_ping::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:nano.api.query_ping)
+  // @@protoc_insertion_point(serialize_end:nano.api.req_ping)
 }
 
-::google::protobuf::uint8* query_ping::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* req_ping::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:nano.api.query_ping)
+  // @@protoc_insertion_point(serialize_to_array_start:nano.api.req_ping)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1930,12 +1748,12 @@ void query_ping::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:nano.api.query_ping)
+  // @@protoc_insertion_point(serialize_to_array_end:nano.api.req_ping)
   return target;
 }
 
-size_t query_ping::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:nano.api.query_ping)
+size_t req_ping::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:nano.api.req_ping)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1957,23 +1775,23 @@ size_t query_ping::ByteSizeLong() const {
   return total_size;
 }
 
-void query_ping::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:nano.api.query_ping)
+void req_ping::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:nano.api.req_ping)
   GOOGLE_DCHECK_NE(&from, this);
-  const query_ping* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const query_ping>(
+  const req_ping* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const req_ping>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:nano.api.query_ping)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:nano.api.req_ping)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:nano.api.query_ping)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:nano.api.req_ping)
     MergeFrom(*source);
   }
 }
 
-void query_ping::MergeFrom(const query_ping& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:nano.api.query_ping)
+void req_ping::MergeFrom(const req_ping& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:nano.api.req_ping)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -1984,36 +1802,36 @@ void query_ping::MergeFrom(const query_ping& from) {
   }
 }
 
-void query_ping::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:nano.api.query_ping)
+void req_ping::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:nano.api.req_ping)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void query_ping::CopyFrom(const query_ping& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:nano.api.query_ping)
+void req_ping::CopyFrom(const req_ping& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:nano.api.req_ping)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool query_ping::IsInitialized() const {
+bool req_ping::IsInitialized() const {
   return true;
 }
 
-void query_ping::Swap(query_ping* other) {
+void req_ping::Swap(req_ping* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void query_ping::InternalSwap(query_ping* other) {
+void req_ping::InternalSwap(req_ping* other) {
   using std::swap;
   swap(id_, other->id_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata query_ping::GetMetadata() const {
+::google::protobuf::Metadata req_ping::GetMetadata() const {
   protobuf_core_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_core_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -2259,32 +2077,32 @@ void res_ping::InternalSwap(res_ping* other) {
 
 // ===================================================================
 
-void query_account_pending::InitAsDefaultInstance() {
-  ::nano::api::_query_account_pending_default_instance_._instance.get_mutable()->threshold_ = const_cast< ::google::protobuf::StringValue*>(
+void req_account_pending::InitAsDefaultInstance() {
+  ::nano::api::_req_account_pending_default_instance_._instance.get_mutable()->threshold_ = const_cast< ::google::protobuf::StringValue*>(
       ::google::protobuf::StringValue::internal_default_instance());
 }
-void query_account_pending::clear_threshold() {
+void req_account_pending::clear_threshold() {
   if (GetArenaNoVirtual() == NULL && threshold_ != NULL) {
     delete threshold_;
   }
   threshold_ = NULL;
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int query_account_pending::kAccountsFieldNumber;
-const int query_account_pending::kCountFieldNumber;
-const int query_account_pending::kSourceFieldNumber;
-const int query_account_pending::kThresholdFieldNumber;
+const int req_account_pending::kAccountsFieldNumber;
+const int req_account_pending::kCountFieldNumber;
+const int req_account_pending::kSourceFieldNumber;
+const int req_account_pending::kThresholdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-query_account_pending::query_account_pending()
+req_account_pending::req_account_pending()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_core_2eproto::InitDefaultsquery_account_pending();
+    ::protobuf_core_2eproto::InitDefaultsreq_account_pending();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:nano.api.query_account_pending)
+  // @@protoc_insertion_point(constructor:nano.api.req_account_pending)
 }
-query_account_pending::query_account_pending(const query_account_pending& from)
+req_account_pending::req_account_pending(const req_account_pending& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       accounts_(from.accounts_),
@@ -2298,50 +2116,50 @@ query_account_pending::query_account_pending(const query_account_pending& from)
   ::memcpy(&count_, &from.count_,
     static_cast<size_t>(reinterpret_cast<char*>(&source_) -
     reinterpret_cast<char*>(&count_)) + sizeof(source_));
-  // @@protoc_insertion_point(copy_constructor:nano.api.query_account_pending)
+  // @@protoc_insertion_point(copy_constructor:nano.api.req_account_pending)
 }
 
-void query_account_pending::SharedCtor() {
+void req_account_pending::SharedCtor() {
   ::memset(&threshold_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&source_) -
       reinterpret_cast<char*>(&threshold_)) + sizeof(source_));
   _cached_size_ = 0;
 }
 
-query_account_pending::~query_account_pending() {
-  // @@protoc_insertion_point(destructor:nano.api.query_account_pending)
+req_account_pending::~req_account_pending() {
+  // @@protoc_insertion_point(destructor:nano.api.req_account_pending)
   SharedDtor();
 }
 
-void query_account_pending::SharedDtor() {
+void req_account_pending::SharedDtor() {
   if (this != internal_default_instance()) delete threshold_;
 }
 
-void query_account_pending::SetCachedSize(int size) const {
+void req_account_pending::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* query_account_pending::descriptor() {
+const ::google::protobuf::Descriptor* req_account_pending::descriptor() {
   ::protobuf_core_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_core_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const query_account_pending& query_account_pending::default_instance() {
-  ::protobuf_core_2eproto::InitDefaultsquery_account_pending();
+const req_account_pending& req_account_pending::default_instance() {
+  ::protobuf_core_2eproto::InitDefaultsreq_account_pending();
   return *internal_default_instance();
 }
 
-query_account_pending* query_account_pending::New(::google::protobuf::Arena* arena) const {
-  query_account_pending* n = new query_account_pending;
+req_account_pending* req_account_pending::New(::google::protobuf::Arena* arena) const {
+  req_account_pending* n = new req_account_pending;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void query_account_pending::Clear() {
-// @@protoc_insertion_point(message_clear_start:nano.api.query_account_pending)
+void req_account_pending::Clear() {
+// @@protoc_insertion_point(message_clear_start:nano.api.req_account_pending)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -2357,11 +2175,11 @@ void query_account_pending::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool query_account_pending::MergePartialFromCodedStream(
+bool req_account_pending::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:nano.api.query_account_pending)
+  // @@protoc_insertion_point(parse_start:nano.api.req_account_pending)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -2377,7 +2195,7 @@ bool query_account_pending::MergePartialFromCodedStream(
             this->accounts(this->accounts_size() - 1).data(),
             static_cast<int>(this->accounts(this->accounts_size() - 1).length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "nano.api.query_account_pending.accounts"));
+            "nano.api.req_account_pending.accounts"));
         } else {
           goto handle_unusual;
         }
@@ -2436,17 +2254,17 @@ bool query_account_pending::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:nano.api.query_account_pending)
+  // @@protoc_insertion_point(parse_success:nano.api.req_account_pending)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:nano.api.query_account_pending)
+  // @@protoc_insertion_point(parse_failure:nano.api.req_account_pending)
   return false;
 #undef DO_
 }
 
-void query_account_pending::SerializeWithCachedSizes(
+void req_account_pending::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:nano.api.query_account_pending)
+  // @@protoc_insertion_point(serialize_start:nano.api.req_account_pending)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -2455,7 +2273,7 @@ void query_account_pending::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->accounts(i).data(), static_cast<int>(this->accounts(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "nano.api.query_account_pending.accounts");
+      "nano.api.req_account_pending.accounts");
     ::google::protobuf::internal::WireFormatLite::WriteString(
       1, this->accounts(i), output);
   }
@@ -2480,13 +2298,13 @@ void query_account_pending::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:nano.api.query_account_pending)
+  // @@protoc_insertion_point(serialize_end:nano.api.req_account_pending)
 }
 
-::google::protobuf::uint8* query_account_pending::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* req_account_pending::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:nano.api.query_account_pending)
+  // @@protoc_insertion_point(serialize_to_array_start:nano.api.req_account_pending)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -2495,7 +2313,7 @@ void query_account_pending::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->accounts(i).data(), static_cast<int>(this->accounts(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "nano.api.query_account_pending.accounts");
+      "nano.api.req_account_pending.accounts");
     target = ::google::protobuf::internal::WireFormatLite::
       WriteStringToArray(1, this->accounts(i), target);
   }
@@ -2521,12 +2339,12 @@ void query_account_pending::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:nano.api.query_account_pending)
+  // @@protoc_insertion_point(serialize_to_array_end:nano.api.req_account_pending)
   return target;
 }
 
-size_t query_account_pending::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:nano.api.query_account_pending)
+size_t req_account_pending::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:nano.api.req_account_pending)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -2568,23 +2386,23 @@ size_t query_account_pending::ByteSizeLong() const {
   return total_size;
 }
 
-void query_account_pending::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:nano.api.query_account_pending)
+void req_account_pending::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:nano.api.req_account_pending)
   GOOGLE_DCHECK_NE(&from, this);
-  const query_account_pending* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const query_account_pending>(
+  const req_account_pending* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const req_account_pending>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:nano.api.query_account_pending)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:nano.api.req_account_pending)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:nano.api.query_account_pending)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:nano.api.req_account_pending)
     MergeFrom(*source);
   }
 }
 
-void query_account_pending::MergeFrom(const query_account_pending& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:nano.api.query_account_pending)
+void req_account_pending::MergeFrom(const req_account_pending& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:nano.api.req_account_pending)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -2602,29 +2420,29 @@ void query_account_pending::MergeFrom(const query_account_pending& from) {
   }
 }
 
-void query_account_pending::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:nano.api.query_account_pending)
+void req_account_pending::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:nano.api.req_account_pending)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void query_account_pending::CopyFrom(const query_account_pending& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:nano.api.query_account_pending)
+void req_account_pending::CopyFrom(const req_account_pending& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:nano.api.req_account_pending)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool query_account_pending::IsInitialized() const {
+bool req_account_pending::IsInitialized() const {
   return true;
 }
 
-void query_account_pending::Swap(query_account_pending* other) {
+void req_account_pending::Swap(req_account_pending* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void query_account_pending::InternalSwap(query_account_pending* other) {
+void req_account_pending::InternalSwap(req_account_pending* other) {
   using std::swap;
   accounts_.InternalSwap(&other->accounts_);
   swap(threshold_, other->threshold_);
@@ -2634,7 +2452,7 @@ void query_account_pending::InternalSwap(query_account_pending* other) {
   swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata query_account_pending::GetMetadata() const {
+::google::protobuf::Metadata req_account_pending::GetMetadata() const {
   protobuf_core_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_core_2eproto::file_level_metadata[kIndexInFileMessages];
 }

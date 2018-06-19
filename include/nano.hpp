@@ -26,46 +26,46 @@ public:
     inline bool is_connected () { return session != nullptr; }
 
     /**
-     * Query the node. The query type is derived from the query message.
-     * @param query_a Query message
+     * Send a request. The request type is derived from the request message.
+     * @param request_a Request message
      * @param response_a Response output message
      * @returns 0 on success. Otherwise, call last_error(_string) for more information.
      */
-    template <typename QUERY_TYPE, typename RESPONSE_TYPE>
-    int query (QUERY_TYPE const & query_a, RESPONSE_TYPE & response_a)
+    template <typename REQUEST_TYPE, typename RESPONSE_TYPE>
+    int request (REQUEST_TYPE const & request_a, RESPONSE_TYPE & response_a)
     {
         int res = 0;
-        assert (query_a.descriptor() && query_a.descriptor()->name().size() > 6);
-        auto query_name_enum = query_a.descriptor()->name();
-        query_name_enum = query_name_enum.substr(6, std::string::npos);
-        std::transform(query_name_enum.begin(), query_name_enum.end(),query_name_enum.begin(), ::toupper);
+        assert (request_a.descriptor() && request_a.descriptor()->name().size() > 4);
+        auto request_name_enum = request_a.descriptor()->name();
+        request_name_enum = request_name_enum.substr(4, std::string::npos);
+        std::transform(request_name_enum.begin(), request_name_enum.end(),request_name_enum.begin(), ::toupper);
 
-        nano::api::QueryType qt;
-        if (nano::api::QueryType_Parse(query_name_enum, &qt))
+        nano::api::RequestType qt;
+        if (nano::api::RequestType_Parse(request_name_enum, &qt))
         {
-            res = query(qt, query_a, response_a);
+            res = request(qt, request_a, response_a);
         }
         else
         {
-            last_error_set (1, std::string("No matching query type found: ") + query_name_enum);
+            last_error_set (1, std::string("No matching request type found: ") + request_name_enum);
         }
         return res;
     }
 
     /** 
-     * Query the node
-     * @param type Query type
-     * @param query_a Query message
+     * Send a request with the type specified manually. This is slighty faster than letting the API figure out the type.
+     * @param type Request type
+     * @param request_a Request message
      * @param response_a Response output message
      * @returns 0 on success. Otherwise, call last_error(_string) for more information.
      */
-    template <typename QUERY_TYPE, typename RESPONSE_TYPE>
-    int query (nano::api::QueryType type, QUERY_TYPE const & query_a, RESPONSE_TYPE & response_a)
+    template <typename REQUEST_TYPE, typename RESPONSE_TYPE>
+    int request (nano::api::RequestType type, REQUEST_TYPE const & request_a, RESPONSE_TYPE & response_a)
     {
-        std::string msg = query_a.SerializeAsString ();
+        std::string msg = request_a.SerializeAsString ();
         std::string result;
 
-        int res = query (nano::api::QueryType::ACCOUNT_PENDING, msg, result);
+        int res = request (type, msg, result);
         if (!res)
         {
             response_a = RESPONSE_TYPE();
@@ -76,13 +76,13 @@ public:
     }
 
     /** 
-     * Query the node using raw buffers
-     * @param type Query type
-     * @param query_a Query buffer
+     * Send request to the node using raw buffers
+     * @param type Request type
+     * @param request Request buffer
      * @param response_a Response output buffer
      * @returns 0 on success. Otherwise, call last_error(_string) for more information.
      */
-    int query (nano::api::QueryType type, std::string query, std::string & response);
+    int request (nano::api::RequestType type, std::string request, std::string & response);
 
     int to_json (google::protobuf::Message & message, std::string & json_output);
     int from_json (google::protobuf::Message & message, std::string json_input);

@@ -7,49 +7,49 @@
 #endif
 
 #include "core.pb-c.h"
-void   query__init
-                     (Query         *message)
+void   request__init
+                     (Request         *message)
 {
-  static const Query init_value = QUERY__INIT;
+  static const Request init_value = REQUEST__INIT;
   *message = init_value;
 }
-size_t query__get_packed_size
-                     (const Query *message)
+size_t request__get_packed_size
+                     (const Request *message)
 {
-  assert(message->base.descriptor == &query__descriptor);
+  assert(message->base.descriptor == &request__descriptor);
   return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
 }
-size_t query__pack
-                     (const Query *message,
+size_t request__pack
+                     (const Request *message,
                       uint8_t       *out)
 {
-  assert(message->base.descriptor == &query__descriptor);
+  assert(message->base.descriptor == &request__descriptor);
   return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
 }
-size_t query__pack_to_buffer
-                     (const Query *message,
+size_t request__pack_to_buffer
+                     (const Request *message,
                       ProtobufCBuffer *buffer)
 {
-  assert(message->base.descriptor == &query__descriptor);
+  assert(message->base.descriptor == &request__descriptor);
   return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
 }
-Query *
-       query__unpack
+Request *
+       request__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data)
 {
-  return (Query *)
-     protobuf_c_message_unpack (&query__descriptor,
+  return (Request *)
+     protobuf_c_message_unpack (&request__descriptor,
                                 allocator, len, data);
 }
-void   query__free_unpacked
-                     (Query *message,
+void   request__free_unpacked
+                     (Request *message,
                       ProtobufCAllocator *allocator)
 {
   if(!message)
     return;
-  assert(message->base.descriptor == &query__descriptor);
+  assert(message->base.descriptor == &request__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
 void   response__init
@@ -97,49 +97,49 @@ void   response__free_unpacked
   assert(message->base.descriptor == &response__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-void   query_client_connect__init
-                     (QueryClientConnect         *message)
+void   req_client_connect__init
+                     (ReqClientConnect         *message)
 {
-  static const QueryClientConnect init_value = QUERY_CLIENT_CONNECT__INIT;
+  static const ReqClientConnect init_value = REQ_CLIENT_CONNECT__INIT;
   *message = init_value;
 }
-size_t query_client_connect__get_packed_size
-                     (const QueryClientConnect *message)
+size_t req_client_connect__get_packed_size
+                     (const ReqClientConnect *message)
 {
-  assert(message->base.descriptor == &query_client_connect__descriptor);
+  assert(message->base.descriptor == &req_client_connect__descriptor);
   return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
 }
-size_t query_client_connect__pack
-                     (const QueryClientConnect *message,
+size_t req_client_connect__pack
+                     (const ReqClientConnect *message,
                       uint8_t       *out)
 {
-  assert(message->base.descriptor == &query_client_connect__descriptor);
+  assert(message->base.descriptor == &req_client_connect__descriptor);
   return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
 }
-size_t query_client_connect__pack_to_buffer
-                     (const QueryClientConnect *message,
+size_t req_client_connect__pack_to_buffer
+                     (const ReqClientConnect *message,
                       ProtobufCBuffer *buffer)
 {
-  assert(message->base.descriptor == &query_client_connect__descriptor);
+  assert(message->base.descriptor == &req_client_connect__descriptor);
   return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
 }
-QueryClientConnect *
-       query_client_connect__unpack
+ReqClientConnect *
+       req_client_connect__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data)
 {
-  return (QueryClientConnect *)
-     protobuf_c_message_unpack (&query_client_connect__descriptor,
+  return (ReqClientConnect *)
+     protobuf_c_message_unpack (&req_client_connect__descriptor,
                                 allocator, len, data);
 }
-void   query_client_connect__free_unpacked
-                     (QueryClientConnect *message,
+void   req_client_connect__free_unpacked
+                     (ReqClientConnect *message,
                       ProtobufCAllocator *allocator)
 {
   if(!message)
     return;
-  assert(message->base.descriptor == &query_client_connect__descriptor);
+  assert(message->base.descriptor == &req_client_connect__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
 void   res_client_connect__init
@@ -187,49 +187,49 @@ void   res_client_connect__free_unpacked
   assert(message->base.descriptor == &res_client_connect__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-void   query_ping__init
-                     (QueryPing         *message)
+void   req_ping__init
+                     (ReqPing         *message)
 {
-  static const QueryPing init_value = QUERY_PING__INIT;
+  static const ReqPing init_value = REQ_PING__INIT;
   *message = init_value;
 }
-size_t query_ping__get_packed_size
-                     (const QueryPing *message)
+size_t req_ping__get_packed_size
+                     (const ReqPing *message)
 {
-  assert(message->base.descriptor == &query_ping__descriptor);
+  assert(message->base.descriptor == &req_ping__descriptor);
   return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
 }
-size_t query_ping__pack
-                     (const QueryPing *message,
+size_t req_ping__pack
+                     (const ReqPing *message,
                       uint8_t       *out)
 {
-  assert(message->base.descriptor == &query_ping__descriptor);
+  assert(message->base.descriptor == &req_ping__descriptor);
   return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
 }
-size_t query_ping__pack_to_buffer
-                     (const QueryPing *message,
+size_t req_ping__pack_to_buffer
+                     (const ReqPing *message,
                       ProtobufCBuffer *buffer)
 {
-  assert(message->base.descriptor == &query_ping__descriptor);
+  assert(message->base.descriptor == &req_ping__descriptor);
   return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
 }
-QueryPing *
-       query_ping__unpack
+ReqPing *
+       req_ping__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data)
 {
-  return (QueryPing *)
-     protobuf_c_message_unpack (&query_ping__descriptor,
+  return (ReqPing *)
+     protobuf_c_message_unpack (&req_ping__descriptor,
                                 allocator, len, data);
 }
-void   query_ping__free_unpacked
-                     (QueryPing *message,
+void   req_ping__free_unpacked
+                     (ReqPing *message,
                       ProtobufCAllocator *allocator)
 {
   if(!message)
     return;
-  assert(message->base.descriptor == &query_ping__descriptor);
+  assert(message->base.descriptor == &req_ping__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
 void   res_ping__init
@@ -277,49 +277,49 @@ void   res_ping__free_unpacked
   assert(message->base.descriptor == &res_ping__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-void   query_account_pending__init
-                     (QueryAccountPending         *message)
+void   req_account_pending__init
+                     (ReqAccountPending         *message)
 {
-  static const QueryAccountPending init_value = QUERY_ACCOUNT_PENDING__INIT;
+  static const ReqAccountPending init_value = REQ_ACCOUNT_PENDING__INIT;
   *message = init_value;
 }
-size_t query_account_pending__get_packed_size
-                     (const QueryAccountPending *message)
+size_t req_account_pending__get_packed_size
+                     (const ReqAccountPending *message)
 {
-  assert(message->base.descriptor == &query_account_pending__descriptor);
+  assert(message->base.descriptor == &req_account_pending__descriptor);
   return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
 }
-size_t query_account_pending__pack
-                     (const QueryAccountPending *message,
+size_t req_account_pending__pack
+                     (const ReqAccountPending *message,
                       uint8_t       *out)
 {
-  assert(message->base.descriptor == &query_account_pending__descriptor);
+  assert(message->base.descriptor == &req_account_pending__descriptor);
   return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
 }
-size_t query_account_pending__pack_to_buffer
-                     (const QueryAccountPending *message,
+size_t req_account_pending__pack_to_buffer
+                     (const ReqAccountPending *message,
                       ProtobufCBuffer *buffer)
 {
-  assert(message->base.descriptor == &query_account_pending__descriptor);
+  assert(message->base.descriptor == &req_account_pending__descriptor);
   return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
 }
-QueryAccountPending *
-       query_account_pending__unpack
+ReqAccountPending *
+       req_account_pending__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data)
 {
-  return (QueryAccountPending *)
-     protobuf_c_message_unpack (&query_account_pending__descriptor,
+  return (ReqAccountPending *)
+     protobuf_c_message_unpack (&req_account_pending__descriptor,
                                 allocator, len, data);
 }
-void   query_account_pending__free_unpacked
-                     (QueryAccountPending *message,
+void   req_account_pending__free_unpacked
+                     (ReqAccountPending *message,
                       ProtobufCAllocator *allocator)
 {
   if(!message)
     return;
-  assert(message->base.descriptor == &query_account_pending__descriptor);
+  assert(message->base.descriptor == &req_account_pending__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
 void   res_account_pending__init
@@ -457,7 +457,7 @@ void   account_pending_block_info__free_unpacked
   assert(message->base.descriptor == &account_pending_block_info__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-static const ProtobufCFieldDescriptor query__field_descriptors[1] =
+static const ProtobufCFieldDescriptor request__field_descriptors[1] =
 {
   {
     "type",
@@ -465,34 +465,34 @@ static const ProtobufCFieldDescriptor query__field_descriptors[1] =
     PROTOBUF_C_LABEL_NONE,
     PROTOBUF_C_TYPE_ENUM,
     0,   /* quantifier_offset */
-    offsetof(Query, type),
-    &query_type__descriptor,
+    offsetof(Request, type),
+    &request_type__descriptor,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
 };
-static const unsigned query__field_indices_by_name[] = {
+static const unsigned request__field_indices_by_name[] = {
   0,   /* field[0] = type */
 };
-static const ProtobufCIntRange query__number_ranges[1 + 1] =
+static const ProtobufCIntRange request__number_ranges[1 + 1] =
 {
   { 1, 0 },
   { 0, 1 }
 };
-const ProtobufCMessageDescriptor query__descriptor =
+const ProtobufCMessageDescriptor request__descriptor =
 {
   PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "query",
-  "Query",
-  "Query",
+  "request",
+  "Request",
+  "Request",
   "",
-  sizeof(Query),
+  sizeof(Request),
   1,
-  query__field_descriptors,
-  query__field_indices_by_name,
-  1,  query__number_ranges,
-  (ProtobufCMessageInit) query__init,
+  request__field_descriptors,
+  request__field_indices_by_name,
+  1,  request__number_ranges,
+  (ProtobufCMessageInit) request__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
 static const ProtobufCFieldDescriptor response__field_descriptors[4] =
@@ -504,7 +504,7 @@ static const ProtobufCFieldDescriptor response__field_descriptors[4] =
     PROTOBUF_C_TYPE_ENUM,
     0,   /* quantifier_offset */
     offsetof(Response, type),
-    &query_type__descriptor,
+    &request_type__descriptor,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
@@ -572,103 +572,53 @@ const ProtobufCMessageDescriptor response__descriptor =
   (ProtobufCMessageInit) response__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor query_client_connect__field_descriptors[3] =
+static const ProtobufCFieldDescriptor req_client_connect__field_descriptors[1] =
 {
-  {
-    "api_version",
-    1,
-    PROTOBUF_C_LABEL_NONE,
-    PROTOBUF_C_TYPE_UINT32,
-    0,   /* quantifier_offset */
-    offsetof(QueryClientConnect, api_version),
-    NULL,
-    NULL,
-    0,             /* flags */
-    0,NULL,NULL    /* reserved1,reserved2, etc */
-  },
-  {
-    "api_client_id",
-    2,
-    PROTOBUF_C_LABEL_NONE,
-    PROTOBUF_C_TYPE_STRING,
-    0,   /* quantifier_offset */
-    offsetof(QueryClientConnect, api_client_id),
-    NULL,
-    &protobuf_c_empty_string,
-    0,             /* flags */
-    0,NULL,NULL    /* reserved1,reserved2, etc */
-  },
   {
     "api_key",
-    3,
+    1,
     PROTOBUF_C_LABEL_NONE,
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
-    offsetof(QueryClientConnect, api_key),
+    offsetof(ReqClientConnect, api_key),
     NULL,
     &protobuf_c_empty_string,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
 };
-static const unsigned query_client_connect__field_indices_by_name[] = {
-  1,   /* field[1] = api_client_id */
-  2,   /* field[2] = api_key */
-  0,   /* field[0] = api_version */
+static const unsigned req_client_connect__field_indices_by_name[] = {
+  0,   /* field[0] = api_key */
 };
-static const ProtobufCIntRange query_client_connect__number_ranges[1 + 1] =
+static const ProtobufCIntRange req_client_connect__number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 3 }
+  { 0, 1 }
 };
-const ProtobufCMessageDescriptor query_client_connect__descriptor =
+const ProtobufCMessageDescriptor req_client_connect__descriptor =
 {
   PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "query_client_connect",
-  "QueryClientConnect",
-  "QueryClientConnect",
+  "req_client_connect",
+  "ReqClientConnect",
+  "ReqClientConnect",
   "",
-  sizeof(QueryClientConnect),
-  3,
-  query_client_connect__field_descriptors,
-  query_client_connect__field_indices_by_name,
-  1,  query_client_connect__number_ranges,
-  (ProtobufCMessageInit) query_client_connect__init,
+  sizeof(ReqClientConnect),
+  1,
+  req_client_connect__field_descriptors,
+  req_client_connect__field_indices_by_name,
+  1,  req_client_connect__number_ranges,
+  (ProtobufCMessageInit) req_client_connect__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor res_client_connect__field_descriptors[3] =
+static const ProtobufCFieldDescriptor res_client_connect__field_descriptors[1] =
 {
   {
-    "api_version",
+    "api_key_accepted",
     1,
     PROTOBUF_C_LABEL_NONE,
-    PROTOBUF_C_TYPE_UINT32,
+    PROTOBUF_C_TYPE_BOOL,
     0,   /* quantifier_offset */
-    offsetof(ResClientConnect, api_version),
-    NULL,
-    NULL,
-    0,             /* flags */
-    0,NULL,NULL    /* reserved1,reserved2, etc */
-  },
-  {
-    "node_version_major",
-    2,
-    PROTOBUF_C_LABEL_NONE,
-    PROTOBUF_C_TYPE_UINT32,
-    0,   /* quantifier_offset */
-    offsetof(ResClientConnect, node_version_major),
-    NULL,
-    NULL,
-    0,             /* flags */
-    0,NULL,NULL    /* reserved1,reserved2, etc */
-  },
-  {
-    "node_version_patch",
-    3,
-    PROTOBUF_C_LABEL_NONE,
-    PROTOBUF_C_TYPE_UINT32,
-    0,   /* quantifier_offset */
-    offsetof(ResClientConnect, node_version_patch),
+    offsetof(ResClientConnect, api_key_accepted),
     NULL,
     NULL,
     0,             /* flags */
@@ -676,14 +626,12 @@ static const ProtobufCFieldDescriptor res_client_connect__field_descriptors[3] =
   },
 };
 static const unsigned res_client_connect__field_indices_by_name[] = {
-  0,   /* field[0] = api_version */
-  1,   /* field[1] = node_version_major */
-  2,   /* field[2] = node_version_patch */
+  0,   /* field[0] = api_key_accepted */
 };
 static const ProtobufCIntRange res_client_connect__number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 3 }
+  { 0, 1 }
 };
 const ProtobufCMessageDescriptor res_client_connect__descriptor =
 {
@@ -693,14 +641,14 @@ const ProtobufCMessageDescriptor res_client_connect__descriptor =
   "ResClientConnect",
   "",
   sizeof(ResClientConnect),
-  3,
+  1,
   res_client_connect__field_descriptors,
   res_client_connect__field_indices_by_name,
   1,  res_client_connect__number_ranges,
   (ProtobufCMessageInit) res_client_connect__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor query_ping__field_descriptors[1] =
+static const ProtobufCFieldDescriptor req_ping__field_descriptors[1] =
 {
   {
     "id",
@@ -708,34 +656,34 @@ static const ProtobufCFieldDescriptor query_ping__field_descriptors[1] =
     PROTOBUF_C_LABEL_NONE,
     PROTOBUF_C_TYPE_UINT32,
     0,   /* quantifier_offset */
-    offsetof(QueryPing, id),
+    offsetof(ReqPing, id),
     NULL,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
 };
-static const unsigned query_ping__field_indices_by_name[] = {
+static const unsigned req_ping__field_indices_by_name[] = {
   0,   /* field[0] = id */
 };
-static const ProtobufCIntRange query_ping__number_ranges[1 + 1] =
+static const ProtobufCIntRange req_ping__number_ranges[1 + 1] =
 {
   { 1, 0 },
   { 0, 1 }
 };
-const ProtobufCMessageDescriptor query_ping__descriptor =
+const ProtobufCMessageDescriptor req_ping__descriptor =
 {
   PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "query_ping",
-  "QueryPing",
-  "QueryPing",
+  "req_ping",
+  "ReqPing",
+  "ReqPing",
   "",
-  sizeof(QueryPing),
+  sizeof(ReqPing),
   1,
-  query_ping__field_descriptors,
-  query_ping__field_indices_by_name,
-  1,  query_ping__number_ranges,
-  (ProtobufCMessageInit) query_ping__init,
+  req_ping__field_descriptors,
+  req_ping__field_indices_by_name,
+  1,  req_ping__number_ranges,
+  (ProtobufCMessageInit) req_ping__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
 static const ProtobufCFieldDescriptor res_ping__field_descriptors[1] =
@@ -776,15 +724,15 @@ const ProtobufCMessageDescriptor res_ping__descriptor =
   (ProtobufCMessageInit) res_ping__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor query_account_pending__field_descriptors[4] =
+static const ProtobufCFieldDescriptor req_account_pending__field_descriptors[4] =
 {
   {
     "accounts",
     1,
     PROTOBUF_C_LABEL_REPEATED,
     PROTOBUF_C_TYPE_STRING,
-    offsetof(QueryAccountPending, n_accounts),
-    offsetof(QueryAccountPending, accounts),
+    offsetof(ReqAccountPending, n_accounts),
+    offsetof(ReqAccountPending, accounts),
     NULL,
     &protobuf_c_empty_string,
     0,             /* flags */
@@ -796,7 +744,7 @@ static const ProtobufCFieldDescriptor query_account_pending__field_descriptors[4
     PROTOBUF_C_LABEL_NONE,
     PROTOBUF_C_TYPE_UINT64,
     0,   /* quantifier_offset */
-    offsetof(QueryAccountPending, count),
+    offsetof(ReqAccountPending, count),
     NULL,
     NULL,
     0,             /* flags */
@@ -808,7 +756,7 @@ static const ProtobufCFieldDescriptor query_account_pending__field_descriptors[4
     PROTOBUF_C_LABEL_NONE,
     PROTOBUF_C_TYPE_BOOL,
     0,   /* quantifier_offset */
-    offsetof(QueryAccountPending, source),
+    offsetof(ReqAccountPending, source),
     NULL,
     NULL,
     0,             /* flags */
@@ -820,37 +768,37 @@ static const ProtobufCFieldDescriptor query_account_pending__field_descriptors[4
     PROTOBUF_C_LABEL_NONE,
     PROTOBUF_C_TYPE_MESSAGE,
     0,   /* quantifier_offset */
-    offsetof(QueryAccountPending, threshold),
+    offsetof(ReqAccountPending, threshold),
     &google__protobuf__string_value__descriptor,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
 };
-static const unsigned query_account_pending__field_indices_by_name[] = {
+static const unsigned req_account_pending__field_indices_by_name[] = {
   0,   /* field[0] = accounts */
   1,   /* field[1] = count */
   2,   /* field[2] = source */
   3,   /* field[3] = threshold */
 };
-static const ProtobufCIntRange query_account_pending__number_ranges[1 + 1] =
+static const ProtobufCIntRange req_account_pending__number_ranges[1 + 1] =
 {
   { 1, 0 },
   { 0, 4 }
 };
-const ProtobufCMessageDescriptor query_account_pending__descriptor =
+const ProtobufCMessageDescriptor req_account_pending__descriptor =
 {
   PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "query_account_pending",
-  "QueryAccountPending",
-  "QueryAccountPending",
+  "req_account_pending",
+  "ReqAccountPending",
+  "ReqAccountPending",
   "",
-  sizeof(QueryAccountPending),
+  sizeof(ReqAccountPending),
   4,
-  query_account_pending__field_descriptors,
-  query_account_pending__field_indices_by_name,
-  1,  query_account_pending__number_ranges,
-  (ProtobufCMessageInit) query_account_pending__init,
+  req_account_pending__field_descriptors,
+  req_account_pending__field_indices_by_name,
+  1,  req_account_pending__number_ranges,
+  (ProtobufCMessageInit) req_account_pending__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
 static const ProtobufCFieldDescriptor res_account_pending__field_descriptors[1] =
@@ -1006,19 +954,19 @@ const ProtobufCMessageDescriptor account_pending_block_info__descriptor =
   (ProtobufCMessageInit) account_pending_block_info__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCEnumValue query_type__enum_values_by_number[6] =
+static const ProtobufCEnumValue request_type__enum_values_by_number[6] =
 {
-  { "UNKOWN", "QUERY_TYPE__UNKOWN", 0 },
-  { "REGISTER_CALLBACK", "QUERY_TYPE__REGISTER_CALLBACK", 1 },
-  { "PING", "QUERY_TYPE__PING", 2 },
-  { "ACCOUNT_BALANCE", "QUERY_TYPE__ACCOUNT_BALANCE", 3 },
-  { "ACCOUNT_BLOCK_COUNT", "QUERY_TYPE__ACCOUNT_BLOCK_COUNT", 4 },
-  { "ACCOUNT_PENDING", "QUERY_TYPE__ACCOUNT_PENDING", 5 },
+  { "UNKOWN", "REQUEST_TYPE__UNKOWN", 0 },
+  { "REGISTER_CALLBACK", "REQUEST_TYPE__REGISTER_CALLBACK", 1 },
+  { "PING", "REQUEST_TYPE__PING", 2 },
+  { "ACCOUNT_BALANCE", "REQUEST_TYPE__ACCOUNT_BALANCE", 3 },
+  { "ACCOUNT_BLOCK_COUNT", "REQUEST_TYPE__ACCOUNT_BLOCK_COUNT", 4 },
+  { "ACCOUNT_PENDING", "REQUEST_TYPE__ACCOUNT_PENDING", 5 },
 };
-static const ProtobufCIntRange query_type__value_ranges[] = {
+static const ProtobufCIntRange request_type__value_ranges[] = {
 {0, 0},{0, 6}
 };
-static const ProtobufCEnumValueIndex query_type__enum_values_by_name[6] =
+static const ProtobufCEnumValueIndex request_type__enum_values_by_name[6] =
 {
   { "ACCOUNT_BALANCE", 3 },
   { "ACCOUNT_BLOCK_COUNT", 4 },
@@ -1027,18 +975,18 @@ static const ProtobufCEnumValueIndex query_type__enum_values_by_name[6] =
   { "REGISTER_CALLBACK", 1 },
   { "UNKOWN", 0 },
 };
-const ProtobufCEnumDescriptor query_type__descriptor =
+const ProtobufCEnumDescriptor request_type__descriptor =
 {
   PROTOBUF_C__ENUM_DESCRIPTOR_MAGIC,
-  "QueryType",
-  "QueryType",
-  "QueryType",
+  "RequestType",
+  "RequestType",
+  "RequestType",
   "",
   6,
-  query_type__enum_values_by_number,
+  request_type__enum_values_by_number,
   6,
-  query_type__enum_values_by_name,
+  request_type__enum_values_by_name,
   1,
-  query_type__value_ranges,
+  request_type__value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };
