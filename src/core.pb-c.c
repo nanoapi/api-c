@@ -956,7 +956,7 @@ const ProtobufCMessageDescriptor account_pending_block_info__descriptor =
 };
 static const ProtobufCEnumValue request_type__enum_values_by_number[6] =
 {
-  { "UNKOWN", "REQUEST_TYPE__UNKOWN", 0 },
+  { "INVALID", "REQUEST_TYPE__INVALID", 0 },
   { "REGISTER_CALLBACK", "REQUEST_TYPE__REGISTER_CALLBACK", 1 },
   { "PING", "REQUEST_TYPE__PING", 2 },
   { "ACCOUNT_BALANCE", "REQUEST_TYPE__ACCOUNT_BALANCE", 3 },
@@ -971,9 +971,9 @@ static const ProtobufCEnumValueIndex request_type__enum_values_by_name[6] =
   { "ACCOUNT_BALANCE", 3 },
   { "ACCOUNT_BLOCK_COUNT", 4 },
   { "ACCOUNT_PENDING", 5 },
+  { "INVALID", 0 },
   { "PING", 2 },
   { "REGISTER_CALLBACK", 1 },
-  { "UNKOWN", 0 },
 };
 const ProtobufCEnumDescriptor request_type__descriptor =
 {

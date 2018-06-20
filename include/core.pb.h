@@ -115,7 +115,7 @@ namespace nano {
 namespace api {
 
 enum RequestType {
-  UNKOWN = 0,
+  INVALID = 0,
   REGISTER_CALLBACK = 1,
   PING = 2,
   ACCOUNT_BALANCE = 3,
@@ -125,7 +125,7 @@ enum RequestType {
   RequestType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool RequestType_IsValid(int value);
-const RequestType RequestType_MIN = UNKOWN;
+const RequestType RequestType_MIN = INVALID;
 const RequestType RequestType_MAX = ACCOUNT_PENDING;
 const int RequestType_ARRAYSIZE = RequestType_MAX + 1;
 

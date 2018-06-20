@@ -37,7 +37,7 @@ typedef struct _AccountPendingBlockInfo AccountPendingBlockInfo;
  * standard facilitates dynamic lookup and generic frameworks.
  */
 typedef enum _RequestType {
-  REQUEST_TYPE__UNKOWN = 0,
+  REQUEST_TYPE__INVALID = 0,
   REQUEST_TYPE__REGISTER_CALLBACK = 1,
   REQUEST_TYPE__PING = 2,
   REQUEST_TYPE__ACCOUNT_BALANCE = 3,
@@ -64,7 +64,7 @@ struct  _Request
 };
 #define REQUEST__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&request__descriptor) \
-    , REQUEST_TYPE__UNKOWN }
+    , REQUEST_TYPE__INVALID }
 
 
 /*
@@ -99,7 +99,7 @@ struct  _Response
 };
 #define RESPONSE__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&response__descriptor) \
-    , REQUEST_TYPE__UNKOWN, 0, (char *)protobuf_c_empty_string, (char *)protobuf_c_empty_string }
+    , REQUEST_TYPE__INVALID, 0, (char *)protobuf_c_empty_string, (char *)protobuf_c_empty_string }
 
 
 /*

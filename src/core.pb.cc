@@ -426,14 +426,14 @@ void AddDescriptorsImpl() {
       "\022\017\n\007account\030\001 \001(\t\0228\n\nblock_info\030\002 \003(\0132$."
       "nano.api.account_pending_block_info\"J\n\032a"
       "ccount_pending_block_info\022\014\n\004hash\030\001 \001(\t\022"
-      "\016\n\006amount\030\002 \001(\t\022\016\n\006source\030\003 \001(\t*}\n\013Reque"
-      "stType\022\n\n\006UNKOWN\020\000\022\025\n\021REGISTER_CALLBACK\020"
-      "\001\022\010\n\004PING\020\002\022\023\n\017ACCOUNT_BALANCE\020\003\022\027\n\023ACCO"
-      "UNT_BLOCK_COUNT\020\004\022\023\n\017ACCOUNT_PENDING\020\005b\006"
-      "proto3"
+      "\016\n\006amount\030\002 \001(\t\022\016\n\006source\030\003 \001(\t*~\n\013Reque"
+      "stType\022\013\n\007INVALID\020\000\022\025\n\021REGISTER_CALLBACK"
+      "\020\001\022\010\n\004PING\020\002\022\023\n\017ACCOUNT_BALANCE\020\003\022\027\n\023ACC"
+      "OUNT_BLOCK_COUNT\020\004\022\023\n\017ACCOUNT_PENDING\020\005b"
+      "\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 846);
+      descriptor, 847);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "core.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fwrappers_2eproto::AddDescriptors();

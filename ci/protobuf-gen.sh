@@ -1,2 +1,2 @@
-sh scripts/protobuf-c.sh
-sh scripts/protobuf-cpp.sh
+sh ci/protobuf-c.sh
+sh ci/protobuf-cpp.sh
