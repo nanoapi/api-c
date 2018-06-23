@@ -38,7 +38,7 @@ namespace protobuf_core_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[10];
+  static const ::google::protobuf::internal::ParseTable schema[8];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -48,10 +48,6 @@ void InitDefaultsrequestImpl();
 void InitDefaultsrequest();
 void InitDefaultsresponseImpl();
 void InitDefaultsresponse();
-void InitDefaultsreq_client_connectImpl();
-void InitDefaultsreq_client_connect();
-void InitDefaultsres_client_connectImpl();
-void InitDefaultsres_client_connect();
 void InitDefaultsreq_pingImpl();
 void InitDefaultsreq_ping();
 void InitDefaultsres_pingImpl();
@@ -67,8 +63,6 @@ void InitDefaultsaccount_pending_block_info();
 inline void InitDefaults() {
   InitDefaultsrequest();
   InitDefaultsresponse();
-  InitDefaultsreq_client_connect();
-  InitDefaultsres_client_connect();
   InitDefaultsreq_ping();
   InitDefaultsres_ping();
   InitDefaultsreq_account_pending();
@@ -88,9 +82,6 @@ extern account_pending_block_infoDefaultTypeInternal _account_pending_block_info
 class req_account_pending;
 class req_account_pendingDefaultTypeInternal;
 extern req_account_pendingDefaultTypeInternal _req_account_pending_default_instance_;
-class req_client_connect;
-class req_client_connectDefaultTypeInternal;
-extern req_client_connectDefaultTypeInternal _req_client_connect_default_instance_;
 class req_ping;
 class req_pingDefaultTypeInternal;
 extern req_pingDefaultTypeInternal _req_ping_default_instance_;
@@ -100,9 +91,6 @@ extern requestDefaultTypeInternal _request_default_instance_;
 class res_account_pending;
 class res_account_pendingDefaultTypeInternal;
 extern res_account_pendingDefaultTypeInternal _res_account_pending_default_instance_;
-class res_client_connect;
-class res_client_connectDefaultTypeInternal;
-extern res_client_connectDefaultTypeInternal _res_client_connect_default_instance_;
 class res_ping;
 class res_pingDefaultTypeInternal;
 extern res_pingDefaultTypeInternal _res_ping_default_instance_;
@@ -376,212 +364,6 @@ class response : public ::google::protobuf::Message /* @@protoc_insertion_point(
 };
 // -------------------------------------------------------------------
 
-class req_client_connect : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:nano.api.req_client_connect) */ {
- public:
-  req_client_connect();
-  virtual ~req_client_connect();
-
-  req_client_connect(const req_client_connect& from);
-
-  inline req_client_connect& operator=(const req_client_connect& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  req_client_connect(req_client_connect&& from) noexcept
-    : req_client_connect() {
-    *this = ::std::move(from);
-  }
-
-  inline req_client_connect& operator=(req_client_connect&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const req_client_connect& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const req_client_connect* internal_default_instance() {
-    return reinterpret_cast<const req_client_connect*>(
-               &_req_client_connect_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    2;
-
-  void Swap(req_client_connect* other);
-  friend void swap(req_client_connect& a, req_client_connect& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline req_client_connect* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  req_client_connect* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const req_client_connect& from);
-  void MergeFrom(const req_client_connect& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(req_client_connect* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // string api_key = 1;
-  void clear_api_key();
-  static const int kApiKeyFieldNumber = 1;
-  const ::std::string& api_key() const;
-  void set_api_key(const ::std::string& value);
-  #if LANG_CXX11
-  void set_api_key(::std::string&& value);
-  #endif
-  void set_api_key(const char* value);
-  void set_api_key(const char* value, size_t size);
-  ::std::string* mutable_api_key();
-  ::std::string* release_api_key();
-  void set_allocated_api_key(::std::string* api_key);
-
-  // @@protoc_insertion_point(class_scope:nano.api.req_client_connect)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr api_key_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_core_2eproto::TableStruct;
-  friend void ::protobuf_core_2eproto::InitDefaultsreq_client_connectImpl();
-};
-// -------------------------------------------------------------------
-
-class res_client_connect : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:nano.api.res_client_connect) */ {
- public:
-  res_client_connect();
-  virtual ~res_client_connect();
-
-  res_client_connect(const res_client_connect& from);
-
-  inline res_client_connect& operator=(const res_client_connect& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  res_client_connect(res_client_connect&& from) noexcept
-    : res_client_connect() {
-    *this = ::std::move(from);
-  }
-
-  inline res_client_connect& operator=(res_client_connect&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const res_client_connect& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const res_client_connect* internal_default_instance() {
-    return reinterpret_cast<const res_client_connect*>(
-               &_res_client_connect_default_instance_);
-  }
-  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    3;
-
-  void Swap(res_client_connect* other);
-  friend void swap(res_client_connect& a, res_client_connect& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline res_client_connect* New() const PROTOBUF_FINAL { return New(NULL); }
-
-  res_client_connect* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
-  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const res_client_connect& from);
-  void MergeFrom(const res_client_connect& from);
-  void Clear() PROTOBUF_FINAL;
-  bool IsInitialized() const PROTOBUF_FINAL;
-
-  size_t ByteSizeLong() const PROTOBUF_FINAL;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
-  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(res_client_connect* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // bool api_key_accepted = 1;
-  void clear_api_key_accepted();
-  static const int kApiKeyAcceptedFieldNumber = 1;
-  bool api_key_accepted() const;
-  void set_api_key_accepted(bool value);
-
-  // @@protoc_insertion_point(class_scope:nano.api.res_client_connect)
- private:
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  bool api_key_accepted_;
-  mutable int _cached_size_;
-  friend struct ::protobuf_core_2eproto::TableStruct;
-  friend void ::protobuf_core_2eproto::InitDefaultsres_client_connectImpl();
-};
-// -------------------------------------------------------------------
-
 class req_ping : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:nano.api.req_ping) */ {
  public:
   req_ping();
@@ -617,7 +399,7 @@ class req_ping : public ::google::protobuf::Message /* @@protoc_insertion_point(
                &_req_ping_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    4;
+    2;
 
   void Swap(req_ping* other);
   friend void swap(req_ping& a, req_ping& b) {
@@ -716,7 +498,7 @@ class res_ping : public ::google::protobuf::Message /* @@protoc_insertion_point(
                &_res_ping_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    5;
+    3;
 
   void Swap(res_ping* other);
   friend void swap(res_ping& a, res_ping& b) {
@@ -815,7 +597,7 @@ class req_account_pending : public ::google::protobuf::Message /* @@protoc_inser
                &_req_account_pending_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    6;
+    4;
 
   void Swap(req_account_pending* other);
   friend void swap(req_account_pending& a, req_account_pending& b) {
@@ -954,7 +736,7 @@ class res_account_pending : public ::google::protobuf::Message /* @@protoc_inser
                &_res_account_pending_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    7;
+    5;
 
   void Swap(res_account_pending* other);
   friend void swap(res_account_pending& a, res_account_pending& b) {
@@ -1059,7 +841,7 @@ class account_pending : public ::google::protobuf::Message /* @@protoc_insertion
                &_account_pending_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    8;
+    6;
 
   void Swap(account_pending* other);
   friend void swap(account_pending& a, account_pending& b) {
@@ -1179,7 +961,7 @@ class account_pending_block_info : public ::google::protobuf::Message /* @@proto
                &_account_pending_block_info_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    9;
+    7;
 
   void Swap(account_pending_block_info* other);
   friend void swap(account_pending_block_info& a, account_pending_block_info& b) {
@@ -1440,81 +1222,6 @@ inline void response::set_allocated_error_category(::std::string* error_category
   }
   error_category_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), error_category);
   // @@protoc_insertion_point(field_set_allocated:nano.api.response.error_category)
-}
-
-// -------------------------------------------------------------------
-
-// req_client_connect
-
-// string api_key = 1;
-inline void req_client_connect::clear_api_key() {
-  api_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& req_client_connect::api_key() const {
-  // @@protoc_insertion_point(field_get:nano.api.req_client_connect.api_key)
-  return api_key_.GetNoArena();
-}
-inline void req_client_connect::set_api_key(const ::std::string& value) {
-  
-  api_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:nano.api.req_client_connect.api_key)
-}
-#if LANG_CXX11
-inline void req_client_connect::set_api_key(::std::string&& value) {
-  
-  api_key_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:nano.api.req_client_connect.api_key)
-}
-#endif
-inline void req_client_connect::set_api_key(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  
-  api_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:nano.api.req_client_connect.api_key)
-}
-inline void req_client_connect::set_api_key(const char* value, size_t size) {
-  
-  api_key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:nano.api.req_client_connect.api_key)
-}
-inline ::std::string* req_client_connect::mutable_api_key() {
-  
-  // @@protoc_insertion_point(field_mutable:nano.api.req_client_connect.api_key)
-  return api_key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* req_client_connect::release_api_key() {
-  // @@protoc_insertion_point(field_release:nano.api.req_client_connect.api_key)
-  
-  return api_key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void req_client_connect::set_allocated_api_key(::std::string* api_key) {
-  if (api_key != NULL) {
-    
-  } else {
-    
-  }
-  api_key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), api_key);
-  // @@protoc_insertion_point(field_set_allocated:nano.api.req_client_connect.api_key)
-}
-
-// -------------------------------------------------------------------
-
-// res_client_connect
-
-// bool api_key_accepted = 1;
-inline void res_client_connect::clear_api_key_accepted() {
-  api_key_accepted_ = false;
-}
-inline bool res_client_connect::api_key_accepted() const {
-  // @@protoc_insertion_point(field_get:nano.api.res_client_connect.api_key_accepted)
-  return api_key_accepted_;
-}
-inline void res_client_connect::set_api_key_accepted(bool value) {
-  
-  api_key_accepted_ = value;
-  // @@protoc_insertion_point(field_set:nano.api.res_client_connect.api_key_accepted)
 }
 
 // -------------------------------------------------------------------
@@ -1986,10 +1693,6 @@ inline void account_pending_block_info::set_allocated_source(::std::string* sour
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

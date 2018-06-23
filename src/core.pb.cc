@@ -31,16 +31,6 @@ class responseDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<response>
       _instance;
 } _response_default_instance_;
-class req_client_connectDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<req_client_connect>
-      _instance;
-} _req_client_connect_default_instance_;
-class res_client_connectDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<res_client_connect>
-      _instance;
-} _res_client_connect_default_instance_;
 class req_pingDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<req_ping>
@@ -114,48 +104,6 @@ void InitDefaultsresponseImpl() {
 void InitDefaultsresponse() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsresponseImpl);
-}
-
-void InitDefaultsreq_client_connectImpl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  {
-    void* ptr = &::nano::api::_req_client_connect_default_instance_;
-    new (ptr) ::nano::api::req_client_connect();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::nano::api::req_client_connect::InitAsDefaultInstance();
-}
-
-void InitDefaultsreq_client_connect() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsreq_client_connectImpl);
-}
-
-void InitDefaultsres_client_connectImpl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
-#else
-  ::google::protobuf::internal::InitProtobufDefaults();
-#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
-  {
-    void* ptr = &::nano::api::_res_client_connect_default_instance_;
-    new (ptr) ::nano::api::res_client_connect();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::nano::api::res_client_connect::InitAsDefaultInstance();
-}
-
-void InitDefaultsres_client_connect() {
-  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
-  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsres_client_connectImpl);
 }
 
 void InitDefaultsreq_pingImpl() {
@@ -287,7 +235,7 @@ void InitDefaultsaccount_pending_block_info() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsaccount_pending_block_infoImpl);
 }
 
-::google::protobuf::Metadata file_level_metadata[10];
+::google::protobuf::Metadata file_level_metadata[8];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
@@ -306,18 +254,6 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::response, error_code_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::response, error_message_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::response, error_category_),
-  ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::req_client_connect, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::req_client_connect, api_key_),
-  ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::res_client_connect, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::res_client_connect, api_key_accepted_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::nano::api::req_ping, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -364,21 +300,17 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::nano::api::request)},
   { 6, -1, sizeof(::nano::api::response)},
-  { 15, -1, sizeof(::nano::api::req_client_connect)},
-  { 21, -1, sizeof(::nano::api::res_client_connect)},
-  { 27, -1, sizeof(::nano::api::req_ping)},
-  { 33, -1, sizeof(::nano::api::res_ping)},
-  { 39, -1, sizeof(::nano::api::req_account_pending)},
-  { 48, -1, sizeof(::nano::api::res_account_pending)},
-  { 54, -1, sizeof(::nano::api::account_pending)},
-  { 61, -1, sizeof(::nano::api::account_pending_block_info)},
+  { 15, -1, sizeof(::nano::api::req_ping)},
+  { 21, -1, sizeof(::nano::api::res_ping)},
+  { 27, -1, sizeof(::nano::api::req_account_pending)},
+  { 36, -1, sizeof(::nano::api::res_account_pending)},
+  { 42, -1, sizeof(::nano::api::account_pending)},
+  { 49, -1, sizeof(::nano::api::account_pending_block_info)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_request_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_response_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_req_client_connect_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_res_client_connect_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_req_ping_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_res_ping_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::nano::api::_req_account_pending_default_instance_),
@@ -403,7 +335,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 10);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 8);
 }
 
 void AddDescriptorsImpl() {
@@ -414,26 +346,23 @@ void AddDescriptorsImpl() {
       "\025.nano.api.RequestType\"r\n\010response\022#\n\004ty"
       "pe\030\001 \001(\0162\025.nano.api.RequestType\022\022\n\nerror"
       "_code\030\002 \001(\021\022\025\n\rerror_message\030\003 \001(\t\022\026\n\016er"
-      "ror_category\030\004 \001(\t\"%\n\022req_client_connect"
-      "\022\017\n\007api_key\030\001 \001(\t\".\n\022res_client_connect\022"
-      "\030\n\020api_key_accepted\030\001 \001(\010\"\026\n\010req_ping\022\n\n"
-      "\002id\030\001 \001(\r\"\026\n\010res_ping\022\n\n\002id\030\001 \001(\r\"w\n\023req"
-      "_account_pending\022\020\n\010accounts\030\001 \003(\t\022\r\n\005co"
-      "unt\030\002 \001(\004\022\016\n\006source\030\003 \001(\010\022/\n\tthreshold\030\004"
-      " \001(\0132\034.google.protobuf.StringValue\"A\n\023re"
-      "s_account_pending\022*\n\007pending\030\001 \003(\0132\031.nan"
-      "o.api.account_pending\"\\\n\017account_pending"
-      "\022\017\n\007account\030\001 \001(\t\0228\n\nblock_info\030\002 \003(\0132$."
-      "nano.api.account_pending_block_info\"J\n\032a"
-      "ccount_pending_block_info\022\014\n\004hash\030\001 \001(\t\022"
-      "\016\n\006amount\030\002 \001(\t\022\016\n\006source\030\003 \001(\t*~\n\013Reque"
-      "stType\022\013\n\007INVALID\020\000\022\025\n\021REGISTER_CALLBACK"
-      "\020\001\022\010\n\004PING\020\002\022\023\n\017ACCOUNT_BALANCE\020\003\022\027\n\023ACC"
-      "OUNT_BLOCK_COUNT\020\004\022\023\n\017ACCOUNT_PENDING\020\005b"
-      "\006proto3"
+      "ror_category\030\004 \001(\t\"\026\n\010req_ping\022\n\n\002id\030\001 \001"
+      "(\r\"\026\n\010res_ping\022\n\n\002id\030\001 \001(\r\"w\n\023req_accoun"
+      "t_pending\022\020\n\010accounts\030\001 \003(\t\022\r\n\005count\030\002 \001"
+      "(\004\022\016\n\006source\030\003 \001(\010\022/\n\tthreshold\030\004 \001(\0132\034."
+      "google.protobuf.StringValue\"A\n\023res_accou"
+      "nt_pending\022*\n\007pending\030\001 \003(\0132\031.nano.api.a"
+      "ccount_pending\"\\\n\017account_pending\022\017\n\007acc"
+      "ount\030\001 \001(\t\0228\n\nblock_info\030\002 \003(\0132$.nano.ap"
+      "i.account_pending_block_info\"J\n\032account_"
+      "pending_block_info\022\014\n\004hash\030\001 \001(\t\022\016\n\006amou"
+      "nt\030\002 \001(\t\022\016\n\006source\030\003 \001(\t*~\n\013RequestType\022"
+      "\013\n\007INVALID\020\000\022\025\n\021REGISTER_CALLBACK\020\001\022\010\n\004P"
+      "ING\020\002\022\023\n\017ACCOUNT_BALANCE\020\003\022\027\n\023ACCOUNT_BL"
+      "OCK_COUNT\020\004\022\023\n\017ACCOUNT_PENDING\020\005b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 847);
+      descriptor, 760);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "core.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fwrappers_2eproto::AddDescriptors();
@@ -1102,498 +1031,6 @@ void response::InternalSwap(response* other) {
 }
 
 ::google::protobuf::Metadata response::GetMetadata() const {
-  protobuf_core_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_core_2eproto::file_level_metadata[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
-void req_client_connect::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int req_client_connect::kApiKeyFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-req_client_connect::req_client_connect()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_core_2eproto::InitDefaultsreq_client_connect();
-  }
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:nano.api.req_client_connect)
-}
-req_client_connect::req_client_connect(const req_client_connect& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _cached_size_(0) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  api_key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.api_key().size() > 0) {
-    api_key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.api_key_);
-  }
-  // @@protoc_insertion_point(copy_constructor:nano.api.req_client_connect)
-}
-
-void req_client_connect::SharedCtor() {
-  api_key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  _cached_size_ = 0;
-}
-
-req_client_connect::~req_client_connect() {
-  // @@protoc_insertion_point(destructor:nano.api.req_client_connect)
-  SharedDtor();
-}
-
-void req_client_connect::SharedDtor() {
-  api_key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-
-void req_client_connect::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* req_client_connect::descriptor() {
-  ::protobuf_core_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_core_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const req_client_connect& req_client_connect::default_instance() {
-  ::protobuf_core_2eproto::InitDefaultsreq_client_connect();
-  return *internal_default_instance();
-}
-
-req_client_connect* req_client_connect::New(::google::protobuf::Arena* arena) const {
-  req_client_connect* n = new req_client_connect;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
-
-void req_client_connect::Clear() {
-// @@protoc_insertion_point(message_clear_start:nano.api.req_client_connect)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  api_key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  _internal_metadata_.Clear();
-}
-
-bool req_client_connect::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:nano.api.req_client_connect)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // string api_key = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_api_key()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->api_key().data(), static_cast<int>(this->api_key().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "nano.api.req_client_connect.api_key"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:nano.api.req_client_connect)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:nano.api.req_client_connect)
-  return false;
-#undef DO_
-}
-
-void req_client_connect::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:nano.api.req_client_connect)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string api_key = 1;
-  if (this->api_key().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->api_key().data(), static_cast<int>(this->api_key().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "nano.api.req_client_connect.api_key");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->api_key(), output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:nano.api.req_client_connect)
-}
-
-::google::protobuf::uint8* req_client_connect::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:nano.api.req_client_connect)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string api_key = 1;
-  if (this->api_key().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->api_key().data(), static_cast<int>(this->api_key().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "nano.api.req_client_connect.api_key");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->api_key(), target);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:nano.api.req_client_connect)
-  return target;
-}
-
-size_t req_client_connect::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:nano.api.req_client_connect)
-  size_t total_size = 0;
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
-  // string api_key = 1;
-  if (this->api_key().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->api_key());
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void req_client_connect::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:nano.api.req_client_connect)
-  GOOGLE_DCHECK_NE(&from, this);
-  const req_client_connect* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const req_client_connect>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:nano.api.req_client_connect)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:nano.api.req_client_connect)
-    MergeFrom(*source);
-  }
-}
-
-void req_client_connect::MergeFrom(const req_client_connect& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:nano.api.req_client_connect)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.api_key().size() > 0) {
-
-    api_key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.api_key_);
-  }
-}
-
-void req_client_connect::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:nano.api.req_client_connect)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void req_client_connect::CopyFrom(const req_client_connect& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:nano.api.req_client_connect)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool req_client_connect::IsInitialized() const {
-  return true;
-}
-
-void req_client_connect::Swap(req_client_connect* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void req_client_connect::InternalSwap(req_client_connect* other) {
-  using std::swap;
-  api_key_.Swap(&other->api_key_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
-}
-
-::google::protobuf::Metadata req_client_connect::GetMetadata() const {
-  protobuf_core_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_core_2eproto::file_level_metadata[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
-void res_client_connect::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int res_client_connect::kApiKeyAcceptedFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-res_client_connect::res_client_connect()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
-    ::protobuf_core_2eproto::InitDefaultsres_client_connect();
-  }
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:nano.api.res_client_connect)
-}
-res_client_connect::res_client_connect(const res_client_connect& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL),
-      _cached_size_(0) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  api_key_accepted_ = from.api_key_accepted_;
-  // @@protoc_insertion_point(copy_constructor:nano.api.res_client_connect)
-}
-
-void res_client_connect::SharedCtor() {
-  api_key_accepted_ = false;
-  _cached_size_ = 0;
-}
-
-res_client_connect::~res_client_connect() {
-  // @@protoc_insertion_point(destructor:nano.api.res_client_connect)
-  SharedDtor();
-}
-
-void res_client_connect::SharedDtor() {
-}
-
-void res_client_connect::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* res_client_connect::descriptor() {
-  ::protobuf_core_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_core_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const res_client_connect& res_client_connect::default_instance() {
-  ::protobuf_core_2eproto::InitDefaultsres_client_connect();
-  return *internal_default_instance();
-}
-
-res_client_connect* res_client_connect::New(::google::protobuf::Arena* arena) const {
-  res_client_connect* n = new res_client_connect;
-  if (arena != NULL) {
-    arena->Own(n);
-  }
-  return n;
-}
-
-void res_client_connect::Clear() {
-// @@protoc_insertion_point(message_clear_start:nano.api.res_client_connect)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  api_key_accepted_ = false;
-  _internal_metadata_.Clear();
-}
-
-bool res_client_connect::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:nano.api.res_client_connect)
-  for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // bool api_key_accepted = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &api_key_accepted_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:nano.api.res_client_connect)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:nano.api.res_client_connect)
-  return false;
-#undef DO_
-}
-
-void res_client_connect::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:nano.api.res_client_connect)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // bool api_key_accepted = 1;
-  if (this->api_key_accepted() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->api_key_accepted(), output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:nano.api.res_client_connect)
-}
-
-::google::protobuf::uint8* res_client_connect::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:nano.api.res_client_connect)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // bool api_key_accepted = 1;
-  if (this->api_key_accepted() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->api_key_accepted(), target);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:nano.api.res_client_connect)
-  return target;
-}
-
-size_t res_client_connect::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:nano.api.res_client_connect)
-  size_t total_size = 0;
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
-  // bool api_key_accepted = 1;
-  if (this->api_key_accepted() != 0) {
-    total_size += 1 + 1;
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = cached_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void res_client_connect::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:nano.api.res_client_connect)
-  GOOGLE_DCHECK_NE(&from, this);
-  const res_client_connect* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const res_client_connect>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:nano.api.res_client_connect)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:nano.api.res_client_connect)
-    MergeFrom(*source);
-  }
-}
-
-void res_client_connect::MergeFrom(const res_client_connect& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:nano.api.res_client_connect)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.api_key_accepted() != 0) {
-    set_api_key_accepted(from.api_key_accepted());
-  }
-}
-
-void res_client_connect::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:nano.api.res_client_connect)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void res_client_connect::CopyFrom(const res_client_connect& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:nano.api.res_client_connect)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool res_client_connect::IsInitialized() const {
-  return true;
-}
-
-void res_client_connect::Swap(res_client_connect* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void res_client_connect::InternalSwap(res_client_connect* other) {
-  using std::swap;
-  swap(api_key_accepted_, other->api_key_accepted_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_cached_size_, other->_cached_size_);
-}
-
-::google::protobuf::Metadata res_client_connect::GetMetadata() const {
   protobuf_core_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_core_2eproto::file_level_metadata[kIndexInFileMessages];
 }

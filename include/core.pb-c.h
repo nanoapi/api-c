@@ -18,8 +18,6 @@ PROTOBUF_C__BEGIN_DECLS
 
 typedef struct _Request Request;
 typedef struct _Response Response;
-typedef struct _ReqClientConnect ReqClientConnect;
-typedef struct _ResClientConnect ResClientConnect;
 typedef struct _ReqPing ReqPing;
 typedef struct _ResPing ResPing;
 typedef struct _ReqAccountPending ReqAccountPending;
@@ -100,36 +98,6 @@ struct  _Response
 #define RESPONSE__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&response__descriptor) \
     , REQUEST_TYPE__INVALID, 0, (char *)protobuf_c_empty_string, (char *)protobuf_c_empty_string }
-
-
-/*
- ** 
- * Establish a session with the node. This is optional if the node doesn't check api keys.
- */
-struct  _ReqClientConnect
-{
-  ProtobufCMessage base;
-  /*
-   ** API key. The node may be configured to require this. 
-   */
-  char *api_key;
-};
-#define REQ_CLIENT_CONNECT__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&req_client_connect__descriptor) \
-    , (char *)protobuf_c_empty_string }
-
-
-/*
- ** Connect response 
- */
-struct  _ResClientConnect
-{
-  ProtobufCMessage base;
-  protobuf_c_boolean api_key_accepted;
-};
-#define RES_CLIENT_CONNECT__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&res_client_connect__descriptor) \
-    , 0 }
 
 
 /*
@@ -284,44 +252,6 @@ Response *
 void   response__free_unpacked
                      (Response *message,
                       ProtobufCAllocator *allocator);
-/* ReqClientConnect methods */
-void   req_client_connect__init
-                     (ReqClientConnect         *message);
-size_t req_client_connect__get_packed_size
-                     (const ReqClientConnect   *message);
-size_t req_client_connect__pack
-                     (const ReqClientConnect   *message,
-                      uint8_t             *out);
-size_t req_client_connect__pack_to_buffer
-                     (const ReqClientConnect   *message,
-                      ProtobufCBuffer     *buffer);
-ReqClientConnect *
-       req_client_connect__unpack
-                     (ProtobufCAllocator  *allocator,
-                      size_t               len,
-                      const uint8_t       *data);
-void   req_client_connect__free_unpacked
-                     (ReqClientConnect *message,
-                      ProtobufCAllocator *allocator);
-/* ResClientConnect methods */
-void   res_client_connect__init
-                     (ResClientConnect         *message);
-size_t res_client_connect__get_packed_size
-                     (const ResClientConnect   *message);
-size_t res_client_connect__pack
-                     (const ResClientConnect   *message,
-                      uint8_t             *out);
-size_t res_client_connect__pack_to_buffer
-                     (const ResClientConnect   *message,
-                      ProtobufCBuffer     *buffer);
-ResClientConnect *
-       res_client_connect__unpack
-                     (ProtobufCAllocator  *allocator,
-                      size_t               len,
-                      const uint8_t       *data);
-void   res_client_connect__free_unpacked
-                     (ResClientConnect *message,
-                      ProtobufCAllocator *allocator);
 /* ReqPing methods */
 void   req_ping__init
                      (ReqPing         *message);
@@ -444,12 +374,6 @@ typedef void (*Request_Closure)
 typedef void (*Response_Closure)
                  (const Response *message,
                   void *closure_data);
-typedef void (*ReqClientConnect_Closure)
-                 (const ReqClientConnect *message,
-                  void *closure_data);
-typedef void (*ResClientConnect_Closure)
-                 (const ResClientConnect *message,
-                  void *closure_data);
 typedef void (*ReqPing_Closure)
                  (const ReqPing *message,
                   void *closure_data);
@@ -477,8 +401,6 @@ typedef void (*AccountPendingBlockInfo_Closure)
 extern const ProtobufCEnumDescriptor    request_type__descriptor;
 extern const ProtobufCMessageDescriptor request__descriptor;
 extern const ProtobufCMessageDescriptor response__descriptor;
-extern const ProtobufCMessageDescriptor req_client_connect__descriptor;
-extern const ProtobufCMessageDescriptor res_client_connect__descriptor;
 extern const ProtobufCMessageDescriptor req_ping__descriptor;
 extern const ProtobufCMessageDescriptor res_ping__descriptor;
 extern const ProtobufCMessageDescriptor req_account_pending__descriptor;
