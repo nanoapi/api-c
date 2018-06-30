@@ -102,6 +102,28 @@ extern responseDefaultTypeInternal _response_default_instance_;
 namespace nano {
 namespace api {
 
+enum APIVersion {
+  VERSION_INVALID = 0,
+  VERSION_MAJOR = 1,
+  VERSION_MINOR = 0,
+  APIVersion_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  APIVersion_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool APIVersion_IsValid(int value);
+const APIVersion APIVersion_MIN = VERSION_INVALID;
+const APIVersion APIVersion_MAX = VERSION_MAJOR;
+const int APIVersion_ARRAYSIZE = APIVersion_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* APIVersion_descriptor();
+inline const ::std::string& APIVersion_Name(APIVersion value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    APIVersion_descriptor(), value);
+}
+inline bool APIVersion_Parse(
+    const ::std::string& name, APIVersion* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<APIVersion>(
+    APIVersion_descriptor(), name, value);
+}
 enum RequestType {
   INVALID = 0,
   REGISTER_CALLBACK = 1,
@@ -1716,6 +1738,11 @@ inline void account_pending_block_info::set_allocated_source(::std::string* sour
 namespace google {
 namespace protobuf {
 
+template <> struct is_proto_enum< ::nano::api::APIVersion> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::nano::api::APIVersion>() {
+  return ::nano::api::APIVersion_descriptor();
+}
 template <> struct is_proto_enum< ::nano::api::RequestType> : ::google::protobuf::internal::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::nano::api::RequestType>() {

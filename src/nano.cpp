@@ -254,6 +254,9 @@ int nano_request (struct nano_session* session, RequestType type, void* request,
     session->write(&network_len, 4);
     session->write(request, request_size);
 
+    // Read preamble
+    session->read(preamble, 4);
+
     // Read response
     session->read(&len, 4);
     boost::endian::big_to_native_inplace (len);

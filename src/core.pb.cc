@@ -236,7 +236,7 @@ void InitDefaultsaccount_pending_block_info() {
 }
 
 ::google::protobuf::Metadata file_level_metadata[8];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -356,13 +356,15 @@ void AddDescriptorsImpl() {
       "ount\030\001 \001(\t\0228\n\nblock_info\030\002 \003(\0132$.nano.ap"
       "i.account_pending_block_info\"J\n\032account_"
       "pending_block_info\022\014\n\004hash\030\001 \001(\t\022\016\n\006amou"
-      "nt\030\002 \001(\t\022\016\n\006source\030\003 \001(\t*~\n\013RequestType\022"
-      "\013\n\007INVALID\020\000\022\025\n\021REGISTER_CALLBACK\020\001\022\010\n\004P"
-      "ING\020\002\022\023\n\017ACCOUNT_BALANCE\020\003\022\027\n\023ACCOUNT_BL"
-      "OCK_COUNT\020\004\022\023\n\017ACCOUNT_PENDING\020\005b\006proto3"
+      "nt\030\002 \001(\t\022\016\n\006source\030\003 \001(\t*K\n\nAPIVersion\022\023"
+      "\n\017VERSION_INVALID\020\000\022\021\n\rVERSION_MAJOR\020\001\022\021"
+      "\n\rVERSION_MINOR\020\000\032\002\020\001*~\n\013RequestType\022\013\n\007"
+      "INVALID\020\000\022\025\n\021REGISTER_CALLBACK\020\001\022\010\n\004PING"
+      "\020\002\022\023\n\017ACCOUNT_BALANCE\020\003\022\027\n\023ACCOUNT_BLOCK"
+      "_COUNT\020\004\022\023\n\017ACCOUNT_PENDING\020\005b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 760);
+      descriptor, 837);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "core.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fwrappers_2eproto::AddDescriptors();
@@ -381,9 +383,23 @@ struct StaticDescriptorInitializer {
 }  // namespace protobuf_core_2eproto
 namespace nano {
 namespace api {
-const ::google::protobuf::EnumDescriptor* RequestType_descriptor() {
+const ::google::protobuf::EnumDescriptor* APIVersion_descriptor() {
   protobuf_core_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_core_2eproto::file_level_enum_descriptors[0];
+}
+bool APIVersion_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* RequestType_descriptor() {
+  protobuf_core_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_core_2eproto::file_level_enum_descriptors[1];
 }
 bool RequestType_IsValid(int value) {
   switch (value) {

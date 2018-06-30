@@ -788,6 +788,35 @@ const ProtobufCMessageDescriptor account_pending_block_info__descriptor =
   (ProtobufCMessageInit) account_pending_block_info__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
+static const ProtobufCEnumValue apiversion__enum_values_by_number[2] =
+{
+  { "VERSION_INVALID", "APIVERSION__VERSION_INVALID", 0 },
+  { "VERSION_MAJOR", "APIVERSION__VERSION_MAJOR", 1 },
+};
+static const ProtobufCIntRange apiversion__value_ranges[] = {
+{0, 0},{0, 2}
+};
+static const ProtobufCEnumValueIndex apiversion__enum_values_by_name[3] =
+{
+  { "VERSION_INVALID", 0 },
+  { "VERSION_MAJOR", 1 },
+  { "VERSION_MINOR", 0 },
+};
+const ProtobufCEnumDescriptor apiversion__descriptor =
+{
+  PROTOBUF_C__ENUM_DESCRIPTOR_MAGIC,
+  "APIVersion",
+  "APIVersion",
+  "APIVersion",
+  "",
+  2,
+  apiversion__enum_values_by_number,
+  3,
+  apiversion__enum_values_by_name,
+  1,
+  apiversion__value_ranges,
+  NULL,NULL,NULL,NULL   /* reserved[1234] */
+};
 static const ProtobufCEnumValue request_type__enum_values_by_number[6] =
 {
   { "INVALID", "REQUEST_TYPE__INVALID", 0 },

@@ -30,6 +30,18 @@ typedef struct _AccountPendingBlockInfo AccountPendingBlockInfo;
 
 /*
  **
+ * API versions. proto3 doesn't have constants, so we use an enum
+ * which allows aliases. VERSION_INVALID is a 0-value placeholder, which
+ * protobuf requires.
+ */
+typedef enum _APIVersion {
+  APIVERSION__VERSION_INVALID = 0,
+  APIVERSION__VERSION_MAJOR = 1,
+  APIVERSION__VERSION_MINOR = 0
+    PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(APIVERSION)
+} APIVersion;
+/*
+ **
  * The request type enum values must NOT change. The name of the enum must match
  * the request message name, uppercased, and without the req_ prefix. This naming
  * standard facilitates dynamic lookup and generic frameworks.
@@ -47,7 +59,7 @@ typedef enum _RequestType {
 /* --- messages --- */
 
 /*
- ** 
+ **
  * Request header.
  * This is serialized before the actual request to tell the node what message to expect next.
  * Other request meta data may be added in the future.
@@ -74,8 +86,8 @@ struct  _Response
 {
   ProtobufCMessage base;
   /*
-   ** 
-   * For which request type is this a response? This flag allows future support for clients 
+   **
+   * For which request type is this a response? This flag allows future support for clients
    * issuing multiple concurrent requests, as well as callback messages.
    * This may not be set if error_code is non-zero.
    */
@@ -398,6 +410,7 @@ typedef void (*AccountPendingBlockInfo_Closure)
 
 /* --- descriptors --- */
 
+extern const ProtobufCEnumDescriptor    apiversion__descriptor;
 extern const ProtobufCEnumDescriptor    request_type__descriptor;
 extern const ProtobufCMessageDescriptor request__descriptor;
 extern const ProtobufCMessageDescriptor response__descriptor;
