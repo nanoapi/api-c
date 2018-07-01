@@ -131,12 +131,13 @@ enum RequestType {
   ACCOUNT_BALANCE = 3,
   ACCOUNT_BLOCK_COUNT = 4,
   ACCOUNT_PENDING = 5,
+  ADDRESS_VALID = 1000,
   RequestType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   RequestType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool RequestType_IsValid(int value);
 const RequestType RequestType_MIN = INVALID;
-const RequestType RequestType_MAX = ACCOUNT_PENDING;
+const RequestType RequestType_MAX = ADDRESS_VALID;
 const int RequestType_ARRAYSIZE = RequestType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* RequestType_descriptor();

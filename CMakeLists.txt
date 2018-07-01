@@ -36,12 +36,16 @@ set (NANO_API_SRC
     include/nano.h
     include/core.pb-c.h
     include/core.pb.h
+    include/util.pb-c.h
+    include/util.pb.h
     src/google/protobuf/wrappers.pb-c.c
     src/google/protobuf/wrappers.pb-c.h
     src/google/protobuf/wrappers.pb.cc
     src/google/protobuf/wrappers.pb.h
     src/core.pb-c.c
     src/core.pb.cc
+    src/util.pb-c.c
+    src/util.pb.cc
     src/nano.cpp)
 
 include_directories(include)

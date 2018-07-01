@@ -49,10 +49,17 @@ typedef enum _APIVersion {
 typedef enum _RequestType {
   REQUEST_TYPE__INVALID = 0,
   REQUEST_TYPE__REGISTER_CALLBACK = 1,
+  /*
+   * core.proto message types
+   */
   REQUEST_TYPE__PING = 2,
   REQUEST_TYPE__ACCOUNT_BALANCE = 3,
   REQUEST_TYPE__ACCOUNT_BLOCK_COUNT = 4,
-  REQUEST_TYPE__ACCOUNT_PENDING = 5
+  REQUEST_TYPE__ACCOUNT_PENDING = 5,
+  /*
+   * util.proto message types
+   */
+  REQUEST_TYPE__ADDRESS_VALID = 1000
     PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(REQUEST_TYPE)
 } RequestType;
 
