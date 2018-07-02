@@ -30,6 +30,9 @@ typedef struct _ResAddressValid ResAddressValid;
 struct  _ReqAddressValid
 {
   ProtobufCMessage base;
+  /*
+   ** Address to check, such as xrb_... and nano_...  
+   */
   char *address;
 };
 #define REQ_ADDRESS_VALID__INIT \
@@ -43,7 +46,13 @@ struct  _ReqAddressValid
 struct  _ResAddressValid
 {
   ProtobufCMessage base;
+  /*
+   ** True if the address is valid 
+   */
   protobuf_c_boolean valid;
+  /*
+   ** The reason the address is invalid. May be empty. 
+   */
   char *reason;
 };
 #define RES_ADDRESS_VALID__INIT \

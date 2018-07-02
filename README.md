@@ -48,12 +48,19 @@ Replace `-DCMAKE_BUILD_TYPE=Debug` with `-DCMAKE_BUILD_TYPE=Release` and rebuild
 
 ### Updating generated Protobuffer files
 
-If the `nanoapi/protobuf` repository is updated, new Protobuf files needs to be generated.
-
 Make sure `protobuf` and `protobuf-c` are installed.
 
 When the protobuffer definition has changed, perform the following step to fetch the latest version and generate C and C++ files:
 
 ```
-scripts/protobuf-generate.sh
+ci/protobuf-gen.sh
 ```
+
+#### New .proto files
+
+If the Node repository adds new .proto files, follow these steps:
+
+* Update ci/protobuf-c.sh and ci/protobuf-cpp.sh to handle the files (automating this is a TODO)
+* Add newly generated source and header files to CMakeLists.txt
+* Add newly generated headers to nano.h and nano.hpp
+* Run cmake and rebuild.

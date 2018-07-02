@@ -36,6 +36,8 @@ set (NANO_API_SRC
     include/nano.h
     include/core.pb-c.h
     include/core.pb.h
+    include/accounts.pb-c.h
+    include/accounts.pb.h
     include/util.pb-c.h
     include/util.pb.h
     src/google/protobuf/wrappers.pb-c.c
@@ -44,6 +46,8 @@ set (NANO_API_SRC
     src/google/protobuf/wrappers.pb.h
     src/core.pb-c.c
     src/core.pb.cc
+    src/accounts.pb-c.c
+    src/accounts.pb.cc
     src/util.pb-c.c
     src/util.pb.cc
     src/nano.cpp)

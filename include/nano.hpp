@@ -1,6 +1,7 @@
 #pragma once
 
 #include "core.pb.h"
+#include "accounts.pb.h"
 #include "util.pb.h"
 #include "nano.h"
 #include <algorithm>

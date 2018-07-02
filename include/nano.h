@@ -2,6 +2,8 @@
 #define NANO_C_API_H
 
 #include "core.pb-c.h"
+#include "accounts.pb-c.h"
+#include "util.pb-c.h"
 
 #define PREAMBLE_1 'N'
 #define PREAMBLE_2 0x0
