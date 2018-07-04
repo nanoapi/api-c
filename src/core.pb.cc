@@ -204,14 +204,13 @@ void AddDescriptorsImpl() {
       "ror_category\030\004 \001(\t\"\026\n\010req_ping\022\n\n\002id\030\001 \001"
       "(\r\"\026\n\010res_ping\022\n\n\002id\030\001 \001(\r*K\n\nAPIVersion"
       "\022\023\n\017VERSION_INVALID\020\000\022\021\n\rVERSION_MAJOR\020\001"
-      "\022\021\n\rVERSION_MINOR\020\000\032\002\020\001*\222\001\n\013RequestType\022"
-      "\013\n\007INVALID\020\000\022\025\n\021REGISTER_CALLBACK\020\001\022\010\n\004P"
-      "ING\020\002\022\023\n\017ACCOUNT_BALANCE\020\003\022\027\n\023ACCOUNT_BL"
-      "OCK_COUNT\020\004\022\023\n\017ACCOUNT_PENDING\020\005\022\022\n\rADDR"
-      "ESS_VALID\020\350\007b\006proto3"
+      "\022\021\n\rVERSION_MINOR\020\000\032\002\020\001*d\n\013RequestType\022\013"
+      "\n\007INVALID\020\000\022\025\n\021REGISTER_CALLBACK\020\001\022\010\n\004PI"
+      "NG\020\002\022\023\n\017ACCOUNT_PENDING\020d\022\022\n\rADDRESS_VAL"
+      "ID\020\350\007b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 500);
+      descriptor, 453);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "core.proto", &protobuf_RegisterTypes);
   ::protobuf_google_2fprotobuf_2fwrappers_2eproto::AddDescriptors();
@@ -253,9 +252,7 @@ bool RequestType_IsValid(int value) {
     case 0:
     case 1:
     case 2:
-    case 3:
-    case 4:
-    case 5:
+    case 100:
     case 1000:
       return true;
     default:

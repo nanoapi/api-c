@@ -41,7 +41,7 @@ struct  _ReqAddressValid
 
 
 /*
- ** Address check result. If invalid, the message string contains the reason. 
+ ** Result of address validation 
  */
 struct  _ResAddressValid
 {

@@ -26,7 +26,7 @@ typedef struct _ResPing ResPing;
 
 /*
  **
- * API versions. proto3 doesn't have constants, so we use an enum
+ * API version numbers. As proto3 doesn't have constants, so we use an enum
  * which allows aliases. VERSION_INVALID is a 0-value placeholder, which
  * protobuf requires.
  */
@@ -38,8 +38,8 @@ typedef enum _APIVersion {
 } APIVersion;
 /*
  **
- * The request type enum values must NOT change. The name of the enum must match
- * the request message name, uppercased, and without the req_ prefix. This naming
+ * The enum values must NOT change. The name of the enum must match the
+ * request message name, uppercased, and without the req_ prefix. This naming
  * standard facilitates dynamic lookup and generic frameworks.
  */
 typedef enum _RequestType {
@@ -52,9 +52,7 @@ typedef enum _RequestType {
   /*
    * accounts.proto message types
    */
-  REQUEST_TYPE__ACCOUNT_BALANCE = 3,
-  REQUEST_TYPE__ACCOUNT_BLOCK_COUNT = 4,
-  REQUEST_TYPE__ACCOUNT_PENDING = 5,
+  REQUEST_TYPE__ACCOUNT_PENDING = 100,
   /*
    * util.proto message types
    */
@@ -100,8 +98,7 @@ struct  _Response
   RequestType type;
   /*
    **
-   * Context dependent error code. For instance, if IO_ERROR occurs, the error_code
-   * may contain a more specific, system depended error code.
+   * If non-zero, an error has occurred.
    */
   int32_t error_code;
   /*
@@ -141,7 +138,7 @@ struct  _ResPing
 {
   ProtobufCMessage base;
   /*
-   ** The same ID as sent in the ping reqyest 
+   ** The same ID as sent in the ping request 
    */
   uint32_t id;
 };

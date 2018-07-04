@@ -407,25 +407,21 @@ const ProtobufCEnumDescriptor apiversion__descriptor =
   apiversion__value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };
-static const ProtobufCEnumValue request_type__enum_values_by_number[7] =
+static const ProtobufCEnumValue request_type__enum_values_by_number[5] =
 {
   { "INVALID", "REQUEST_TYPE__INVALID", 0 },
   { "REGISTER_CALLBACK", "REQUEST_TYPE__REGISTER_CALLBACK", 1 },
   { "PING", "REQUEST_TYPE__PING", 2 },
-  { "ACCOUNT_BALANCE", "REQUEST_TYPE__ACCOUNT_BALANCE", 3 },
-  { "ACCOUNT_BLOCK_COUNT", "REQUEST_TYPE__ACCOUNT_BLOCK_COUNT", 4 },
-  { "ACCOUNT_PENDING", "REQUEST_TYPE__ACCOUNT_PENDING", 5 },
+  { "ACCOUNT_PENDING", "REQUEST_TYPE__ACCOUNT_PENDING", 100 },
   { "ADDRESS_VALID", "REQUEST_TYPE__ADDRESS_VALID", 1000 },
 };
 static const ProtobufCIntRange request_type__value_ranges[] = {
-{0, 0},{1000, 6},{0, 7}
+{0, 0},{100, 3},{1000, 4},{0, 5}
 };
-static const ProtobufCEnumValueIndex request_type__enum_values_by_name[7] =
+static const ProtobufCEnumValueIndex request_type__enum_values_by_name[5] =
 {
-  { "ACCOUNT_BALANCE", 3 },
-  { "ACCOUNT_BLOCK_COUNT", 4 },
-  { "ACCOUNT_PENDING", 5 },
-  { "ADDRESS_VALID", 6 },
+  { "ACCOUNT_PENDING", 3 },
+  { "ADDRESS_VALID", 4 },
   { "INVALID", 0 },
   { "PING", 2 },
   { "REGISTER_CALLBACK", 1 },
@@ -437,11 +433,11 @@ const ProtobufCEnumDescriptor request_type__descriptor =
   "RequestType",
   "RequestType",
   "",
-  7,
+  5,
   request_type__enum_values_by_number,
-  7,
+  5,
   request_type__enum_values_by_name,
-  2,
+  3,
   request_type__value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };

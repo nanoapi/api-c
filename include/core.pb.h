@@ -104,9 +104,7 @@ enum RequestType {
   INVALID = 0,
   REGISTER_CALLBACK = 1,
   PING = 2,
-  ACCOUNT_BALANCE = 3,
-  ACCOUNT_BLOCK_COUNT = 4,
-  ACCOUNT_PENDING = 5,
+  ACCOUNT_PENDING = 100,
   ADDRESS_VALID = 1000,
   RequestType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   RequestType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
