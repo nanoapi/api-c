@@ -6,18 +6,11 @@ For more information about the API, please see https://nanoapi.github.io/
 
 ### Updating generated Protobuffer files
 
-Make sure `protobuf` and `protobuf-c` are installed.
-
-When the protobuffer definition has changed, perform the following step to fetch the latest version and generate C and C++ files:
+When the protobuffer definition has changed, run the following command to fetch the latest version and generate C and C++ files:
 
 ```
 ci/protobuf-gen.sh
 ```
-
-If new `.proto` are added, the following additional steps are required:
-
-* Update the NANO_API_SRC sources in `CMakeLists.txt` with
-* Add the generated headers to `nano.h` and `nano.hpp`
 
 Rebuild the project.
 

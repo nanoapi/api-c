@@ -30,25 +30,15 @@ find_package(Boost CONFIG REQUIRED regex system filesystem)
 hunter_add_package(Protobuf)
 find_package(Protobuf CONFIG REQUIRED)
 
+file(GLOB proto_generated_includes "include/*.pb*")
+file(GLOB proto_generated_sources "src/*.pb*")
+file(GLOB proto_wrapper_files "src/google/protobuf/wrappers.*")
+
 # Client library, build both static and dynamic libs
 set (NANO_API_SRC
-    include/nano.h
-    include/core.pb-c.h
-    include/core.pb.h
-    include/accounts.pb-c.h
-    include/accounts.pb.h
-    include/util.pb-c.h
-    include/util.pb.h
-    src/google/protobuf/wrappers.pb-c.c
-    src/google/protobuf/wrappers.pb-c.h
-    src/google/protobuf/wrappers.pb.cc
-    src/google/protobuf/wrappers.pb.h
-    src/core.pb-c.c
-    src/core.pb.cc
-    src/accounts.pb-c.c
-    src/accounts.pb.cc
-    src/util.pb-c.c
-    src/util.pb.cc
+    ${proto_generated_includes}
+    ${proto_generated_sources}
+    ${proto_wrapper_files}
     src/nano.cpp)
 
 include_directories(include)

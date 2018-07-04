@@ -1,4 +1,5 @@
 #include "nano.h"
+#include "accounts.pb-c.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
