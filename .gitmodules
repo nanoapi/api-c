@@ -1,9 +1,6 @@
 [submodule "protobuf-c"]
 	path = protobuf-c
 	url = https://github.com/nanoapi/protobuf-c
-[submodule "fork-protobuf"]
-	path = fork-protobuf
-	url = https://github.com/nanoapi/fork-protobuf
 [submodule "fork-protobuf-c"]
 	path = fork-protobuf-c
 	url = https://github.com/nanoapi/fork-protobuf-c

@@ -1,8 +1,25 @@
 # About
 
-This is the C and C++ client for the Nano Node API. The message format is Proto Buffer v3 and the client supports domain socket and TCP transports. Additional transports, such as shared memory, may be added in the future.
+This is the C and C++ client for the Nano Node API. The message format is Proto Buffer v3 and the client supports domain socket and TCP transports.
 
 For more information about the API, please see https://nanoapi.github.io/
+
+### Updating generated Protobuffer files
+
+Make sure `protobuf` and `protobuf-c` are installed.
+
+When the protobuffer definition has changed, perform the following step to fetch the latest version and generate C and C++ files:
+
+```
+ci/protobuf-gen.sh
+```
+
+If new `.proto` are added, the following additional steps are required:
+
+* Update the NANO_API_SRC sources in `CMakeLists.txt` with
+* Add the generated headers to `nano.h` and `nano.hpp`
+
+Rebuild the project.
 
 ## Building
 
@@ -45,16 +62,6 @@ cmake -G "Visual Studio 15 2017 Win64" -DHUNTER_STATUS_DEBUG=ON -Dprotobuf_BUILD
 ### Release builds
 
 Replace `-DCMAKE_BUILD_TYPE=Debug` with `-DCMAKE_BUILD_TYPE=Release` and rebuild the project.
-
-### Updating generated Protobuffer files
-
-Make sure `protobuf` and `protobuf-c` are installed.
-
-When the protobuffer definition has changed, perform the following step to fetch the latest version and generate C and C++ files:
-
-```
-ci/protobuf-gen.sh
-```
 
 #### New .proto files
 

@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.7.1)
 include("cmake/HunterGate.cmake")
-#include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 
 # Make sure we get reproducible builds by using a specific Hunter version
 HunterGate(
