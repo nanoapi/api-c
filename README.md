@@ -14,6 +14,13 @@ ci/protobuf-gen.sh
 
 Rebuild the project.
 
+#### New .proto files
+
+If the Node repository adds new .proto files, follow these steps:
+
+* Update ci/protobuf-c.sh and ci/protobuf-cpp.sh to handle the files (automating this is a TODO)
+* Run cmake and rebuild.
+
 ## Building
 
 [![Build status](https://ci.appveyor.com/api/projects/status/miyhcdcdm5wxpm8j?svg=true)](https://ci.appveyor.com/project/cryptocode/api-c) [![Build Status](https://travis-ci.org/nanoapi/api-c.svg?branch=master)](https://travis-ci.org/nanoapi/api-c)
@@ -26,7 +33,7 @@ cd api-c
 git submodule update --init --recursive
 ```
 
-The project is built with CMake. Boost and Protobuf are automatically downloaded and built using the Hunter package manager, while protobuf-c is automatically built using CMake (which was pulled in using the command above)
+The project is built with CMake. Boost and Protobuf are automatically downloaded and built using the Hunter package manager, while the protobuf-c submodule is built using CMake.
 
 ### Linux
 
@@ -55,12 +62,3 @@ cmake -G "Visual Studio 15 2017 Win64" -DHUNTER_STATUS_DEBUG=ON -Dprotobuf_BUILD
 ### Release builds
 
 Replace `-DCMAKE_BUILD_TYPE=Debug` with `-DCMAKE_BUILD_TYPE=Release` and rebuild the project.
-
-#### New .proto files
-
-If the Node repository adds new .proto files, follow these steps:
-
-* Update ci/protobuf-c.sh and ci/protobuf-cpp.sh to handle the files (automating this is a TODO)
-* Add newly generated source and header files to CMakeLists.txt
-* Add newly generated headers to nano.h and nano.hpp
-* Run cmake and rebuild.
